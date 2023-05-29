@@ -1,0 +1,11 @@
+{
+  "name": "smousavi/iron-elephant",
+  "autoload": {
+    "psr-4": {
+      "IronElephant\\": "modules/"
+    }
+  },
+  "require": {
+    "php": ">=7.4.0"
+  }
+}

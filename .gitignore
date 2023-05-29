@@ -1,0 +1,6 @@
+/.vscode/
+/templates/
+/vendor/
+/composer.lock
+/iron sample.txt
+/test.php
