@@ -1,48 +1,95 @@
 <?php
 
+/**
+ * @filesource
+ * @version 23.5.30
+ */
+
 // Import config file for default settings
 require_once "config.php";
-use IronElephant\File;
- // check php information and get php version
- $my_php_version = phpversion("core");
- $my_php_version = (float) substr($my_php_version, 0, 3);
- $minimum_php_version = 7.4;
- 
- // check minimum version requirement to run this library
- if ($my_php_version < $minimum_php_version) {
-	 echo "Whoops!!! your php is very old please install higher version :" . PHP_EOL;
-	 echo "your php version is : $my_php_version" . PHP_EOL;
-	 echo "require version least $minimum_php_version " . PHP_EOL;
-	 die();
- }
 
+use IronElephant\File;
+
+/**
+ * @var mixed $my_php_version Get php version
+ */
+$my_php_version = phpversion("core");
+$my_php_version = (float) substr($my_php_version, 0, 3);
+
+/**
+ * @var int $minimum_php_version Minimum php version to run library
+ */
+$minimum_php_version = MINIMUM_PHP_VERSION;
+
+
+/**
+ * Check minimum version requirement to run this library
+ */
+if ($my_php_version < $minimum_php_version) {
+	echo "Whoops!!! your php is very old please install higher version :" . PHP_EOL;
+	echo "your php version is : $my_php_version" . PHP_EOL;
+	echo "require version least $minimum_php_version " . PHP_EOL;
+	die();
+}
+
+/**
+ * Set error handler for try catch
+ */
 set_error_handler(function ($errno, $errstr, $errfile, $errline) {
 	throw new ErrorException($errstr, $errno, 0, $errfile, $errline);
 });
 
-//Set a defualt time zone
-
+/**
+ * Set a defualt time zone
+ */
 date_default_timezone_set(TIME_ZONE);
 
+/**
+ * Drop a horizontal line
+ *
+ * @return string
+ * 
+ * @author Seyed Mahmoud Mousavi
+ * @version 1.0.0
+ */
 function hr()
 {
-	// Drop a horizontal line
-	echo "<hr>";
+	echo "<hr/>";
 }
+/**
+ * Drop a break line
+ *
+ * @return void
+ * @author Seyed Mahmoud Mousavi
+ * @version 1.0.0
+ */
 function br()
 {
-	//Drop a break line
-	echo "<br>";
+	echo "<br/>";
 }
+/**
+ * Drop a varible for showing value
+ *
+ * @param string $data
+ * @param string $line_number
+ * @param string $file_name
+ * @example d($data, __LINE__, __FILE__);
+ * @return void 
+ * @author Seyed Mahmoud Mousavi
+ * @version 1.0.0
+ */
 function d($data = "d function stop", $line_number = "", $file_name = "")
 {
-	// show a variable value
 	if (!empty($line_number)) {
-		# add line number
+		/**
+		 * @var string $line_number Add line number
+		 */
 		$line_number = "<br>Line : " . $line_number;
 	}
 	if (!empty($file_name)) {
-		# add file direction
+		/**
+		 * @var string $file_name Add file path
+		 */
 		$file_name = "<br>File : " . $file_name;
 	}
 	echo "<pre>";
@@ -50,16 +97,29 @@ function d($data = "d function stop", $line_number = "", $file_name = "")
 	var_dump($data);
 	echo "</pre>";
 }
-
+/**
+ * Drop and die a variable for showing value
+ *
+ * @param string $data
+ * @param string $line_number
+ * @param string $file_name
+ * @example dd($data, __LINE__, __FILE__); frop and die
+ * @return void
+ * @author Seyed Mahmoud Mousavi
+ * @version 1.0.0
+ */
 function dd($data = "dd function stop", $line_number = "", $file_name = "")
 {
-	// show a variable value and die
 	if (!empty($line_number)) {
-		# add line number
+		/**
+		 * @var string $line_number Add line number
+		 */
 		$line_number = "<br>Line : " . $line_number;
 	}
 	if (!empty($file_name)) {
-		# add file direction
+		/**
+		 * @var string $file_name Add file path
+		 */
 		$file_name = "<br>File : " . $file_name;
 	}
 	echo "<pre>";
@@ -68,17 +128,29 @@ function dd($data = "dd function stop", $line_number = "", $file_name = "")
 	echo "</pre>";
 	die();
 }
-
+/**
+ * Drop and die a array variable for showing value
+ *
+ * @param string $data
+ * @param string $line_number
+ * @param string $file_name
+ * @example dr($data, __LINE__, __FILE__); drop and die array
+ * @return void
+ * @author Seyed Mahmoud Mousavi
+ * @version 1.0.0
+ */
 function dr($data = "dr function stop", $line_number = "", $file_name = "")
 {
-	// show a 'ARRAY' variable value and die
-	// show a variable value and die
 	if (!empty($line_number)) {
-		# add line number
+		/**
+		 * @var string $line_number Add line number
+		 */
 		$line_number = "<br>Line : " . $line_number;
 	}
 	if (!empty($file_name)) {
-		# add file direction
+		/**
+		 * @var string $file_name Add file path
+		 */
 		$file_name = "<br>File : " . $file_name;
 	}
 	echo "<pre>";
@@ -87,62 +159,119 @@ function dr($data = "dr function stop", $line_number = "", $file_name = "")
 	echo "</pre>";
 	die();
 }
-
+/**
+ * Add javaScript code to HTML page
+ *
+ * @param string $input
+ * @example d(' alert("hello"); ');
+ * @return void
+ * @author Seyed Mahmoud Mousavi
+ * @version 1.0.0
+ */
 function js(string $input)
 {
-	// Add javaScript code to page
 	echo "<script>";
 	echo $input;
 	echo "</script>";
 }
-
+/**
+ * Change URL path with PHP
+ *
+ * @param string $url
+ * @param integer $statusCode
+ * @example change_url("https://google.com"); change page locatian to google.com
+ * @return void
+ * @author Seyed Mahmoud Mousavi
+ * @version 1.0.0
+ */
 function change_url(string $url = "/", int $statusCode = 303)
 {
-	// Change URL path with PHP
 	header('Location: ' . $url, true, $statusCode);
 }
 
-
+/**
+ * Change URL path with HTML
+ *
+ * @param string $url
+ * @param integer $sec
+ * @example change_url_html("https://google.com"); change page locatian to google.com
+ * @return void
+ * @author Seyed Mahmoud Mousavi
+ * @version 1.0.0
+ */
 function change_url_html(string $url = "/", int $sec = 0)
 {
-	// Change URL path with HTML
 	echo "<meta http-equiv='refresh' content='$sec; URL=$url' />";
 }
 
-
+/**
+ * Change URL path with JS
+ * Simulate a MOUSE CLICK:
+ *
+ * @param string $url
+ * @example change_url_js_1("https://google.com"); change page locatian to google.com
+ * @return void
+ * @author Seyed Mahmoud Mousavi
+ * @version 1.0.0
+ */
 function change_url_js_1($url = "/")
 {
-	// Change URL path with JS
-	// Simulate a MOUSE CLICK:
+
 	echo "<script>window.location.href = '$url';</script>";
 }
-
+/**
+ * Change URL path with JS
+ * Simulate a HTTP redirect:
+ *
+ * @param string $url
+ * @example change_url_js_2("https://google.com"); change page locatian to google.com
+ * @return void
+ * @author Seyed Mahmoud Mousavi
+ * @version 1.0.0
+ */
 function change_url_js_2($url = "/")
 {
-	// Change URL path with JS
-	// Simulate a HTTP redirect:
 	echo "<script>window.location.replace('$url');</script>";
 }
-
+/**
+ * Change URL path with JS
+ *
+ * @param string $url
+ * @example change_url_js_3("https://google.com"); change page locatian to google.com
+ * @return void
+ * @author Seyed Mahmoud Mousavi
+ * @version 1.0.0
+ */
 function change_url_js_3($url = "/")
 {
-	// Change URL path with JS
 	echo "<script>window.location.assign('$url');</script>";
 }
-
+/**
+ * Complate Change URL path with another functions
+ *
+ * @param string $url
+ * @example change_url_full("https://google.com"); change page locatian to google.com
+ * @return void
+ * @author Seyed Mahmoud Mousavi
+ * @version 1.0.0
+ */
 function change_url_full($url = "/")
 {
-	// Complate Change URL path with another functions
 	change_url_html($url);
 	change_url_js_1($url);
 	change_url_js_2($url);
 	change_url_js_3($url);
 	change_url($url);
 }
-
+/**
+ * Check request method is POST?
+ *
+ * @return boolean
+ * @author Seyed Mahmoud Mousavi
+ * @version 1.0.0
+ */
 function is_post(): bool
 {
-	// Check request method is POST
 	$method = strtolower($_SERVER['REQUEST_METHOD']);
 
 	if ($method === "post") {
@@ -151,9 +280,15 @@ function is_post(): bool
 	return false;
 }
 
+/**
+ * Check request method is GET?
+ *
+ * @return boolean
+ * @author Seyed Mahmoud Mousavi
+ * @version 1.0.0
+ */
 function is_get(): bool
 {
-	// Check request method is GET
 	$method = strtolower($_SERVER['REQUEST_METHOD']);
 
 	if ($method === "get") {
@@ -162,57 +297,100 @@ function is_get(): bool
 	return false;
 }
 
-
+/**
+ * Check session value
+ *
+ * @param string $name
+ * @return boolean
+ * @author Seyed Mahmoud Mousavi
+ * @version 1.0.0
+ */
 function issv(string $name): bool
 {
-	// check session value
 	if (isset($_SESSION["$name"])) {
 		return true;
 	}
 	return false;
 }
-
+/**
+ * If session value is set then will be echo
+ * echo $_SESSION["$name"]
+ *
+ * @param string $name
+ * @return void
+ * @author Seyed Mahmoud Mousavi
+ * @version 1.0.0
+ */
 function esv(string $name)
 {
-	// If session value is set then will be echo
 	if (isset($_SESSION["$name"])) {
 		echo $_SESSION["$name"];
 	}
 }
-
+/**
+ * If session value is set then will be retuen
+ *
+ * @param string $name
+ * @return void | $_SESSION["$name"]
+ * @author Seyed Mahmoud Mousavi
+ * @version 1.0.0
+ */
 function rsv(string $name)
 {
-	// If session value is set then will be retuen
 	if (isset($_SESSION["$name"])) {
 		return $_SESSION["$name"];
 	}
 }
-
-function et(string $string)
+/**
+ * Check variable for null data
+ *
+ * @param string $string
+ * @return boolean
+ * @author Seyed Mahmoud Mousavi
+ * @version 1.0.0
+ */
+function et(string $string): bool
 {
-	// check variable for null data
 	if (empty(trim($string))) {
 		return true;
 	}
 	return false;
 }
-
+/**
+ * Creare a random string with your pattern and length
+ *
+ * @param string $case Deafault is 'A' all option : "A|N|L|U|NL|NU|LU" 
+ * @param integer $length Length of string default is '1' 
+ *  
+ * @return bool | string Return false or string pattern
+ * @author Seyed Mahmoud Mousavi
+ * @version 1.0.0
+ */
 function randomatic(string $case = "a", int $length = 1)
 {
-	// Creare a random string with your pattern and length
 	$result = "";
 
 	if ($length < 1) {
 		return false;
 	}
-
+	/**
+	 * @var string $lowerChars Lowercase chars
+	 * @var string $upperChars Uppercase chars
+	 * @var string $numberChars Number chars
+	 * @var string $allChars All chars
+	 */
 	$lowerChars = "abcdefghijklmnopqrstuvwxyz";
 	$upperChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 	$numberChars = "0123456789";
 	$allChars = $lowerChars . $upperChars . $numberChars;
 
+	/**
+	 * @var string $case Pattern methodS : A|N|L|U|NL|NU|LU
+	 */
 	$case = trim(strtolower($case));
-
+	/**
+	 * Convert case to lower and fix them
+	 */
 	switch ($case) {
 		case 'ln':
 			$case = "nl";
@@ -225,7 +403,9 @@ function randomatic(string $case = "a", int $length = 1)
 			break;
 	}
 
-	// Change argumant to lower case
+	/**
+	 * Generate random string with your option
+	 */
 	switch ($case) {
 
 		case 'l':
@@ -253,7 +433,7 @@ function randomatic(string $case = "a", int $length = 1)
 				$result .= ($upperChars . $numberChars)[rand(0, 35)];
 			break;
 
-		case 'lu' :
+		case 'lu':
 			for ($i = 0; $i < $length; $i++)
 				$result .= ($upperChars . $lowerChars)[rand(0, 51)];
 			break;
@@ -272,7 +452,13 @@ function randomatic(string $case = "a", int $length = 1)
 	return $result;
 }
 
-
+/**
+ * Chck cookie on ro off ?
+ *
+ * @return boolean
+ * @author Seyed Mahmoud Mousavi
+ * @version 1.0.0
+ */
 function check_cookie(): bool
 {
 	if (count($_COOKIE) > 0) {
@@ -281,74 +467,133 @@ function check_cookie(): bool
 		return false;
 	}
 }
-
+/**
+ * Return Cookie value if it's set
+ *
+ * @param string $cookie_name Name of cookie
+ * @return void
+ * @author Seyed Mahmoud Mousavi
+ * @version 1.0.0
+ */
 function cookie_value(string $cookie_name)
 {
-	// Return Cookie value if is set
 	if (isset($_COOKIE["$cookie_name"])) {
 		return $_COOKIE["$cookie_name"];
 	} else {
 		return false;
 	}
 }
-
-function get_url(bool $full = false)
+/**
+ * Get url 
+ *
+ * @param boolean $full True : full URL, False : web address default is 'false'
+ * @return string
+ * @author Seyed Mahmoud Mousavi
+ * @version 1.0.0
+ */
+function get_url(bool $url = false): string
 {
+	/**
+	 * @var string $request_uri 
+	 * @var string $protocol http|httpss
+	 */
 	$request_uri = "";
 	$protocol = "http";
 
-	if ($full) {
-		# domain only or full URL
+	/**
+	 * Generate URL or Web address
+	 */
+	if ($url) {
+		// Generate URL 
 		$request_uri = $_SERVER['REQUEST_URI'];
 	}
-
+	/**
+	 * Protocol type detection
+	 * If true HTTP change to HTTPS
+	 */
 	if ($_SERVER['SERVER_PORT'] === 443) {
-		// check witch your protocol 'HTTP or HTTPS'
-		$protocol .= "s"; // HTTP change to HTTPS
+
+		$protocol .= "s";
 	}
 	return ($protocol . '://' . $_SERVER["HTTP_HOST"] . $request_uri);
 }
 
-function createSalt(int $length = 32, $save_old = ".salt.backup"): bool
-	{
+/**
+ * Creare new salt in config file
+ *
+ * @param integer $length Length of salt
+ * @param string $save_old_to_file Save old salts in this file default is '.salt.backup'
+ * @return boolean
+ * @author Seyed Mahmoud Mousavi
+ * @version 1.0.0
+ */
+function createSalt(int $length = 32, $save_old_to_file = ".salt.backup"): bool
+{
+	/**
+	 * @var string $pre Prefix for findding salt in config file
+	 * @var string $suf Suffix for finddin salt in config file
+	 */
+	$pre = 'define("SALT","';
+	$suf = '");';
 
-		$pre = 'define("SALT","';
-		$suf = '");';
-		// Create a salt
-		$salt = randomatic("a", $length);
+	/**
+	 * @var string $salt Generate salt
+	 */
+	$salt = randomatic("a", $length);
 
-		// Reaf config file
-		$f = new File();
-		$file_value = $f->read(__DIR__. "/../config.php");
+	// Reaf config file
+	$f = new File(__DIR__ . "/config.php");
+	$file_value = $f->read();
 
-		// Find Prefix position 
-		$prepos = strpos($file_value, $pre);
+	/**
+	 * @var string $prepos Find Prefix position 
+	 */
+	$prepos = strpos((string)$file_value, $pre);
 
-		// Prefix post + prefix length == salt position 
-		$salt_pos = $prepos + strlen($pre);
+	/**
+	 * @var string $salt_pos Prefix post + prefix length ==> salt position 
+	 */
+	$salt_pos = $prepos + strlen($pre);
 
-		// fFind suffix postion 
-		$sufpos = strpos($file_value, $suf, $salt_pos);
+	/**
+	 * @var string $sufpos Find suffix postion 
+	 */
+	$sufpos = strpos((string)$file_value, $suf, $salt_pos);
 
-		// Get old salt 
-		$old_salt = substr($file_value, $salt_pos, $sufpos - $salt_pos);
+	/**
+	 * @var string $old_salt Get old salt 
+	 */
+	$old_salt = substr((string)$file_value, $salt_pos, $sufpos - $salt_pos);
 
-		// Replace old SALT with new SALT
-		$new_file_value = str_replace($old_salt, $salt, $file_value);
 
-		// write new config file
-		if ($save_old) {
-
-			// Save old salts in file
-			$date = date("Y-m-d H:i:s A");
-			
-			$f->append("Time : $date -> -> $old_salt \r" ,$save_old);
-		}
-
-		if ($f->write($new_file_value,__DIR__ . "/../config.php")) {
-
-			return true;
-		} else {
-			return false;
-		}
+	if ($old_salt === "") {
+		$new_file_value = str_replace($pre . $suf, $pre . $salt . $suf, (string)$file_value);
+	} else {
+		/**
+		 * @var string $new_file_value Replace old SALT with new SALT
+		 */
+		$new_file_value = str_replace($old_salt, $salt, (string)$file_value);
 	}
+
+	/**
+	 * Write new config file
+	 */
+	if ($save_old_to_file && $old_salt !== "") {
+
+		/**
+		 * @var string $date Save old salts in file with date
+		 */
+		$date = date("Y-m-d H:i:s A");
+
+		// Append old salt to file
+		$f->append("Time : $date -> -> $old_salt \r", $save_old_to_file);
+	}
+
+	// Rewrite congig file
+	if ($f->write($new_file_value)) {
+
+		return true;
+	} else {
+		return false;
+	}
+}

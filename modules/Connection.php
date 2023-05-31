@@ -4,33 +4,47 @@ declare(strict_types=1);
 
 namespace IronElephant;
 
-use mysqli,ErrorException,Exception,TypeError,Throwable,Error;
+use mysqli, ErrorException, Exception, TypeError, Throwable, Error;
 
 require_once __DIR__ . '/../main.php';
 
+// Set error handler for try catch
 set_error_handler(function ($errno, $errstr, $errfile, $errline) {
 	throw new ErrorException($errstr, $errno, 0, $errfile, $errline);
 });
-
-// require_once 'iron_tools.php';
-
-
+/**
+ * Connection class use for CRUD opration and work with MySQL database
+ */
 class Connection
 {
-	private $server_name;
-	private $user_name;
-	private $password;
-	private $database_name;
+	/**
+	 * Keep query and data for functions
+	 *
+	 * @var mixed
+	 */
 	private $db;
 
-
-
+	/**
+	 * Create a database connection object for CRUD operatian
+	 *
+	 * @param string $server_name Server name
+	 * @param string $user_name User name
+	 * @param string $password User pass
+	 * @param string $database_name Database name, default is 'null' and only connect to server
+	 * @example $database = new Connection->connectToDatabase("server_name", "user_name", "password"[, "database_name"]);
+	 */
 	function __construct(string $server_name, string $user_name, string $password, string $database_name = "")
 	{
 		try {
+			// Connecting to DATABASE
+			if ($this->connectToDatabase($server_name, $user_name, $password, $database_name)) {
+				# Check can connect to server ? and return result
+				return true;
+			} else {
+				return false;
+			}
 
-			// connecting to DATABASE
-			$this->connectToDatabase($server_name, $user_name, $password, $database_name);
+			return false;
 		} catch (Exception | TypeError | Throwable | Error $e) {
 			$file = $e->getFile();
 			$line = $e->getLine();
@@ -38,23 +52,28 @@ class Connection
 			echo "<h1>File : $file</h1><h2>Line : $line</h2><h2>Error : $message</h2>";
 			die();
 		}
-		
 	}
-
-	public function connectToDatabase(string $server_name, string $user_name, string $password, string $database_name = "") : bool
+	/**
+	 * Connect to database
+	 *
+	 * @param string $server_name Server Name
+	 * @param string $user_name User name
+	 * @param string $password User pass
+	 * @param string $database_name Database name, defaul is 'null' and only connect to server	 
+	 * @example connectToDatabase("server_name", "user_name", "password"[, "database_name"]);
+	 * @return boolean
+	 * 
+	 * @author Seyed Mahmoud Mousavi
+ 	 * @version 1.0.0
+	 * @since 1.0.0
+	 */
+	public function connectToDatabase(string $server_name, string $user_name, string $password, string $database_name = ""): bool
 	{
 		try {
 
-			// Create a connection from DATABASE 
-
-			$this->server_name = $server_name;
-			$this->user_name = $user_name;
-			$this->password = $password;
-			$this->database_name = $database_name;
-
 			if (empty($database)) {
 
-				// connect only to SQL HOST
+				// Connect only to SQL server(host)
 				$this->db = new mysqli(
 					$server_name,
 					$user_name,
@@ -62,7 +81,7 @@ class Connection
 				);
 			} else {
 
-				// connect to DATABASE				
+				// Connect to DATABASE				
 				$this->db = new mysqli(
 					$server_name,
 					$user_name,
@@ -75,7 +94,7 @@ class Connection
 			if ($this->db->connect_error) {
 				$this->connectionFailed();
 				return false;
-			}else{
+			} else {
 				return true;
 			}
 		} catch (Exception | TypeError | Throwable | Error $e) {
@@ -87,6 +106,15 @@ class Connection
 		}
 	}
 
+	/**
+	 * echo connection error and die
+	 *
+	 * @return void
+	 * 
+	 * @author Seyed Mahmoud Mousavi
+ 	 * @version 1.0.0
+	 * @since 1.0.0
+	 */
 	private function connectionFailed()
 	{
 		// Return connection error 
@@ -101,21 +129,30 @@ class Connection
 			die();
 		}
 	}
-
+	/**
+	 * Create new data base
+	 *
+	 * @param string $database_name Name of new database
+	 * @example createDatabase("database_name");
+	 * @return boolean
+	 * 
+	 * @author Seyed Mahmoud Mousavi
+ 	 * @version 1.0.0
+	 * @since 1.0.0
+	 */
 	public function createDatabase(string $database_name): bool
 	{
-		// Create a data base
 		try {
 
+			// Check argu 
 			if (empty($database_name)) {
-
 				echo "Function " . __FUNCTION__ .
 					" : Argumant is empty." . PHP_EOL;
 				return false;
 			}
 
+			// Generating SQL code
 			$sql = "CREATE DATABASE $database_name";
-
 
 			$collected_data = $this->db->prepare($sql);
 
@@ -129,8 +166,6 @@ class Connection
 			$collected_data->close();
 
 			return true;
-			//
-
 		} catch (Exception | TypeError | Throwable | Error $e) {
 			$file = $e->getFile();
 			$line = $e->getLine();
@@ -140,28 +175,41 @@ class Connection
 		}
 	}
 
-
-	public function dropDatabase(string $database_name, string $sure = "no"): bool
+	/**
+	 * Drop a database
+	 *
+	 * @param string $database_name Name of database
+	 * @param string $confirm For confirm proccess fill secound param with 'yes' default is 'no'
+	 * @example dropDatabase("name_of_database","yes");
+	 * @return boolean
+	 * 
+	 * @author Seyed Mahmoud Mousavi
+ 	 * @version 1.0.0
+	 * @since 1.0.0
+	 */
+	public function dropDatabase(string $database_name, string $confirm = "no"): bool
 	{
 		try {
+			// Check params
 
-			$sure = trim($sure);
+			$confirm = trim($confirm);
 
-			if (empty($database_name) || empty($sure)) {
+			if (empty($database_name) || empty($confirm)) {
 
 				echo "Function " . __FUNCTION__ .
 					" : Argumant is empty." . PHP_EOL;
 				return false;
 			}
 
-			if (strtolower($sure) !== "yes") {
+			// Confirm proccess
+			if (strtolower($confirm) !== "yes") {
 				echo "Function " . __FUNCTION__ .
 					" : Please fill the secound argu with \"YES\"." . PHP_EOL;
 				return false;
 			}
 
+			// Generating SQL code
 			$sql = "DROP DATABASE $database_name";
-
 
 			$collected_data = $this->db->prepare($sql);
 
@@ -175,8 +223,6 @@ class Connection
 			$collected_data->close();
 
 			return true;
-			//
-
 		} catch (Exception | TypeError | Throwable | Error $e) {
 			$file = $e->getFile();
 			$line = $e->getLine();
@@ -186,15 +232,28 @@ class Connection
 		}
 	}
 
-
+	/**
+	 * Find a single data in database
+	 *
+	 * @param string $column Column name
+	 * @param string $table Table name
+	 * @param string $where Contition, default is '1=1'
+	 * @example find("column_name", "table_name", "id=1")
+	 * @return mixed false|string
+	 * 
+	 * @author Seyed Mahmoud Mousavi
+ 	 * @version 1.0.0
+	 * @since 1.0.0
+	 */
 	public function find(
 		string $column,
 		string $table,
 		string $where = "1=1"
-	) {
+	): mixed {
 		try {
 
-						if (
+			// Check params
+			if (
 				empty($column) ||
 				empty($table) ||
 				empty($where)
@@ -204,8 +263,8 @@ class Connection
 				return false;
 			}
 
+			// Generating SQL code
 			$sql = "SELECT $column FROM $table WHERE $where;";
-
 
 			$collected_data = $this->db->query($sql);
 
@@ -227,13 +286,26 @@ class Connection
 			die();
 		}
 	}
-
+	/**
+	 * Select data from database
+	 *
+	 * @param array $columns Columns name
+	 * @param string $table Table name
+	 * @param string $where Where?, default is '1=1'
+	 * @example select(["column_1", "column_2"], "table_name", "id=1") 
+	 * @return mixed
+	 * 
+	 * @author Seyed Mahmoud Mousavi
+ 	 * @version 1.0.0
+	 * @since 1.0.0
+	 */
 	public function select(
 		array $columns,
 		string $table,
 		string $where = "1=1"
-	) {
+	): mixed {
 		try {
+			// test params
 			if (
 				empty($table) ||
 				empty($where)
@@ -251,14 +323,17 @@ class Connection
 				}
 			}
 
+			// Start generating SQL code
 			$sql = "SELECT ";
 
+			// Seperate columns
 			foreach ($columns as $value) {
 				$sql .= $value . ',';
 			}
 
 			$sql = rtrim($sql, ",");
 			$sql .= " FROM $table WHERE $where;";
+			// End of generating SQL code
 
 			$collected_data = $this->db->query($sql);
 			if ($collected_data === false) {
@@ -269,6 +344,7 @@ class Connection
 
 			$data = [];
 
+			// Collecet data
 			if ($collected_data->num_rows > 0) {
 				foreach ($columns as $value) {
 					while ($row = $collected_data->fetch_assoc()) {
@@ -278,7 +354,6 @@ class Connection
 			}
 
 			return $data;
-			// 
 		} catch (Exception | TypeError | Throwable | Error $e) {
 			$file = $e->getFile();
 			$line = $e->getLine();
@@ -288,7 +363,19 @@ class Connection
 		}
 	}
 
-
+	/**
+	 * insert data to table
+	 *
+	 * @param string $table Table name
+	 * @param array $columns Columns Name
+	 * @param array $values Values
+	 * @example insert("table_name", ["column_1", "column_2"],["value_1", "value_2"]);
+	 * @return boolean 
+	 * 
+	 * @author Seyed Mahmoud Mousavi
+ 	 * @version 1.0.0
+	 * @since 1.0.0
+	 */
 	public function insert(
 		string $table,
 		array $columns,
@@ -296,6 +383,7 @@ class Connection
 	): bool {
 
 		try {
+			// Test params
 			if (
 				empty($table)
 			) {
@@ -312,8 +400,9 @@ class Connection
 				}
 			}
 
+			// Generate SLQ code
 			$sql = "INSERT INTO $table (";
-
+			// Seperate columns
 			foreach ($columns as $value) {
 				$sql .= $value . ',';
 			}
@@ -321,8 +410,10 @@ class Connection
 			$sql = rtrim($sql, ",");
 			$sql .= ") VALUES (";
 
+			// Seperate values
 			foreach ($values as $value) {
 				if (gettype($value) === "string") {
+					// Detect var type and add quotation '' for string
 					$sql .= "'" . $value . "'" . ',';
 				} else {
 					$sql .= $value . ',';
@@ -331,6 +422,7 @@ class Connection
 
 			$sql = rtrim($sql, ",");
 			$sql .= ");";
+			// End of generation SQL code
 
 			$collected_data = $this->db->prepare($sql);
 
@@ -343,7 +435,6 @@ class Connection
 			$collected_data->close();
 
 			return true;
-			//
 		} catch (Exception | TypeError | Throwable | Error $e) {
 			$file = $e->getFile();
 			$line = $e->getLine();
@@ -352,13 +443,26 @@ class Connection
 			die();
 		}
 	}
-
+	/**
+	 * Update values in database
+	 *
+	 * @param string $table Table name
+	 * @param array $set which columns must be update
+	 * @param string $where add a where condition, default is '1=1'
+	 * @example update("table_name",["column_1"=>"value_1", "column_2"=>"value_2"],"id=1");
+	 * @return boolean 
+	 * 
+	 * @author Seyed Mahmoud Mousavi
+ 	 * @version 1.0.0
+	 * @since 1.0.0
+	 */
 	public function update(
 		string $table,
 		array $set,
 		string $where = "1=1"
 	): bool {
 		try {
+			// Check params
 			if (
 				empty($table) ||
 				empty($where)
@@ -376,8 +480,10 @@ class Connection
 				}
 			}
 
+			// Start generating SQL code
 			$sql = "UPDATE $table SET ";
 
+			// Seperate set array
 			foreach ($set as $key => $value) {
 				if (gettype($value) === "string") {
 					$sql .= $key . "='" . $value . "',";
@@ -388,6 +494,7 @@ class Connection
 
 			$sql = rtrim($sql, ",");
 			$sql .= " WHERE $where;";
+			// End of generating SQL code
 
 			$collected_data = $this->db->prepare($sql);
 
@@ -400,8 +507,6 @@ class Connection
 			$collected_data->execute();
 			$collected_data->close();
 			return true;
-			//
-
 		} catch (Exception | TypeError | Throwable | Error $e) {
 			$file = $e->getFile();
 			$line = $e->getLine();
@@ -410,12 +515,25 @@ class Connection
 			die();
 		}
 	}
+	/**
+	 * Delete a value from your db 
+	 *
+	 * @param string $table Table name
+	 * @param string $where which data you need to delete, default is '1=1'
+	 * @example delete("table_name","id=1");  description
+	 * @return boolean
+	 * 
+	 * @author Seyed Mahmoud Mousavi
+ 	 * @version 1.0.0
+	 * @since 1.0.0
+	 */
 	public function delete(
 		string $table,
 		string $where
 	): bool {
 		try {
 
+			// Check params
 			if (
 				empty($table) ||
 				empty($where)
@@ -425,8 +543,9 @@ class Connection
 				return false;
 			}
 
-
+			// Generating SQL code
 			$sql = "DELETE FROM $table WHERE $where;";
+
 			$collected_data = $this->db->prepare($sql);
 
 			if ($collected_data === false) {
@@ -439,8 +558,6 @@ class Connection
 			$collected_data->close();
 
 			return true;
-			//
-
 		} catch (Exception | TypeError | Throwable | Error $e) {
 			$file = $e->getFile();
 			$line = $e->getLine();
@@ -452,7 +569,7 @@ class Connection
 	public function query(string $SQL)
 	{
 		try {
-
+			// Check params
 			if (empty($SQL)) {
 				echo "Function " . __FUNCTION__ .
 					" : Argumant is empty." . PHP_EOL;
@@ -460,11 +577,13 @@ class Connection
 			}
 
 			$collected_data = $this->db->query($SQL);
+
 			if ($collected_data === false) {
 				echo "Function " . __FUNCTION__ .
 					' : proccess failed';
 				return false;
 			}
+
 			if ($collected_data->num_rows > 0) {
 				return $collected_data;
 			} else {
@@ -479,6 +598,9 @@ class Connection
 		}
 	}
 
+	/**
+	 * Close database work
+	 */
 	function __destruct()
 	{
 		try {
@@ -491,26 +613,4 @@ class Connection
 			die();
 		}
 	}
-
-	// public function insert_p($LONG_URL, $SHORT_URL, $DATE)
-	// {
-	// 	if (is_string($LONG_URL) && is_string($SHORT_URL) && is_string($DATE)) {
-	// 		$sql = "INSERT INTO link (long_url,short_url,create_date) VALUES(?,?,?);";
-	// 		$collected_data =  $this->db->prepare($sql);
-	// 		$collected_data->bind_param("sss", $long_url, $short_url, $date);
-	// 		$long_url = $LONG_URL;
-	// 		$short_url = $SHORT_URL;
-	// 		$date = $DATE;
-	// 		if ($collected_data !== false) {
-	// 			$collected_data->execute();
-	// 			$collected_data->close();
-	// 		} else {
-	// 			dd('a trouble in the insert_p method');
-	// 		}
-	// 	} else {
-	// 		dd('incorrect arguments type');
-	// 	}
-	//
-	// }
-
 }

@@ -6,22 +6,44 @@ namespace IronElephant;
 
 require_once __DIR__ . '/../main.php';
 
+/**
+ * Security class have many method for sanitizing validating and 
+ * increase seafety of your inputs
+ */
 class Security
 {
 
-	static public function inputTest(string $data): string
+	/**
+	 * Trim space and slashes and return safe string
+	 *
+	 * @param string $str Input string 
+	 * @return string
+	 * 
+	 * @author Seyed Mahmoud Mousavi
+ 	 * @version 1.0.0
+	 * @since 1.0.0
+	 */
+	static public function inputTest(string $str): string
 	{
 
-		$data = trim($data);
-		$data = stripslashes($data);
-		$data = htmlspecialchars($data);
-		return $data;
+		$str = trim($str);
+		$str = stripslashes($str);
+		$str = htmlspecialchars($str);
+		return $str;
 	}
 
+	/**
+	 * Validate inreger
+	 *
+	 * @param integer $int Integer input
+	 * @return boolean
+	 * @author Seyed Mahmoud Mousavi
+ 	 * @version 1.0.0
+	 * @since 1.0.0
+	 */
 	static public function validateInt(int $int): bool
 	{
 
-		$int = Security::inputTest((string)$int);
 		if (
 			filter_var($int, FILTER_VALIDATE_INT) === 0 ||
 			!filter_var($int, FILTER_VALIDATE_INT) === false
@@ -32,6 +54,15 @@ class Security
 		}
 	}
 
+	/**
+	 * Vaklidating ip
+	 *
+	 * @param string $ip IP address
+	 * @return boolean
+	 * @author Seyed Mahmoud Mousavi
+ 	 * @version 1.0.0
+	 * @since 1.0.0
+	 */
 	static public function validateIp(string $ip): bool
 	{
 
@@ -43,6 +74,15 @@ class Security
 		}
 	}
 
+	/**
+	 * Validating IPv6
+	 *
+	 * @param string $ip IPv6 address
+	 * @return boolean
+	 * @author Seyed Mahmoud Mousavi
+ 	 * @version 1.0.0
+	 * @since 1.0.0
+	 */
 	static public function validateIpv6(string $ip): bool
 	{
 
@@ -54,6 +94,15 @@ class Security
 		}
 	}
 
+	/**
+	 * Validating email address
+	 *
+	 * @param string $email Email adress
+	 * @return boolean
+	 * @author Seyed Mahmoud Mousavi
+ 	 * @version 1.0.0
+	 * @since 1.0.0
+	 */
 	static public function validateEmail(string $email): bool
 	{
 
@@ -65,6 +114,15 @@ class Security
 		}
 	}
 
+	/**
+	 * Validating URL
+	 *
+	 * @param string $url Input URL
+	 * @return boolean
+	 * @author Seyed Mahmoud Mousavi
+ 	 * @version 1.0.0
+	 * @since 1.0.0
+	 */
 	static public function validateUrl(string $url): bool
 	{
 
@@ -76,6 +134,15 @@ class Security
 		}
 	}
 
+	/**
+	 * Validating web address
+	 *
+	 * @param string $str Web address
+	 * @return boolean
+	 * @author Seyed Mahmoud Mousavi
+ 	 * @version 1.0.0
+	 * @since 1.0.0
+	 */
 	static public function webAddressValidate(string $str): bool
 	{
 
@@ -87,6 +154,15 @@ class Security
 		return true;
 	}
 
+	/**
+	 * Sanitize email address
+	 *
+	 * @param string $email Email address
+	 * @return string
+	 * @author Seyed Mahmoud Mousavi
+ 	 * @version 1.0.0
+	 * @since 1.0.0
+	 */
 	static public function sanitizeEmail(string $email): string
 	{
 
@@ -95,6 +171,15 @@ class Security
 	}
 
 
+	/**
+	 * Sanitizing URL
+	 *
+	 * @param string $url Input URL
+	 * @return string
+	 * @author Seyed Mahmoud Mousavi
+ 	 * @version 1.0.0
+	 * @since 1.0.0
+	 */
 	static public function sanitizeUrl(string $url): string
 	{
 
@@ -102,6 +187,18 @@ class Security
 		return filter_var($url, FILTER_SANITIZE_URL);
 	}
 
+	/**
+	 * compare and matches string with your pattern
+	 *
+	 * @param string $str String input
+	 * @param string $pattern Your ppattern
+	 * @example  patternString("Hello","ehlo"); => Return false beacouse 'H' not in pattern
+	 * patternString("Hello","eHlo"); => Return true beacouse 'H' is in pattern
+	 * @return boolean
+	 * @author Seyed Mahmoud Mousavi
+ 	 * @version 1.0.0
+	 * @since 1.0.0
+	 */
 	static public function patternString(
 		string $str,
 		string $pattern
@@ -128,6 +225,16 @@ class Security
 		return true;
 	}
 
+	/**
+	 * Hash a string
+	 *
+	 * @param string $str String input
+	 * @param integer $cost Your cost default is '10'
+	 * @return string
+	 * @author Seyed Mahmoud Mousavi
+ 	 * @version 1.0.0
+	 * @since 1.0.0
+	 */
 	static public function encrypt(string $str, int $cost = 10): string
 	{
 		# Encrypt string varible
@@ -138,22 +245,52 @@ class Security
 		return password_hash($str, PASSWORD_ARGON2ID, $options);
 	}
 
+	/**
+	 * Decrypt pass and compare with hashed str and return result
+	 *
+	 * @param string $str Original str
+	 * @param string $hash Hashed str
+	 * @return boolean
+	 * @author Seyed Mahmoud Mousavi
+ 	 * @version 1.0.0
+	 * @since 1.0.0
+	 */
 	static public function decrypt(string $str, string $hash): bool
 	{
-		# dexode and comare with original string 
+		# Decode and compare with original string 
 		return password_verify($str, $hash);
 	}
 
+	/**
+	 * Add salt to your string
+	 *
+	 * @param string $str string
+	 * @param string $salt Your salt, default is 'SALT' in your config.php file
+	 * @return void
+	 * @author Seyed Mahmoud Mousavi
+ 	 * @version 1.0.0
+	 * @since 1.0.0
+	 */
 	static public function addSalt(string $str, string $salt = SALT)
 	{
-		# add salt to string
+		# Add salt to string
 		$str .= $salt;
 		return $str;
 	}
 
+	/**
+	 * Removing salt from your string
+	 *
+	 * @param string $str Your string
+	 * @param string $salt Your salt, default is 'SALT' in config.php file
+	 * @return void
+	 * @author Seyed Mahmoud Mousavi
+ 	 * @version 1.0.0
+	 * @since 1.0.0
+	 */
 	static public function removeSalt(string $str, string $salt = SALT)
 	{
-		# remove salt of a string
+		# Remove salt of a string
 		$str = str_replace($salt, "", $str);
 		return $str;
 	}

@@ -3,41 +3,89 @@
 declare(strict_types=1);
 
 namespace IronElephant;
-use Exception,TypeError,Throwable,Error;
+
+use Exception, TypeError, Throwable, Error;
 
 require_once __DIR__ . '/../main.php';
 
+/**
+ * File class for work with files and folders
+ */
 class File
 {
 
+	/**
+	 * File path
+	 *
+	 * @var string $file
+	 */
 	protected $file;
 
-	function __construct($dir = ".")
+	/**
+	 * Create a object 
+	 *
+	 * @param string $dir 
+	 */
+	function __construct($dir = null)
 	{
-		// dd($dir,__LINE__,__FILE__);
-		$this->file = $dir;
-		// dd($this->file,__LINE__,__FILE__);
+		// Check params
+		if (!empty($dir)) {
+			$this->file = $dir;
+		}
 	}
 
+	/**
+	 * Change file path
+	 *
+	 * @param string $new_file New file path
+	 * @example changeFile("new/path/file.ext");
+	 * @return void
+	 * @author Seyed Mahmoud Mousavi
+ 	 * @version 1.0.0
+	 * @since 1.0.0
+	 */
 	function changeFile(string $new_file)
 	{
 		$this->file = $new_file;
 	}
 
-	function currentFile()
+	/**
+	 * Return current file path
+	 *
+	 * @return string
+	 * @author Seyed Mahmoud Mousavi
+ 	 * @version 1.0.0
+	 * @since 1.0.0
+	 */
+	function currentFile(): string
 	{
-		return $this->file;
+		return (string)$this->file;
 	}
 
-	function read(string $file_path = ".")
+	/**
+	 * Reading a file
+	 *
+	 * @param string $file_path File path
+	 * @return void
+	 * @example read(["file_path"]); or
+	 * read(); Read file path from object data
+	 * $f = new File("file_path"); 
+	 * %f->read();
+	 * 
+	 * @author Seyed Mahmoud Mousavi
+ 	 * @version 1.0.0
+	 * @since 1.0.0
+	 */
+	function read(string $file_path = null): mixed
 	{
 		try {
 
-			if ($file_path === ".") {
+			// Get file path from object
+			if ($file_path === null) {
 				$file_path = $this->file;
 			}
 
-			if (empty($file_path) || $file_path === ".") {
+			if (empty($file_path) || $file_path === null) {
 				echo "Function " . __FUNCTION__ .
 					" : Argumant is empty." . PHP_EOL;
 				return false;
@@ -47,9 +95,8 @@ class File
 				return false;
 			} else {
 
-
-				$my_file = fopen($file_path, "r") or
-					die("Unable to open file!");
+				// Start reading file
+				$my_file = fopen($file_path, "r");
 
 				$read = fread($my_file, filesize($file_path));
 
@@ -65,25 +112,78 @@ class File
 			die();
 		}
 	}
-
-	function write(string $text = "",string $file_path = "."): bool
+	/**
+	 * Write a file with your data
+	 *
+	 * @param string $text data for writing
+	 * @param string|null $file_path
+	 * @return boolean
+	 * 
+	 * @author Seyed Mahmoud Mousavi
+ 	 * @version 1.0.0
+	 * @since 1.0.0
+	 */
+	function write(string $text = "", string $file_path = null): bool
 	{
 		try {
 
-
-			if ($file_path === ".") {
+			// Get file path from object
+			if ($file_path === null) {
 				$file_path = $this->file;
 			}
 
-			if (empty($file_path) || $file_path === ".") {
+			if (empty($file_path) || $file_path === null) {
 				echo "Function " . __FUNCTION__ .
 					" : Argumant is empty." . PHP_EOL;
 				return false;
 			} else {
-				$file = fopen($file_path, "w") or
-					die("Unable to open file!");
+
+				// Start writing file
+				$file = fopen($file_path, "w");
 				fwrite($file, $text);
 				fclose($file);
+
+				return true;
+			}
+		} catch (Throwable | Error | Exception | TypeError $e) {
+			$file = $e->getFile();
+			$line = $e->getLine();
+			$message = $e->getMessage();
+			echo "<h1>File : $file</h1><h2>Line : $line</h2><h2>Error : $message</h2>";
+			die();
+		}
+	}
+	/**
+	 * Append data to a file
+	 * 
+	 * @param string $text data to append end of file
+	 * @param string|null $file_path
+	 * @return boolean
+	 * 
+	 * @author Seyed Mahmoud Mousavi
+ 	 * @version 1.0.0
+	 * @since 1.0.0
+	 */
+	function append(string $text = "", string $file_path = null,): bool
+	{
+		try {
+
+			// Get file path from object
+			if ($file_path === null) {
+				$file_path = $this->file;
+			}
+
+			if (empty($file_path) || $file_path === null) {
+				echo "Function " . __FUNCTION__ .
+					" : Argumant is empty." . PHP_EOL;
+				return false;
+			} else {
+
+				// Start append file
+				$file = fopen($file_path, "a");
+				fwrite($file, $text);
+				fclose($file);
+
 				return true;
 			}
 		} catch (Throwable | Error | Exception | TypeError $e) {
@@ -95,43 +195,26 @@ class File
 		}
 	}
 
-	function append(string $text = "",string $file_path = ".",): bool
+	/**
+	 * delete a file
+	 *
+	 * @param string|null $file_path path of file to delete
+	 * @return boolean
+	 * 
+	 * @author Seyed Mahmoud Mousavi
+ 	 * @version 1.0.0
+	 * @since 1.0.0
+	 */
+	function delete(string $file_path = null): bool
 	{
 		try {
 
-			if ($file_path === ".") {
+			// Get file path from object
+			if ($file_path === null) {
 				$file_path = $this->file;
 			}
 
-			if (empty($file_path) || $file_path === ".") {
-				echo "Function " . __FUNCTION__ .
-					" : Argumant is empty." . PHP_EOL;
-				return false;
-			} else {
-				$file = fopen($file_path, "a") or
-					die("Unable to open file!");
-				fwrite($file, $text);
-				fclose($file);
-				return true;
-			}
-		} catch (Throwable | Error | Exception | TypeError $e) {
-			$file = $e->getFile();
-			$line = $e->getLine();
-			$message = $e->getMessage();
-			echo "<h1>File : $file</h1><h2>Line : $line</h2><h2>Error : $message</h2>";
-			die();
-		}
-	}
-
-	function delete(string $file_path = "."): bool
-	{
-		try {
-
-			if ($file_path === ".") {
-				$file_path = $this->file;
-			}
-
-			if (empty($file_path) || $file_path === ".") {
+			if (empty($file_path) || $file_path === null) {
 				echo "Function " . __FUNCTION__ .
 					" : Argumant is empty." . PHP_EOL;
 				return false;
@@ -140,6 +223,8 @@ class File
 					" : File not exist." . PHP_EOL;
 				return false;
 			} else {
+
+				// Delete file
 				return unlink($file_path);
 			}
 		} catch (Throwable | Error | Exception | TypeError $e) {
@@ -151,54 +236,28 @@ class File
 		}
 	}
 
-	/*
-	static function bToKB(int $byte, $round = false): float
-	{
-		$kb = $byte / 1024;
-		if ($round) {
-			$kb = round($kb, 2, PHP_ROUND_HALF_UP);
-		}
-		return $kb;
-	}
 
-	static function bToMB(int $byte, $round = false): float
-	{
-		$kb = $byte / 1024;
-		$mb = $kb / 1024;
-		if ($round) {
-			$mb = round($mb, 2, PHP_ROUND_HALF_UP);
-		}
-		return $mb;
-	}
-
-	static function bToGB(int $byte, $round = false): float
-	{
-		$kb = $byte / 1024;
-		$mb = $kb / 1024;
-		$gb = $mb / 1024;
-		if ($round) {
-			$gb = round($gb, 2, PHP_ROUND_HALF_UP);
-		}
-		return $gb;
-	}
-
-	static function kbToB(float $kb): int
-	{
-		return (int)($kb * 1024);
-	}
-
-	static function mbToB(float $mb): int
-	{
-		return (int)($mb * 1024 * 1024);
-	}
-
-	static function gbToB(float $gb): int
-	{
-
-		return (int)($gb * 1024 * 1024 * 1024);
-	}
-*/
-
+	/**
+	 * upload your files
+	 *
+	 * @param string $form_name Name of form in HTML set
+	 * @param string $target_dir Target path for uploading
+	 * @param integer $max_upload_size Max of all file sizes byte, default is '0' for no limitation
+	 * @param integer $size_limit Max every file size byte, default is '0' for no limitation
+	 * @param boolean $is_null Can upload null file ? default is 'true'
+	 * @param array $type Which file extention can upload ? default is ["*"] for no limitation
+	 * @param array $target_name Insert target name of uploaded file, default is [] for no renaming and set original name
+	 * @param string $write_method If file exist, function must what to do OVERWRITE, SKIPPING, Rename.
+	 * default method is 'o',
+	 * all option 'o|s|r'
+	 * @param boolean $log Are want to get summery log of uploaded files,
+	 * default is 'true'
+	 * @return void string|boolean
+	 * 
+	 * @author Seyed Mahmoud Mousavi
+ 	 * @version 1.0.0
+	 * @since 1.0.0
+	 */
 	static function upload(
 		string $form_name,
 		string $target_dir,
@@ -212,7 +271,9 @@ class File
 	) {
 		try {
 
-			$file_count = count($_FILES["$form_name"]["name"]); // $file_count
+			// $file_count
+			$file_count = count($_FILES["$form_name"]["name"]);
+
 
 			$upload_log["file_count"] = $file_count;
 			$upload_log["Success"] = [];
@@ -220,14 +281,15 @@ class File
 
 			for ($i = 0; $i < $file_count; $i++) {
 
+				// Get all tmp_name from php folder
 				$all_file_temp_names[] = $_FILES[$form_name]["tmp_name"][$i];
-				// $all_file_temp_names get all tmp_name from php folder
 			}
 
 			$target_dir = trim($target_dir);
 			$target_dir = trim($target_dir, '/');
 			$target_dir = trim($target_dir, '\\');
 
+			// Make target path folder
 			if (
 				!empty($target_dir)
 			) {
@@ -241,10 +303,9 @@ class File
 			}
 
 
-			# $target_dir test
-			#
 			# $max_upload_size test
 
+			// Get sum of all files size
 			if ($max_upload_size > 0) {
 
 				$max_upload_size_temp = 0;
@@ -263,9 +324,10 @@ class File
 			}
 
 			# $max_upload_size test
-			#
+
 			# $size_limit test
 
+			// Get every file size
 			if ($size_limit > 0) {
 
 				for ($i = 0; $i < $file_count; $i++) {
@@ -287,6 +349,7 @@ class File
 			#
 			# $is_null test
 
+			// Check file for null or not
 			if ($is_null === false) {
 
 				for ($i = 0; $i < $file_count; $i++) {
@@ -308,6 +371,7 @@ class File
 			#
 			# $type test
 
+			// check file extentions 
 			if ($type !== ['*']) {
 
 				for ($i = 0; $i < $file_count; $i++) {
@@ -345,13 +409,27 @@ class File
 			#
 			# $file_name test
 
+			/**
+			 * if user only add one name this name set for all files
+			 * @example $target_name == ["test"]
+			 */
 			if (count($target_name) === 1) {
+				/**
+				 * Add number to end of file 
+				 * exclude first file
+				 */
 
 				for ($i = 0; $i < $file_count; $i++) {
 
+					// file ($i).ext
 					$target_name_temp_number = $i + 1;
 
+					/**
+					 * Skip first file ande leave him with original
+					 * file.ext
+					 */
 					if ($i === 0) {
+
 
 						$target_files[] = $target_dir . "/" . $target_name[0] .
 							"." .
@@ -371,6 +449,10 @@ class File
 				}
 			} else {
 
+				/**
+				 * If user only two name or more 
+				 * @example $target_name == ["test",["test_2"]]
+				 */
 				for ($i = 0; $i < $file_count; $i++) {
 
 					if (count($target_name) > $i) {
@@ -392,18 +474,21 @@ class File
 
 			# $file_name test
 			#
-			# upload file
+			# Upload file
 
 
-
+			/**
+			 * If file exist what to do? 
+			 */
 			for ($i = 0; $i < $file_count; $i++) {
 
-
-
-				# skip method
+				# Skip method
 				#
 				#
 
+				/**
+				 * If file exist skip them
+				 */
 				if (strtolower($write_method) === "s") {
 
 					$upload_log['Skiped'][] = $_FILES["$form_name"]['name'][$i];
@@ -412,13 +497,16 @@ class File
 
 				#
 				# 
-				# skip method
+				# Skip method
 
-				# duplicate method
+				# Rename method
 				#
 				# 
 
-				if (strtolower($write_method) === "d") {
+				/**
+				 * If file exist rename them
+				 */
+				if (strtolower($write_method) === "r") {
 
 					while (file_exists($target_files[$i])) {
 
@@ -435,10 +523,12 @@ class File
 
 				#
 				# 
-				# duplicate method
+				# Rename method
 
 
-
+				/**
+				 * Spload file and save log
+				 */
 				if (
 					move_uploaded_file(
 						$all_file_temp_names[$i],
@@ -454,7 +544,9 @@ class File
 				}
 			}
 
-
+			/**
+			 * Return log or return boolean
+			 */
 			if ($log === true) {
 
 				return $upload_log;
@@ -475,6 +567,18 @@ class File
 		}
 	}
 
+	/**
+	 * Conver array to a json file
+	 *
+	 * @param array $json Array data
+	 * @param string $file_name File name for saving .JSON
+	 * @param boolean $overwrite If this file exist overwrite?
+	 * @return boolean
+	 * 
+	 * @author Seyed Mahmoud Mousavi
+ 	 * @version 1.0.0
+	 * @since 1.0.0
+	 */
 	static function arrayToJsonFile(
 		array $json,
 		string $file_name,
@@ -482,6 +586,8 @@ class File
 	): bool {
 
 		try {
+
+			//Check params
 			$file_name = trim($file_name);
 
 			if (
@@ -491,6 +597,8 @@ class File
 					" : Incorrect argumant or value." . PHP_EOL;
 				return false;
 			}
+
+			// Check file exist
 			if (
 				file_exists($file_name . ".json") &&
 				$overwrite === false
@@ -500,7 +608,10 @@ class File
 				return false;
 			}
 
+			// Conver array to json
 			$json = json_encode($json);
+
+			// Write json file
 			if (File::write($file_name . ".json", $json)) {
 				return true;
 			} else {
@@ -516,12 +627,23 @@ class File
 			die();
 		}
 	}
-
+	/**
+	 * Read json file and convert to array
+	 *
+	 * @param string $file_name Name of json file
+	 * @return mixed false|Array
+	 * 
+	 * @author Seyed Mahmoud Mousavi
+ 	 * @version 1.0.0
+	 * @since 1.0.0
+	 */
 	static function jsonFileToArray(
 		string $file_name
-	) {
+	): mixed {
 
 		try {
+
+			// Check param
 			$file_name = trim($file_name);
 
 			if (empty($file_name)) {
@@ -535,6 +657,7 @@ class File
 				return false;
 			}
 
+			// Read json file
 			$file = File::read($file_name);
 
 			if ($file === false) {
@@ -543,7 +666,8 @@ class File
 				return false;
 			}
 
-			$json = json_decode($file);
+			// Convert to array
+			$json = json_decode((string)$file);
 
 			if ($json === null) {
 				return false;
@@ -558,25 +682,36 @@ class File
 			die();
 		}
 	}
-
-	function makeDir(string $target_dir = "."): bool
+	/**
+	 * Make direction folder and path
+	 *
+	 * @param string|null $target_dir Path to make
+	 * @return boolean
+	 * 
+	 * @author Seyed Mahmoud Mousavi
+ 	 * @version 1.0.0
+	 * @since 1.0.0
+	 */
+	function makeDir(string $target_dir = null): bool
 	{
 		try {
 
-			if ($target_dir === ".") {
+			// Get path from object
+			if ($target_dir === null) {
 				$target_dir = $this->file;
 			}
 
-			if (empty($target_dir) || $target_dir === ".") {
+			if (empty($target_dir) || $target_dir === null) {
 				echo "Function " . __FUNCTION__ .
 					" : Incorrect argumant or value." . PHP_EOL;
 				return false;
 			}
 
+			// Start create path and directory
 			$target_dir = str_replace('\\', '/', $target_dir);
-
 			$dirs = explode("/", $target_dir);
 			$temp_dir = "";
+
 			foreach ($dirs as $value) {
 
 				if ($value === "") {
@@ -601,5 +736,53 @@ class File
 			echo "<h1>File : $file</h1><h2>Line : $line</h2><h2>Error : $message</h2>";
 			die();
 		}
-	}	
+	}
+
+	/*
+static function bToKB(int $byte, $round = false): float
+{
+	$kb = $byte / 1024;
+	if ($round) {
+		$kb = round($kb, 2, PHP_ROUND_HALF_UP);
+	}
+	return $kb;
+}
+
+static function bToMB(int $byte, $round = false): float
+{
+	$kb = $byte / 1024;
+	$mb = $kb / 1024;
+	if ($round) {
+		$mb = round($mb, 2, PHP_ROUND_HALF_UP);
+	}
+	return $mb;
+}
+
+static function bToGB(int $byte, $round = false): float
+{
+	$kb = $byte / 1024;
+	$mb = $kb / 1024;
+	$gb = $mb / 1024;
+	if ($round) {
+		$gb = round($gb, 2, PHP_ROUND_HALF_UP);
+	}
+	return $gb;
+}
+
+static function kbToB(float $kb): int
+{
+	return (int)($kb * 1024);
+}
+
+static function mbToB(float $mb): int
+{
+	return (int)($mb * 1024 * 1024);
+}
+
+static function gbToB(float $gb): int
+{
+
+	return (int)($gb * 1024 * 1024 * 1024);
+}
+*/
 }
