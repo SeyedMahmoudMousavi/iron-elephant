@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AJAX</title>
+</head>
+
+<body>
+  <form action="">
+    <label>GET</label>
+    <!-- Request to ajax_get.php with name ajax and GET method
+    then call myCallback 
+    -->
+    <input type="text" onkeyup="ajax('ajax_get.php',myCallBack,'ajax=' + this.value,'GET',showLoader)" />
+    <label>POST</label>
+    <!-- Request to ajax_post.php with name ajax and POST method
+    then call myCallback 
+    -->
+    <input type="text" onkeyup="ajax('ajax_post.php', myCallBack,'ajax=' + this.value,'POST',showLoader)" />
+  </form>
+  <h1 id="get">get</h1>
+  <h1 id="post">post</h1>
+  <pre id="message"></pre>
+  <script>
+    // Get element with id message and change value to returned value from .php file
+    function myCallBack(str) {
+      let e = document.getElementById("message");
+      e.innerHTML = str;
+    }
+    function showLoader() {
+      // show spinner
+    }
+  </script>
+  <script src="../../modules/ironAjax.js"></script>
+</body>
+
+</html>
