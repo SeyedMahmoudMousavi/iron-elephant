@@ -10,6 +10,7 @@ require_once "config.php";
 
 use IronElephant\File;
 
+
 /**
  * @var mixed $my_php_version Get php version
  */
@@ -43,6 +44,22 @@ set_error_handler(function ($errno, $errstr, $errfile, $errline) {
  * Set a defualt time zone
  */
 date_default_timezone_set(TIME_ZONE);
+
+/**
+ * @var string WEB_ADDRESS Create const web address
+ */
+if ($_SERVER['SERVER_PORT'] === 443) {
+	define(
+		'WEB_ADDRESS',
+		'https://' . $_SERVER["HTTP_HOST"]
+	);
+}
+else{
+	define(
+		'WEB_ADDRESS',
+		'http://' . $_SERVER["HTTP_HOST"]
+	);
+}
 
 /**
  * Drop a horizontal line

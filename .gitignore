@@ -3,7 +3,6 @@
 /templates/error_sample.txt
 /vendor/
 /composer.lock
-/iron sample.txt
 /test.php
 /phpDocumentor.phar
 /.salt.backup

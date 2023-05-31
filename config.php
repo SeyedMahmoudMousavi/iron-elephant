@@ -12,22 +12,6 @@ define("MINIMUM_PHP_VERSION",7.4);
 define("TIME_ZONE", "asia/tehran");
 
 /**
- * @var string WEB_ADDRESS Create const web address
- */
-if ($_SERVER['SERVER_PORT'] === 443) {
-	define(
-		'WEB_ADDRESS',
-		'https://' . $_SERVER["HTTP_HOST"]
-	);
-}
-else{
-	define(
-		'WEB_ADDRESS',
-		'http://' . $_SERVER["HTTP_HOST"]
-	);
-}
-
-/**
  * @var string LOWERCHARS Define const lower char free to use
  */
 define("LOWERCHARS", "abcdefghijklmnopqrstuvwxyz");

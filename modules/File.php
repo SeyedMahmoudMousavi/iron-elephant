@@ -8,6 +8,68 @@ use Exception, TypeError, Throwable, Error;
 
 require_once __DIR__ . '/../main.php';
 
+
+/**
+ * Byte to Kilobyte
+ * @var string BYTE_TO_KIB
+ */
+define("BYTE_TO_KIB", -1);
+/**
+ * Byte to Megabyte
+ * @var string BYTE_TO_MIB
+ */
+define("BYTE_TO_MIB", -2);
+/**
+ * Byte to Gigabyte
+ * @var string BYTE_TO_GIB
+ */
+define("BYTE_TO_GIB", -3);
+/**
+ * Kilobyte to byte
+ * @var string KIB_TO_BYTE
+ */
+define("KIB_TO_BYTE", 1);
+/**
+ * Kilobyte to Megabyte
+ * @var string KIB_TO_MIB
+ */
+define("KIB_TO_MIB", -1);
+/**
+ * Kilobyte to Gigabyte
+ * @var string KIB_TO_GIB
+ */
+define("KIB_TO_GIB", -2);
+/**
+ * Megabyte to byte
+ * @var string MIB_TO_BYTE
+ */
+define("MIB_TO_BYTE", 2);
+/**
+ * Megabyte to Kilobyte
+ * @var string MIB_TO_KIB
+ */
+define("MIB_TO_KIB", 1);
+/**
+ * Megabyte to Gigabyte
+ * @var string MIB_TO_GIB
+ */
+define("MIB_TO_GIB", -1);
+/**
+ * Gigabyte to byte
+ * @var string GIB_TO_BYTE
+ */
+define("GIB_TO_BYTE", 3);
+/**
+ * Gigabyte to Kilobyte
+ * @var string GIB_TO_KIB
+ */
+define("GIB_TO_KIB", 2);
+/**
+ * Gigabyte to Megabyte
+ * @var string GIB_TO_MIB
+ */
+define("GIB_TO_MIB", 1);
+
 /**
  * File class for work with files and folders
  */
@@ -41,7 +103,7 @@ class File
 	 * @example changeFile("new/path/file.ext");
 	 * @return void
 	 * @author Seyed Mahmoud Mousavi
- 	 * @version 1.0.0
+	 * @version 1.0.0
 	 * @since 1.0.0
 	 */
 	function changeFile(string $new_file)
@@ -54,7 +116,7 @@ class File
 	 *
 	 * @return string
 	 * @author Seyed Mahmoud Mousavi
- 	 * @version 1.0.0
+	 * @version 1.0.0
 	 * @since 1.0.0
 	 */
 	function currentFile(): string
@@ -73,7 +135,7 @@ class File
 	 * %f->read();
 	 * 
 	 * @author Seyed Mahmoud Mousavi
- 	 * @version 1.0.0
+	 * @version 1.0.0
 	 * @since 1.0.0
 	 */
 	function read(string $file_path = null): mixed
@@ -120,7 +182,7 @@ class File
 	 * @return boolean
 	 * 
 	 * @author Seyed Mahmoud Mousavi
- 	 * @version 1.0.0
+	 * @version 1.0.0
 	 * @since 1.0.0
 	 */
 	function write(string $text = "", string $file_path = null): bool
@@ -161,7 +223,7 @@ class File
 	 * @return boolean
 	 * 
 	 * @author Seyed Mahmoud Mousavi
- 	 * @version 1.0.0
+	 * @version 1.0.0
 	 * @since 1.0.0
 	 */
 	function append(string $text = "", string $file_path = null,): bool
@@ -202,7 +264,7 @@ class File
 	 * @return boolean
 	 * 
 	 * @author Seyed Mahmoud Mousavi
- 	 * @version 1.0.0
+	 * @version 1.0.0
 	 * @since 1.0.0
 	 */
 	function delete(string $file_path = null): bool
@@ -255,7 +317,7 @@ class File
 	 * @return void string|boolean
 	 * 
 	 * @author Seyed Mahmoud Mousavi
- 	 * @version 1.0.0
+	 * @version 1.0.0
 	 * @since 1.0.0
 	 */
 	static function upload(
@@ -576,7 +638,7 @@ class File
 	 * @return boolean
 	 * 
 	 * @author Seyed Mahmoud Mousavi
- 	 * @version 1.0.0
+	 * @version 1.0.0
 	 * @since 1.0.0
 	 */
 	static function arrayToJsonFile(
@@ -634,7 +696,7 @@ class File
 	 * @return mixed false|Array
 	 * 
 	 * @author Seyed Mahmoud Mousavi
- 	 * @version 1.0.0
+	 * @version 1.0.0
 	 * @since 1.0.0
 	 */
 	static function jsonFileToArray(
@@ -689,7 +751,7 @@ class File
 	 * @return boolean
 	 * 
 	 * @author Seyed Mahmoud Mousavi
- 	 * @version 1.0.0
+	 * @version 1.0.0
 	 * @since 1.0.0
 	 */
 	function makeDir(string $target_dir = null): bool
@@ -738,51 +800,43 @@ class File
 		}
 	}
 
-	/*
-static function bToKB(int $byte, $round = false): float
-{
-	$kb = $byte / 1024;
-	if ($round) {
-		$kb = round($kb, 2, PHP_ROUND_HALF_UP);
+	/**
+	 * convert file size 
+	 *
+	 * @param float $number Input number
+	 * @param int $type 
+	 * BYTE_TO_KIB | BYTE_TO_GIB | BYTE_TO_MIB | 
+	 * KIB_TO_BYTE | KIB_TO_MIB | KIB_TO_GIB | 
+	 * MIB_TO_BYTE | MIB_TO_KIB | MIB_TO_GIB | 
+	 * GIB_TO_BYTE | GIB_TO_KIB | GIB_TO_MIB
+	 * @param integer $precision
+	 * @param int $mode
+	 * @return float
+	 */
+	static public function sizeConverter(float $number, int $type, int $precision = 2, int $mode = \PHP_ROUND_HALF_UP): float
+	{
+
+		switch ($type) {
+			case 1:
+				$number *= (1024);
+				break;
+			case 2:
+				$number *= (1024 * 1024);
+				break;
+			case 3:
+				$number *= (1024 * 1024 * 1024);
+				break;
+			case -1:
+				$number /= (1024);
+				break;
+			case -2:
+				$number /= (1024 * 1024);
+				break;
+			case -3:
+				$number /= (1024 * 1024 * 1024);
+				break;
+		}
+		$number = round($number, $precision, $mode);
+		return $number;
 	}
-	return $kb;
-}
-
-static function bToMB(int $byte, $round = false): float
-{
-	$kb = $byte / 1024;
-	$mb = $kb / 1024;
-	if ($round) {
-		$mb = round($mb, 2, PHP_ROUND_HALF_UP);
-	}
-	return $mb;
-}
-
-static function bToGB(int $byte, $round = false): float
-{
-	$kb = $byte / 1024;
-	$mb = $kb / 1024;
-	$gb = $mb / 1024;
-	if ($round) {
-		$gb = round($gb, 2, PHP_ROUND_HALF_UP);
-	}
-	return $gb;
-}
-
-static function kbToB(float $kb): int
-{
-	return (int)($kb * 1024);
-}
-
-static function mbToB(float $mb): int
-{
-	return (int)($mb * 1024 * 1024);
-}
-
-static function gbToB(float $gb): int
-{
-
-	return (int)($gb * 1024 * 1024 * 1024);
-}
-*/
 }
