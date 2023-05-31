@@ -64,14 +64,14 @@ class Connection
 	 * @return boolean
 	 * 
 	 * @author Seyed Mahmoud Mousavi
- 	 * @version 1.0.0
+	 * @version 1.0.0
 	 * @since 1.0.0
 	 */
 	public function connectToDatabase(string $server_name, string $user_name, string $password, string $database_name = ""): bool
 	{
 		try {
 
-			if (empty($database)) {
+			if (empty($database_name)) {
 
 				// Connect only to SQL server(host)
 				$this->db = new mysqli(
@@ -86,7 +86,7 @@ class Connection
 					$server_name,
 					$user_name,
 					$password,
-					$database
+					$database_name
 				);
 			}
 
@@ -112,7 +112,7 @@ class Connection
 	 * @return void
 	 * 
 	 * @author Seyed Mahmoud Mousavi
- 	 * @version 1.0.0
+	 * @version 1.0.0
 	 * @since 1.0.0
 	 */
 	private function connectionFailed()
@@ -137,7 +137,7 @@ class Connection
 	 * @return boolean
 	 * 
 	 * @author Seyed Mahmoud Mousavi
- 	 * @version 1.0.0
+	 * @version 1.0.0
 	 * @since 1.0.0
 	 */
 	public function createDatabase(string $database_name): bool
@@ -184,7 +184,7 @@ class Connection
 	 * @return boolean
 	 * 
 	 * @author Seyed Mahmoud Mousavi
- 	 * @version 1.0.0
+	 * @version 1.0.0
 	 * @since 1.0.0
 	 */
 	public function dropDatabase(string $database_name, string $confirm = "no"): bool
@@ -242,7 +242,7 @@ class Connection
 	 * @return mixed false|string
 	 * 
 	 * @author Seyed Mahmoud Mousavi
- 	 * @version 1.0.0
+	 * @version 1.0.0
 	 * @since 1.0.0
 	 */
 	public function find(
@@ -277,6 +277,8 @@ class Connection
 				while ($row = $collected_data->fetch_assoc()) {
 					return $row["$column"];
 				}
+			} else {
+				return "";
 			}
 		} catch (Exception | TypeError | Throwable | Error $e) {
 			$file = $e->getFile();
@@ -296,7 +298,7 @@ class Connection
 	 * @return mixed
 	 * 
 	 * @author Seyed Mahmoud Mousavi
- 	 * @version 1.0.0
+	 * @version 1.0.0
 	 * @since 1.0.0
 	 */
 	public function select(
@@ -373,7 +375,7 @@ class Connection
 	 * @return boolean 
 	 * 
 	 * @author Seyed Mahmoud Mousavi
- 	 * @version 1.0.0
+	 * @version 1.0.0
 	 * @since 1.0.0
 	 */
 	public function insert(
@@ -453,7 +455,7 @@ class Connection
 	 * @return boolean 
 	 * 
 	 * @author Seyed Mahmoud Mousavi
- 	 * @version 1.0.0
+	 * @version 1.0.0
 	 * @since 1.0.0
 	 */
 	public function update(
@@ -524,7 +526,7 @@ class Connection
 	 * @return boolean
 	 * 
 	 * @author Seyed Mahmoud Mousavi
- 	 * @version 1.0.0
+	 * @version 1.0.0
 	 * @since 1.0.0
 	 */
 	public function delete(
