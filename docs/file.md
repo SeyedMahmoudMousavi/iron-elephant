@@ -30,6 +30,7 @@
 |jsonFileToArray() | jsonFileToArray("file.name") | Convert json file to array|
 |makeDir() | makeDir() or makeDir("target_dir") | Make direction and folder|
 | createSaltFile() | createSaltFile([length ? 32, save old salt to file? ".salt.backup"])| Create new salt and save old salt into default ".salt.backup" file
+|sizeConverter()|sizeConverter(1024, KIB_TO_BYTE[, 2][,PHP_ROUND_HALF_UP])| Convert file sizes|
 
 1. "name of file form in HTML"
 2. "target/dir" 
