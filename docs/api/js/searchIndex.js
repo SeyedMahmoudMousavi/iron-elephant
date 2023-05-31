@@ -11,11 +11,6 @@ Search.appendIndex(
             "summary": "Set\u0020your\u0020default\u0020time\u0020zone",
             "url": "namespaces/default.html#constant_TIME_ZONE"
         },                {
-            "fqsen": "\\WEB_ADDRESS",
-            "name": "WEB_ADDRESS",
-            "summary": "",
-            "url": "namespaces/default.html#constant_WEB_ADDRESS"
-        },                {
             "fqsen": "\\LOWERCHARS",
             "name": "LOWERCHARS",
             "summary": "",
@@ -70,6 +65,11 @@ Search.appendIndex(
             "name": "DB_NAME",
             "summary": "Database\u0020config\u0020variable",
             "url": "namespaces/default.html#constant_DB_NAME"
+        },                {
+            "fqsen": "\\WEB_ADDRESS",
+            "name": "WEB_ADDRESS",
+            "summary": "",
+            "url": "namespaces/default.html#constant_WEB_ADDRESS"
         },                {
             "fqsen": "\\hr\u0028\u0029",
             "name": "hr",
@@ -256,6 +256,66 @@ Search.appendIndex(
             "summary": "Keep\u0020query\u0020and\u0020data\u0020for\u0020functions",
             "url": "classes/IronElephant-Connection.html#property_db"
         },                {
+            "fqsen": "\\BYTE_TO_KIB",
+            "name": "BYTE_TO_KIB",
+            "summary": "Byte\u0020to\u0020Kilobyte",
+            "url": "namespaces/default.html#constant_BYTE_TO_KIB"
+        },                {
+            "fqsen": "\\BYTE_TO_MIB",
+            "name": "BYTE_TO_MIB",
+            "summary": "Byte\u0020to\u0020Megabyte",
+            "url": "namespaces/default.html#constant_BYTE_TO_MIB"
+        },                {
+            "fqsen": "\\BYTE_TO_GIB",
+            "name": "BYTE_TO_GIB",
+            "summary": "Byte\u0020to\u0020Gigabyte",
+            "url": "namespaces/default.html#constant_BYTE_TO_GIB"
+        },                {
+            "fqsen": "\\KIB_TO_BYTE",
+            "name": "KIB_TO_BYTE",
+            "summary": "Kilobyte\u0020to\u0020byte",
+            "url": "namespaces/default.html#constant_KIB_TO_BYTE"
+        },                {
+            "fqsen": "\\KIB_TO_MIB",
+            "name": "KIB_TO_MIB",
+            "summary": "Kilobyte\u0020to\u0020Megabyte",
+            "url": "namespaces/default.html#constant_KIB_TO_MIB"
+        },                {
+            "fqsen": "\\KIB_TO_GIB",
+            "name": "KIB_TO_GIB",
+            "summary": "Kilobyte\u0020to\u0020Gigabyte",
+            "url": "namespaces/default.html#constant_KIB_TO_GIB"
+        },                {
+            "fqsen": "\\MIB_TO_BYTE",
+            "name": "MIB_TO_BYTE",
+            "summary": "Megabyte\u0020to\u0020byte",
+            "url": "namespaces/default.html#constant_MIB_TO_BYTE"
+        },                {
+            "fqsen": "\\MIB_TO_KIB",
+            "name": "MIB_TO_KIB",
+            "summary": "Megabyte\u0020to\u0020Kilobyte",
+            "url": "namespaces/default.html#constant_MIB_TO_KIB"
+        },                {
+            "fqsen": "\\MIB_TO_GIB",
+            "name": "MIB_TO_GIB",
+            "summary": "Megabyte\u0020to\u0020Gigabyte",
+            "url": "namespaces/default.html#constant_MIB_TO_GIB"
+        },                {
+            "fqsen": "\\GIB_TO_BYTE",
+            "name": "GIB_TO_BYTE",
+            "summary": "Gigabyte\u0020to\u0020byte",
+            "url": "namespaces/default.html#constant_GIB_TO_BYTE"
+        },                {
+            "fqsen": "\\GIB_TO_KIB",
+            "name": "GIB_TO_KIB",
+            "summary": "Gigabyte\u0020to\u0020Kilobyte",
+            "url": "namespaces/default.html#constant_GIB_TO_KIB"
+        },                {
+            "fqsen": "\\GIB_TO_MIB",
+            "name": "GIB_TO_MIB",
+            "summary": "Gigabyte\u0020to\u0020Megabyte",
+            "url": "namespaces/default.html#constant_GIB_TO_MIB"
+        },                {
             "fqsen": "\\IronElephant\\File",
             "name": "File",
             "summary": "File\u0020class\u0020for\u0020work\u0020with\u0020files\u0020and\u0020folders",
@@ -315,6 +375,11 @@ Search.appendIndex(
             "name": "makeDir",
             "summary": "Make\u0020direction\u0020folder\u0020and\u0020path",
             "url": "classes/IronElephant-File.html#method_makeDir"
+        },                {
+            "fqsen": "\\IronElephant\\File\u003A\u003AsizeConverter\u0028\u0029",
+            "name": "sizeConverter",
+            "summary": "convert\u0020file\u0020size",
+            "url": "classes/IronElephant-File.html#method_sizeConverter"
         },                {
             "fqsen": "\\IronElephant\\File\u003A\u003A\u0024file",
             "name": "file",
