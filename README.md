@@ -17,9 +17,9 @@ Just add this to your own code :
 
 docs/api/index.html
 
-help/ :
-main.md
-file.md
-connection.md
-security.md
-ajax.md
+[ajax.md](https://github.com/SeyedMahmoudMousavi/iron-elephant/blob/master/help/ajax.md)
+[main.md](https://github.com/SeyedMahmoudMousavi/iron-elephant/blob/master/help/main.md)
+[file.md](https://github.com/SeyedMahmoudMousavi/iron-elephant/blob/master/help/file.md)
+[connection.md](https://github.com/SeyedMahmoudMousavi/iron-elephant/blob/master/help/connection.md)
+[security.md](https://github.com/SeyedMahmoudMousavi/iron-elephant/blob/master/help/security.md)
+[help/](https://github.com/SeyedMahmoudMousavi/iron-elephant/blob/master/help)
