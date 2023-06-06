@@ -1,12 +1,13 @@
 <?php
 
 /**
- * @filesource
- * @version 23.5.30
+ * Iron Elephant
+ * @version 1.0.1
  */
 
 // Import config file for default settings
 require_once "config.php";
+require_once "alternative_func.php";
 
 use IronElephant\File;
 
@@ -204,6 +205,7 @@ function js(string $input)
 function change_url(string $url = "/", int $statusCode = 303)
 {
 	header('Location: ' . $url, true, $statusCode);
+	die;
 }
 
 /**
@@ -219,6 +221,7 @@ function change_url(string $url = "/", int $statusCode = 303)
 function change_url_html(string $url = "/", int $sec = 0)
 {
 	echo "<meta http-equiv='refresh' content='$sec; URL=$url' />";
+	die;
 }
 
 /**
@@ -235,6 +238,7 @@ function change_url_js_1($url = "/")
 {
 
 	echo "<script>window.location.href = '$url';</script>";
+	die;
 }
 /**
  * Change URL path with JS
@@ -249,6 +253,7 @@ function change_url_js_1($url = "/")
 function change_url_js_2($url = "/")
 {
 	echo "<script>window.location.replace('$url');</script>";
+	die;
 }
 /**
  * Change URL path with JS
@@ -262,6 +267,7 @@ function change_url_js_2($url = "/")
 function change_url_js_3($url = "/")
 {
 	echo "<script>window.location.assign('$url');</script>";
+	die;
 }
 /**
  * Complate Change URL path with another functions
