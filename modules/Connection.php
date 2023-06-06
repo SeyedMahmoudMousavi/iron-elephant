@@ -295,7 +295,7 @@ class Connection
 	 * @param string $table Table name
 	 * @param string $where Where?, default is '1=1'
 	 * @example select(["column_1", "column_2"], "table_name", "id=1") 
-	 * @return mixed
+	 * @return mixed false|array
 	 * 
 	 * @author Seyed Mahmoud Mousavi
 	 * @version 1.0.0
