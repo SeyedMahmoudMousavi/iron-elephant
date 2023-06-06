@@ -64,6 +64,8 @@ This library is working with php **_7.4_** or higher
         */
         define("DB_NAME", '');
 
+## You can add your own codes and functions to [alternative_func.php](https://github.com/SeyedMahmoudMousavi/iron-elephant/blob/master/alternative_func.php)
+
 ## For using all feature visit [**docs**](https://github.com/SeyedMahmoudMousavi/iron-elephant/blob/master/docs/api/index.html) directory
 
 [help/](https://github.com/SeyedMahmoudMousavi/iron-elephant/blob/master/docs) :
