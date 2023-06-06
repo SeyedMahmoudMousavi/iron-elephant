@@ -2,22 +2,72 @@
 
 ## Work with php easier
 
-This library is working with php ***7.4*** or higher
+This library is working with php **_7.4_** or higher
 
 ## How to use this library
 
-Just add this to your own code :
+1.  Just add this to your own code :
 
-    require_once __DIR__ . "/main.php";
-    require_once 'vendor/autoload.php';
-    // load iron elephant modules
-    // use IronElephant/NameOfModule [Connection,File,Security]
+        /**
+        * Add IRON ELEPHANT library to project
+        */
+        require_once __DIR__ . "/main.php";
+        require_once 'vendor/autoload.php';
 
-## For using all feature visit **docs** directory
+        // load iron elephant modules
+        // use IronElephant/ [Connection,File,Security]
 
-docs/api/index.html
+2.  Edit and customize [config](https://github.com/SeyedMahmoudMousavi/iron-elephant/blob/master/config.php) file :
+
+        <?php
+
+        /**
+        * Set minimum php version to run
+        * @var int MINIMUM_PHP_VERSION Set minimum php version to run
+        */
+        define("MINIMUM_PHP_VERSION",7.4);
+
+        /**
+        * Set your default time zone
+        *  @var string TIME_ZONE Set default time zone
+        */
+        define("TIME_ZONE", "");
+
+        /**
+        * @var string SALT Create salt for password hashing create salt by call createSalt() function
+        * @example createSalt(16) "a5d4ASDA132asdsa"
+        */
+        define("SALT","6XBsxJGk3cPONBz3vArHS5jzjKwh2T55");
+
+        /**
+        * Database config variable
+        * @var string HOST_NAME Database server(host) name
+        */
+        define("HOST_NAME", 'localhost');
+
+        /**
+        * Database config variable
+        * @var string USER_NAME User name
+        */
+        define("USER_NAME", 'root');
+
+        /**
+        * Database config variable
+        * @var string USER_PASSWORD User pass
+        *
+        */
+        define("USER_PASSWORD", '');
+
+        /**
+        * Database config variable
+        * @var string DB_NAME Database name
+        */
+        define("DB_NAME", '');
+
+## For using all feature visit [**docs**](https://github.com/SeyedMahmoudMousavi/iron-elephant/blob/master/docs/api/index.html) directory
 
 [help/](https://github.com/SeyedMahmoudMousavi/iron-elephant/blob/master/docs) :
+
 1. [ajax.md](https://github.com/SeyedMahmoudMousavi/iron-elephant/blob/master/docs/ajax.md)
 2. [main.md](https://github.com/SeyedMahmoudMousavi/iron-elephant/blob/master/docs/main.md)
 3. [file.md](https://github.com/SeyedMahmoudMousavi/iron-elephant/blob/master/docs/file.md)
