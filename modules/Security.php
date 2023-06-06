@@ -20,7 +20,7 @@ class Security
 	 * @return string
 	 * 
 	 * @author Seyed Mahmoud Mousavi
- 	 * @version 1.0.0
+	 * @version 1.0.0
 	 * @since 1.0.0
 	 */
 	static public function inputTest(string $str): string
@@ -38,7 +38,7 @@ class Security
 	 * @param integer $int Integer input
 	 * @return boolean
 	 * @author Seyed Mahmoud Mousavi
- 	 * @version 1.0.0
+	 * @version 1.0.0
 	 * @since 1.0.0
 	 */
 	static public function validateInt(int $int): bool
@@ -60,7 +60,7 @@ class Security
 	 * @param string $ip IP address
 	 * @return boolean
 	 * @author Seyed Mahmoud Mousavi
- 	 * @version 1.0.0
+	 * @version 1.0.0
 	 * @since 1.0.0
 	 */
 	static public function validateIp(string $ip): bool
@@ -80,7 +80,7 @@ class Security
 	 * @param string $ip IPv6 address
 	 * @return boolean
 	 * @author Seyed Mahmoud Mousavi
- 	 * @version 1.0.0
+	 * @version 1.0.0
 	 * @since 1.0.0
 	 */
 	static public function validateIpv6(string $ip): bool
@@ -100,7 +100,7 @@ class Security
 	 * @param string $email Email adress
 	 * @return boolean
 	 * @author Seyed Mahmoud Mousavi
- 	 * @version 1.0.0
+	 * @version 1.0.0
 	 * @since 1.0.0
 	 */
 	static public function validateEmail(string $email): bool
@@ -120,7 +120,7 @@ class Security
 	 * @param string $url Input URL
 	 * @return boolean
 	 * @author Seyed Mahmoud Mousavi
- 	 * @version 1.0.0
+	 * @version 1.0.1
 	 * @since 1.0.0
 	 */
 	static public function validateUrl(string $url): bool
@@ -129,6 +129,9 @@ class Security
 		$url = Security::inputTest($url);
 		if (!filter_var($url, FILTER_VALIDATE_URL) === false) {
 			return true;
+		} elseif (strpos($url, "http") !== 0 || !(strpos($url, '://') >= 4)) {
+
+			return false;
 		} else {
 			return false;
 		}
@@ -137,21 +140,25 @@ class Security
 	/**
 	 * Validating web address
 	 *
-	 * @param string $str Web address
+	 * @param string $url Web address
 	 * @return boolean
 	 * @author Seyed Mahmoud Mousavi
- 	 * @version 1.0.0
+	 * @version 1.0.1
 	 * @since 1.0.0
 	 */
-	static public function webAddressValidate(string $str): bool
+	static public function webAddressValidate(string $url): bool
 	{
 
-		$str = Security::inputTest($str);
+		$url = Security::inputTest($url);
 		if (!preg_match("/\b(?:(?:https?|ftp):\/\/|www\.)" .
-			"[-a-z0-9+&@#\/%?=~_|!:,.;]*[-a-z0-9+&@#\/%=~_|]/i", $str)) {
+			"[-a-z0-9+&@#\/%?=~_|!:,.;]*[-a-z0-9+&@#\/%=~_|]/i", $url)) {
 			return false;
+		} elseif (strpos($url, "http") !== 0 || !(strpos($url, '://') >= 4)) {
+
+			return false;
+		} else {
+			return true;
 		}
-		return true;
 	}
 
 	/**
@@ -160,7 +167,7 @@ class Security
 	 * @param string $email Email address
 	 * @return string
 	 * @author Seyed Mahmoud Mousavi
- 	 * @version 1.0.0
+	 * @version 1.0.0
 	 * @since 1.0.0
 	 */
 	static public function sanitizeEmail(string $email): string
@@ -177,7 +184,7 @@ class Security
 	 * @param string $url Input URL
 	 * @return string
 	 * @author Seyed Mahmoud Mousavi
- 	 * @version 1.0.0
+	 * @version 1.0.0
 	 * @since 1.0.0
 	 */
 	static public function sanitizeUrl(string $url): string
@@ -196,7 +203,7 @@ class Security
 	 * patternString("Hello","eHlo"); => Return true beacouse 'H' is in pattern
 	 * @return boolean
 	 * @author Seyed Mahmoud Mousavi
- 	 * @version 1.0.0
+	 * @version 1.0.0
 	 * @since 1.0.0
 	 */
 	static public function patternString(
@@ -232,7 +239,7 @@ class Security
 	 * @param integer $cost Your cost default is '10'
 	 * @return string
 	 * @author Seyed Mahmoud Mousavi
- 	 * @version 1.0.0
+	 * @version 1.0.0
 	 * @since 1.0.0
 	 */
 	static public function encrypt(string $str, int $cost = 10): string
@@ -252,7 +259,7 @@ class Security
 	 * @param string $hash Hashed str
 	 * @return boolean
 	 * @author Seyed Mahmoud Mousavi
- 	 * @version 1.0.0
+	 * @version 1.0.0
 	 * @since 1.0.0
 	 */
 	static public function decrypt(string $str, string $hash): bool
@@ -268,7 +275,7 @@ class Security
 	 * @param string $salt Your salt, default is 'SALT' in your config.php file
 	 * @return void
 	 * @author Seyed Mahmoud Mousavi
- 	 * @version 1.0.0
+	 * @version 1.0.0
 	 * @since 1.0.0
 	 */
 	static public function addSalt(string $str, string $salt = SALT)
@@ -285,7 +292,7 @@ class Security
 	 * @param string $salt Your salt, default is 'SALT' in config.php file
 	 * @return void
 	 * @author Seyed Mahmoud Mousavi
- 	 * @version 1.0.0
+	 * @version 1.0.0
 	 * @since 1.0.0
 	 */
 	static public function removeSalt(string $str, string $salt = SALT)
