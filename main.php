@@ -54,8 +54,7 @@ if ($_SERVER['SERVER_PORT'] === 443) {
 		'WEB_ADDRESS',
 		'https://' . $_SERVER["HTTP_HOST"]
 	);
-}
-else{
+} else {
 	define(
 		'WEB_ADDRESS',
 		'http://' . $_SERVER["HTTP_HOST"]
@@ -387,7 +386,7 @@ function et(string $string): bool
  *  
  * @return bool | string Return false or string pattern
  * @author Seyed Mahmoud Mousavi
- * @version 1.0.0
+ * @version 1.0.1
  */
 function randomatic(string $case = "a", int $length = 1)
 {
@@ -411,20 +410,6 @@ function randomatic(string $case = "a", int $length = 1)
 	 * @var string $case Pattern methodS : A|N|L|U|NL|NU|LU
 	 */
 	$case = trim(strtolower($case));
-	/**
-	 * Convert case to lower and fix them
-	 */
-	switch ($case) {
-		case 'ln':
-			$case = "nl";
-			break;
-		case 'un':
-			$case = "nu";
-			break;
-		case 'ul':
-			$case = "lu";
-			break;
-	}
 
 	/**
 	 * Generate random string with your option
@@ -446,16 +431,19 @@ function randomatic(string $case = "a", int $length = 1)
 				$result .= (string)rand(0, 9);
 			break;
 
+		case 'ln':
 		case 'nl':
 			for ($i = 0; $i < $length; $i++)
 				$result .= ($lowerChars . $numberChars)[rand(0, 35)];
 			break;
 
 		case 'nu':
+		case 'un':
 			for ($i = 0; $i < $length; $i++)
 				$result .= ($upperChars . $numberChars)[rand(0, 35)];
 			break;
 
+		case 'ul':
 		case 'lu':
 			for ($i = 0; $i < $length; $i++)
 				$result .= ($upperChars . $lowerChars)[rand(0, 51)];
