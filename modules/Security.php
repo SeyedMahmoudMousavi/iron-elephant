@@ -14,21 +14,39 @@ class Security
 {
 
 	/**
-	 * Trim space and slashes and return safe string
+	 * htmlspecialchars + check length limit and 
+	 * use a callback function for validatin with 
+	 * another method return safe string
 	 *
 	 * @param string $str Input string 
-	 * @return string
+	 * @return string|false
 	 * 
 	 * @author Seyed Mahmoud Mousavi
-	 * @version 1.0.0
+	 * @version 1.0.1
 	 * @since 1.0.0
 	 */
-	static public function inputTest(string $str): string
+	static public function inputTest(string $str, int $length_limit = 0, callable $validate = null): string|false
 	{
 
-		$str = trim($str);
-		$str = stripslashes($str);
 		$str = htmlspecialchars($str);
+
+		if ($validate !== null) {
+			# check argu for pass a function variable?
+
+			if ($validate($str) === false) {
+				# validate whith another functions ard return result
+				return false;
+			}
+		}
+
+		if ($length_limit > 0) {
+			# check string length
+
+			if (strlen($str) > $length_limit) {
+				return false;
+			}
+		}
+
 		return $str;
 	}
 
@@ -41,12 +59,12 @@ class Security
 	 * @version 1.0.0
 	 * @since 1.0.0
 	 */
-	static public function validateInt(int $int): bool
+	static public function validateInt($var): bool
 	{
 
 		if (
-			filter_var($int, FILTER_VALIDATE_INT) === 0 ||
-			!filter_var($int, FILTER_VALIDATE_INT) === false
+			filter_var($var, FILTER_VALIDATE_INT) === 0 ||
+			!filter_var($var, FILTER_VALIDATE_INT) === false
 		) {
 			return true;
 		} else {
