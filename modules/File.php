@@ -317,10 +317,10 @@ class File
 	 * @return void string|boolean
 	 * 
 	 * @author Seyed Mahmoud Mousavi
-	 * @version 1.0.0
+	 * @version 1.0.1
 	 * @since 1.0.0
 	 */
-	static function upload(
+	function upload(
 		string $form_name,
 		string $target_dir,
 		int $max_upload_size = 0,
@@ -355,8 +355,7 @@ class File
 			if (
 				!empty($target_dir)
 			) {
-
-				File::makeDir($target_dir);
+				$this->makeDir($target_dir);
 			} else {
 				echo "Function " . __FUNCTION__ .
 					" : Argumant is empty."
@@ -751,10 +750,10 @@ class File
 	 * @return boolean
 	 * 
 	 * @author Seyed Mahmoud Mousavi
-	 * @version 1.0.0
+	 * @version 1.0.1
 	 * @since 1.0.0
 	 */
-	function makeDir(string $target_dir = null): bool
+	public function makeDir(string $target_dir = null): bool
 	{
 		try {
 
