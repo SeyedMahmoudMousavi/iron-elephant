@@ -320,7 +320,7 @@ class File
 	 * @version 1.0.1
 	 * @since 1.0.0
 	 */
-	function upload(
+	public function upload(
 		string $form_name,
 		string $target_dir,
 		int $max_upload_size = 0,
