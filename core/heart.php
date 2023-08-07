@@ -14,6 +14,7 @@ use IronElephant\File;
  * 
  * @author Seyed Mahmoud Mousavi
  * @version 1.0.0
+ * @since 1.0.0
  */
 function hr()
 {
@@ -25,6 +26,7 @@ function hr()
  * @return void
  * @author Seyed Mahmoud Mousavi
  * @version 1.0.0
+ * @since 1.0.0
  */
 function br()
 {
@@ -40,6 +42,7 @@ function br()
  * @return void 
  * @author Seyed Mahmoud Mousavi
  * @version 1.0.0
+ * @since 1.0.0
  */
 function d($data = "d function stop", $line_number = "", $file_name = "")
 {
@@ -70,6 +73,7 @@ function d($data = "d function stop", $line_number = "", $file_name = "")
  * @return void
  * @author Seyed Mahmoud Mousavi
  * @version 1.0.0
+ * @since 1.0.0
  */
 function dd($data = "dd function stop", $line_number = "", $file_name = "")
 {
@@ -101,6 +105,7 @@ function dd($data = "dd function stop", $line_number = "", $file_name = "")
  * @return void
  * @author Seyed Mahmoud Mousavi
  * @version 1.0.0
+ * @since 1.0.0
  */
 function dr($data = "dr function stop", $line_number = "", $file_name = "")
 {
@@ -130,6 +135,7 @@ function dr($data = "dr function stop", $line_number = "", $file_name = "")
  * @return void
  * @author Seyed Mahmoud Mousavi
  * @version 1.0.0
+ * @since 1.0.0
  */
 function js(string $input)
 {
@@ -146,6 +152,7 @@ function js(string $input)
  * @return void
  * @author Seyed Mahmoud Mousavi
  * @version 1.0.0
+ * @since 1.0.0
  */
 function change_url(string $url = "/", int $statusCode = 303)
 {
@@ -162,6 +169,7 @@ function change_url(string $url = "/", int $statusCode = 303)
  * @return void
  * @author Seyed Mahmoud Mousavi
  * @version 1.0.0
+ * @since 1.0.0
  */
 function change_url_html(string $url = "/", int $sec = 0)
 {
@@ -178,6 +186,7 @@ function change_url_html(string $url = "/", int $sec = 0)
  * @return void
  * @author Seyed Mahmoud Mousavi
  * @version 1.0.0
+ * @since 1.0.0
  */
 function change_url_js_1($url = "/")
 {
@@ -194,6 +203,7 @@ function change_url_js_1($url = "/")
  * @return void
  * @author Seyed Mahmoud Mousavi
  * @version 1.0.0
+ * @since 1.0.0
  */
 function change_url_js_2($url = "/")
 {
@@ -208,6 +218,7 @@ function change_url_js_2($url = "/")
  * @return void
  * @author Seyed Mahmoud Mousavi
  * @version 1.0.0
+ * @since 1.0.0
  */
 function change_url_js_3($url = "/")
 {
@@ -222,6 +233,7 @@ function change_url_js_3($url = "/")
  * @return void
  * @author Seyed Mahmoud Mousavi
  * @version 1.0.0
+ * @since 1.0.0
  */
 function change_url_full($url = "/")
 {
@@ -237,6 +249,7 @@ function change_url_full($url = "/")
  * @return boolean
  * @author Seyed Mahmoud Mousavi
  * @version 1.0.0
+ * @since 1.0.0
  */
 function is_post(): bool
 {
@@ -254,6 +267,7 @@ function is_post(): bool
  * @return boolean
  * @author Seyed Mahmoud Mousavi
  * @version 1.0.0
+ * @since 1.0.0
  */
 function is_get(): bool
 {
@@ -272,6 +286,7 @@ function is_get(): bool
  * @return boolean
  * @author Seyed Mahmoud Mousavi
  * @version 1.0.0
+ * @since 1.0.0
  */
 function issv(string $name): bool
 {
@@ -288,6 +303,7 @@ function issv(string $name): bool
  * @return void
  * @author Seyed Mahmoud Mousavi
  * @version 1.0.0
+ * @since 1.0.0
  */
 function esv(string $name)
 {
@@ -302,6 +318,7 @@ function esv(string $name)
  * @return void | $_SESSION["$name"]
  * @author Seyed Mahmoud Mousavi
  * @version 1.0.0
+ * @since 1.0.0
  */
 function rsv(string $name)
 {
@@ -316,6 +333,7 @@ function rsv(string $name)
  * @return boolean
  * @author Seyed Mahmoud Mousavi
  * @version 1.0.0
+ * @since 1.0.0
  */
 function et(string $string): bool
 {
@@ -333,6 +351,7 @@ function et(string $string): bool
  * @return bool | string Return false or string pattern
  * @author Seyed Mahmoud Mousavi
  * @version 1.0.1
+ * @since 1.0.0
  */
 function randomatic(string $case = "a", int $length = 1)
 {
@@ -415,6 +434,7 @@ function randomatic(string $case = "a", int $length = 1)
  * @return boolean
  * @author Seyed Mahmoud Mousavi
  * @version 1.0.0
+ * @since 1.0.0
  */
 function check_cookie(): bool
 {
@@ -431,6 +451,7 @@ function check_cookie(): bool
  * @return void
  * @author Seyed Mahmoud Mousavi
  * @version 1.0.0
+ * @since 1.0.0
  */
 function cookie_value(string $cookie_name)
 {
@@ -447,6 +468,7 @@ function cookie_value(string $cookie_name)
  * @return string
  * @author Seyed Mahmoud Mousavi
  * @version 1.0.0
+ * @since 1.0.0
  */
 function get_url(bool $url = false): string
 {
@@ -483,6 +505,7 @@ function get_url(bool $url = false): string
  * @return boolean
  * @author Seyed Mahmoud Mousavi
  * @version 1.0.0
+ * @since 1.0.0
  */
 function createSalt(int $length = 32, $save_old_to_file = ".salt.backup"): bool
 {
@@ -562,6 +585,7 @@ $errors = [];
  * @param string $name name of error
  * @param mixed $value value of error
  * @return void
+ * @author Seyed Mahmoud Mousavi
  * @version 1.0.0
  * @since 1.0.1
  */
