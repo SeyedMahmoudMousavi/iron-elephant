@@ -10,9 +10,6 @@ require_once "config.php";
 require_once "alternative_func.php";
 require_once "core/heart.php";
 
-use IronElephant\File;
-
-
 /**
  * @var mixed $my_php_version Get php version
  */
@@ -50,14 +47,19 @@ date_default_timezone_set(TIME_ZONE);
 /**
  * @var string WEB_ADDRESS Create const web address
  */
-if ($_SERVER['SERVER_PORT'] === 443) {
-	define(
-		'WEB_ADDRESS',
-		'https://' . $_SERVER["HTTP_HOST"]
-	);
-} else {
+
+
+if (isset($_SERVER['SERVER_PORT']) && isset($_SERVER['HTTP_HOST'])) {
+
 	define(
 		'WEB_ADDRESS',
 		'http://' . $_SERVER["HTTP_HOST"]
 	);
+
+	if ($_SERVER['SERVER_PORT'] === 443) {
+		define(
+			'WEB_ADDRESS',
+			'https://' . $_SERVER["HTTP_HOST"]
+		);
+	}
 }
