@@ -13,7 +13,7 @@
         require_once 'vendor/autoload.php';
 
         // load iron classes
-        // use Codecrafted\IronElephant; [db,File,Security]
+        // use Codecrafted\IronElephant; [DB,File,Validate]
 
 2.  Edit and customize [config](https://github.com/SeyedMahmoudMousavi/iron-elephant/blob/master/src/configs/) file :
 

@@ -4,8 +4,6 @@
  * This is heart of IRON Library ( helper functions )
  */
 
-require_once "config.php";
-
 /**
  * Drop a horizontal line
  *
@@ -327,9 +325,45 @@ function error($name = null, $value = null)
         return $_SESSION['error'];
     }
     if (is_null($value)) {
-        return $_SESSION["$name"];
+        return $_SESSION["error"]["$name"];
     }
-    if (isset($_SESSION["$name"])) {
+    if (isset($_SESSION["error"]["$name"])) {
         $_SESSION["$name"] = $value;
     }
+}
+
+/**
+ * get Request data
+ *
+ * @param $name
+ * @return void
+ */
+
+function request(string $name)
+{
+    return $_REQUEST["$name"];
+}
+
+/**
+ * get Post data 
+ *
+ * @param $name
+ * @return void
+ */
+
+ function post(string $name)
+ {
+     return $_POST["$name"];
+ }
+
+ /**
+ * get Get data 
+ *
+ * @param $name
+ * @return void
+ */
+
+function get(string $name)
+{
+    return $_GET["$name"];
 }
