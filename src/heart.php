@@ -315,20 +315,15 @@ function my_address(bool $url = false): string
  * @param $value
  * @return void
  */
-function error($name = null, $value = null)
+function error($value = null)
 {
     if (!isset($_SESSION['error'])) {
-        $_SESSION['error'] = [];
-    }
-
-    if (is_null($name)) {
-        return $_SESSION['error'];
+        $_SESSION['error'] = '';
     }
     if (is_null($value)) {
-        return $_SESSION["error"]["$name"];
-    }
-    if (isset($_SESSION["error"]["$name"])) {
-        $_SESSION["$name"] = $value;
+        return $_SESSION['error'];
+    } else {
+        $_SESSION["error"] = $value;
     }
 }
 
@@ -336,7 +331,7 @@ function error($name = null, $value = null)
  * get Request data
  *
  * @param $name
- * @return void
+ * @return mixed
  */
 
 function request(string $name)
@@ -348,19 +343,19 @@ function request(string $name)
  * get Post data 
  *
  * @param $name
- * @return void
+ * @return mixed
  */
 
- function post(string $name)
- {
-     return $_POST["$name"];
- }
+function post(string $name)
+{
+    return $_POST["$name"];
+}
 
- /**
+/**
  * get Get data 
  *
  * @param $name
- * @return void
+ * @return mixed
  */
 
 function get(string $name)
