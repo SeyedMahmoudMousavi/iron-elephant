@@ -56,7 +56,7 @@
                     <section class="phpdocumentor-sidebar__category">
             <h2 class="phpdocumentor-sidebar__category-header">Namespaces</h2>
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
-    <a href="namespaces/ironelephant.html" class="">IronElephant</a>
+    <a href="namespaces/iron.html" class="">Iron</a>
 </h4>
 
                         </section>
@@ -83,12 +83,12 @@
 
             <div class="phpdocumentor-column -eight phpdocumentor-content">
                     <ul class="phpdocumentor-breadcrumbs">
-            <li class="phpdocumentor-breadcrumb"><a href="namespaces/ironelephant.html">IronElephant</a></li>
+            <li class="phpdocumentor-breadcrumb"><a href="namespaces/iron.html">Iron</a></li>
     </ul>
 
     <article class="phpdocumentor-element -class">
         <h2 class="phpdocumentor-content__title">
-    Security
+    Validate
 
     
             <div class="phpdocumentor-element__package">
@@ -102,13 +102,13 @@
     </h2>
 
         <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="modules/Security.php"><a href="files/modules-security.html"><abbr title="modules/Security.php">Security.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Validate.php"><a href="files/src-validate.html"><abbr title="src/Validate.php">Validate.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">13</span>
+    <span class="phpdocumentor-element-found-in__line">11</span>
 
     </aside>
 
-            <p class="phpdocumentor-summary">Security class have many method for sanitizing validating and
+            <p class="phpdocumentor-summary">Validate class have many method for sanitizing validating and
 increase seafety of your inputs</p>
 
 
@@ -126,98 +126,86 @@ increase seafety of your inputs</p>
 
 <dl class="phpdocumentor-table-of-contents">
                         <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/IronElephant-Security.html#method_addSalt">addSalt()</a>
-    <span>
-                                &nbsp;: void    </span>
-</dt>
-<dd>Add salt to your string</dd>
-
-            <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/IronElephant-Security.html#method_decrypt">decrypt()</a>
+    <a href="classes/Iron-Validate.html#method_decrypt">decrypt()</a>
     <span>
                                 &nbsp;: bool    </span>
 </dt>
 <dd>Decrypt pass and compare with hashed str and return result</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/IronElephant-Security.html#method_encrypt">encrypt()</a>
+    <a href="classes/Iron-Validate.html#method_encrypt">encrypt()</a>
     <span>
                                 &nbsp;: string    </span>
 </dt>
 <dd>Hash a string</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/IronElephant-Security.html#method_inputTest">inputTest()</a>
+    <a href="classes/Iron-Validate.html#method_inputTest">inputTest()</a>
     <span>
-                                &nbsp;: string    </span>
+                                &nbsp;: string|false    </span>
 </dt>
-<dd>Trim space and slashes and return safe string</dd>
+<dd>htmlspecialchars + check length limit and
+use a callback function for validatin with
+another method return safe string</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/IronElephant-Security.html#method_patternString">patternString()</a>
+    <a href="classes/Iron-Validate.html#method_patternString">patternString()</a>
     <span>
                                 &nbsp;: bool    </span>
 </dt>
 <dd>compare and matches string with your pattern</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/IronElephant-Security.html#method_removeSalt">removeSalt()</a>
-    <span>
-                                &nbsp;: void    </span>
-</dt>
-<dd>Removing salt from your string</dd>
-
-            <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/IronElephant-Security.html#method_sanitizeEmail">sanitizeEmail()</a>
+    <a href="classes/Iron-Validate.html#method_sanitizeEmail">sanitizeEmail()</a>
     <span>
                                 &nbsp;: string    </span>
 </dt>
 <dd>Sanitize email address</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/IronElephant-Security.html#method_sanitizeUrl">sanitizeUrl()</a>
+    <a href="classes/Iron-Validate.html#method_sanitizeUrl">sanitizeUrl()</a>
     <span>
                                 &nbsp;: string    </span>
 </dt>
 <dd>Sanitizing URL</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/IronElephant-Security.html#method_validateEmail">validateEmail()</a>
+    <a href="classes/Iron-Validate.html#method_validateEmail">validateEmail()</a>
     <span>
                                 &nbsp;: bool    </span>
 </dt>
 <dd>Validating email address</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/IronElephant-Security.html#method_validateInt">validateInt()</a>
+    <a href="classes/Iron-Validate.html#method_validateInt">validateInt()</a>
     <span>
                                 &nbsp;: bool    </span>
 </dt>
 <dd>Validate inreger</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/IronElephant-Security.html#method_validateIp">validateIp()</a>
+    <a href="classes/Iron-Validate.html#method_validateIp">validateIp()</a>
     <span>
                                 &nbsp;: bool    </span>
 </dt>
 <dd>Vaklidating ip</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/IronElephant-Security.html#method_validateIpv6">validateIpv6()</a>
+    <a href="classes/Iron-Validate.html#method_validateIpv6">validateIpv6()</a>
     <span>
                                 &nbsp;: bool    </span>
 </dt>
 <dd>Validating IPv6</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/IronElephant-Security.html#method_validateUrl">validateUrl()</a>
+    <a href="classes/Iron-Validate.html#method_validateUrl">validateUrl()</a>
     <span>
                                 &nbsp;: bool    </span>
 </dt>
 <dd>Validating URL</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/IronElephant-Security.html#method_webAddressValidate">webAddressValidate()</a>
+    <a href="classes/Iron-Validate.html#method_webAddressValidate">webAddressValidate()</a>
     <span>
                                 &nbsp;: bool    </span>
 </dt>
@@ -234,93 +222,8 @@ increase seafety of your inputs</p>
             <section class="phpdocumentor-methods">
         <h3 class="phpdocumentor-elements__header" id="methods">
             Methods
-            <a href="classes/IronElephant-Security.html#methods" class="headerlink"><i class="fas fa-link"></i></a>
+            <a href="classes/Iron-Validate.html#methods" class="headerlink"><i class="fas fa-link"></i></a>
         </h3>
-                    <article
-        class="phpdocumentor-element
-            -method
-            -public
-                                    -static                    "
->
-    <h4 class="phpdocumentor-element__name" id="method_addSalt">
-        addSalt()
-        <a href="classes/IronElephant-Security.html#method_addSalt" class="headerlink"><i class="fas fa-link"></i></a>
-    </h4>
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="modules/Security.php"><a href="files/modules-security.html"><abbr title="modules/Security.php">Security.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">274</span>
-
-    </aside>
-
-        <p class="phpdocumentor-summary">Add salt to your string</p>
-
-    <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">public</span>
-            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">addSalt</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$str</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$salt</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">SALT</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
-
-    
-        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
-    <dl class="phpdocumentor-argument-list">
-                    <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$str</span>
-                : <span class="phpdocumentor-signature__argument__return-type">string</span>
-                            </dt>
-            <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>string</p>
-</section>
-
-            </dd>
-                    <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$salt</span>
-                : <span class="phpdocumentor-signature__argument__return-type">string</span>
-                 = <span class="phpdocumentor-signature__argument__default-value">SALT</span>            </dt>
-            <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>Your salt, default is 'SALT' in your config.php file</p>
-</section>
-
-            </dd>
-            </dl>
-
-    
-    <h5 class="phpdocumentor-tag-list__heading" id="tags">
-        Tags
-        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
-    </h5>
-    <dl class="phpdocumentor-tag-list">
-                                    <dt class="phpdocumentor-tag-list__entry">
-                    <span class="phpdocumentor-tag__name">author</span>
-                </dt>
-                <dd class="phpdocumentor-tag-list__definition">
-                                                                                
-                                                 <section class="phpdocumentor-description"><p>Seyed Mahmoud Mousavi</p>
-</section>
-
-                                    </dd>
-                                                <dt class="phpdocumentor-tag-list__entry">
-                    <span class="phpdocumentor-tag__name">version</span>
-                </dt>
-                <dd class="phpdocumentor-tag-list__definition">
-                                            <span class="phpdocumentor-tag-link">1.0.0</span>
-                                                                                
-                                             
-                                    </dd>
-                                                <dt class="phpdocumentor-tag-list__entry">
-                    <span class="phpdocumentor-tag__name">since</span>
-                </dt>
-                <dd class="phpdocumentor-tag-list__definition">
-                                            <span class="phpdocumentor-tag-link">1.0.0</span>
-                                                                                
-                                             
-                                    </dd>
-                        </dl>
-
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">void</span>
-            &mdash;
-        
-    
-</article>
                     <article
         class="phpdocumentor-element
             -method
@@ -329,12 +232,12 @@ increase seafety of your inputs</p>
 >
     <h4 class="phpdocumentor-element__name" id="method_decrypt">
         decrypt()
-        <a href="classes/IronElephant-Security.html#method_decrypt" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/Iron-Validate.html#method_decrypt" class="headerlink"><i class="fas fa-link"></i></a>
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="modules/Security.php"><a href="files/modules-security.html"><abbr title="modules/Security.php">Security.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Validate.php"><a href="files/src-validate.html"><abbr title="src/Validate.php">Validate.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">258</span>
+    <span class="phpdocumentor-element-found-in__line">257</span>
 
     </aside>
 
@@ -382,22 +285,6 @@ increase seafety of your inputs</p>
 </section>
 
                                     </dd>
-                                                <dt class="phpdocumentor-tag-list__entry">
-                    <span class="phpdocumentor-tag__name">version</span>
-                </dt>
-                <dd class="phpdocumentor-tag-list__definition">
-                                            <span class="phpdocumentor-tag-link">1.0.0</span>
-                                                                                
-                                             
-                                    </dd>
-                                                <dt class="phpdocumentor-tag-list__entry">
-                    <span class="phpdocumentor-tag__name">since</span>
-                </dt>
-                <dd class="phpdocumentor-tag-list__definition">
-                                            <span class="phpdocumentor-tag-link">1.0.0</span>
-                                                                                
-                                             
-                                    </dd>
                         </dl>
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
@@ -414,12 +301,12 @@ increase seafety of your inputs</p>
 >
     <h4 class="phpdocumentor-element__name" id="method_encrypt">
         encrypt()
-        <a href="classes/IronElephant-Security.html#method_encrypt" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/Iron-Validate.html#method_encrypt" class="headerlink"><i class="fas fa-link"></i></a>
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="modules/Security.php"><a href="files/modules-security.html"><abbr title="modules/Security.php">Security.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Validate.php"><a href="files/src-validate.html"><abbr title="src/Validate.php">Validate.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">238</span>
+    <span class="phpdocumentor-element-found-in__line">239</span>
 
     </aside>
 
@@ -467,22 +354,6 @@ increase seafety of your inputs</p>
 </section>
 
                                     </dd>
-                                                <dt class="phpdocumentor-tag-list__entry">
-                    <span class="phpdocumentor-tag__name">version</span>
-                </dt>
-                <dd class="phpdocumentor-tag-list__definition">
-                                            <span class="phpdocumentor-tag-link">1.0.0</span>
-                                                                                
-                                             
-                                    </dd>
-                                                <dt class="phpdocumentor-tag-list__entry">
-                    <span class="phpdocumentor-tag__name">since</span>
-                </dt>
-                <dd class="phpdocumentor-tag-list__definition">
-                                            <span class="phpdocumentor-tag-link">1.0.0</span>
-                                                                                
-                                             
-                                    </dd>
                         </dl>
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
@@ -499,20 +370,22 @@ increase seafety of your inputs</p>
 >
     <h4 class="phpdocumentor-element__name" id="method_inputTest">
         inputTest()
-        <a href="classes/IronElephant-Security.html#method_inputTest" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/Iron-Validate.html#method_inputTest" class="headerlink"><i class="fas fa-link"></i></a>
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="modules/Security.php"><a href="files/modules-security.html"><abbr title="modules/Security.php">Security.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Validate.php"><a href="files/src-validate.html"><abbr title="src/Validate.php">Validate.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">26</span>
+    <span class="phpdocumentor-element-found-in__line">24</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Trim space and slashes and return safe string</p>
+        <p class="phpdocumentor-summary">htmlspecialchars + check length limit and
+use a callback function for validatin with
+another method return safe string</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">inputTest</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$str</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string</span></code>
+            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">inputTest</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$str</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$length_limit</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">callable&nbsp;</span><span class="phpdocumentor-signature__argument__name">$validate</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string|false</span></code>
 
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
@@ -524,6 +397,22 @@ increase seafety of your inputs</p>
             <dd class="phpdocumentor-argument-list__definition">
                     <section class="phpdocumentor-description"><p>Input string</p>
 </section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$length_limit</span>
+                : <span class="phpdocumentor-signature__argument__return-type">int</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"></section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$validate</span>
+                : <span class="phpdocumentor-signature__argument__return-type">callable</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"></section>
 
             </dd>
             </dl>
@@ -543,26 +432,10 @@ increase seafety of your inputs</p>
 </section>
 
                                     </dd>
-                                                <dt class="phpdocumentor-tag-list__entry">
-                    <span class="phpdocumentor-tag__name">version</span>
-                </dt>
-                <dd class="phpdocumentor-tag-list__definition">
-                                            <span class="phpdocumentor-tag-link">1.0.0</span>
-                                                                                
-                                             
-                                    </dd>
-                                                <dt class="phpdocumentor-tag-list__entry">
-                    <span class="phpdocumentor-tag__name">since</span>
-                </dt>
-                <dd class="phpdocumentor-tag-list__definition">
-                                            <span class="phpdocumentor-tag-link">1.0.0</span>
-                                                                                
-                                             
-                                    </dd>
                         </dl>
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">string</span>
+    <span class="phpdocumentor-signature__response_type">string|false</span>
             &mdash;
         
     
@@ -575,12 +448,12 @@ increase seafety of your inputs</p>
 >
     <h4 class="phpdocumentor-element__name" id="method_patternString">
         patternString()
-        <a href="classes/IronElephant-Security.html#method_patternString" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/Iron-Validate.html#method_patternString" class="headerlink"><i class="fas fa-link"></i></a>
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="modules/Security.php"><a href="files/modules-security.html"><abbr title="modules/Security.php">Security.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Validate.php"><a href="files/src-validate.html"><abbr title="src/Validate.php">Validate.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">202</span>
+    <span class="phpdocumentor-element-found-in__line">205</span>
 
     </aside>
 
@@ -638,22 +511,6 @@ patternString(&quot;Hello&quot;,&quot;eHlo&quot;); =&gt; Return true beacouse 'H
 </section>
 
                                     </dd>
-                                                <dt class="phpdocumentor-tag-list__entry">
-                    <span class="phpdocumentor-tag__name">version</span>
-                </dt>
-                <dd class="phpdocumentor-tag-list__definition">
-                                            <span class="phpdocumentor-tag-link">1.0.0</span>
-                                                                                
-                                             
-                                    </dd>
-                                                <dt class="phpdocumentor-tag-list__entry">
-                    <span class="phpdocumentor-tag__name">since</span>
-                </dt>
-                <dd class="phpdocumentor-tag-list__definition">
-                                            <span class="phpdocumentor-tag-link">1.0.0</span>
-                                                                                
-                                             
-                                    </dd>
                         </dl>
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
@@ -668,99 +525,14 @@ patternString(&quot;Hello&quot;,&quot;eHlo&quot;); =&gt; Return true beacouse 'H
             -public
                                     -static                    "
 >
-    <h4 class="phpdocumentor-element__name" id="method_removeSalt">
-        removeSalt()
-        <a href="classes/IronElephant-Security.html#method_removeSalt" class="headerlink"><i class="fas fa-link"></i></a>
-    </h4>
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="modules/Security.php"><a href="files/modules-security.html"><abbr title="modules/Security.php">Security.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">291</span>
-
-    </aside>
-
-        <p class="phpdocumentor-summary">Removing salt from your string</p>
-
-    <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">public</span>
-            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">removeSalt</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$str</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$salt</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">SALT</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
-
-    
-        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
-    <dl class="phpdocumentor-argument-list">
-                    <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$str</span>
-                : <span class="phpdocumentor-signature__argument__return-type">string</span>
-                            </dt>
-            <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>Your string</p>
-</section>
-
-            </dd>
-                    <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$salt</span>
-                : <span class="phpdocumentor-signature__argument__return-type">string</span>
-                 = <span class="phpdocumentor-signature__argument__default-value">SALT</span>            </dt>
-            <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>Your salt, default is 'SALT' in config.php file</p>
-</section>
-
-            </dd>
-            </dl>
-
-    
-    <h5 class="phpdocumentor-tag-list__heading" id="tags">
-        Tags
-        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
-    </h5>
-    <dl class="phpdocumentor-tag-list">
-                                    <dt class="phpdocumentor-tag-list__entry">
-                    <span class="phpdocumentor-tag__name">author</span>
-                </dt>
-                <dd class="phpdocumentor-tag-list__definition">
-                                                                                
-                                                 <section class="phpdocumentor-description"><p>Seyed Mahmoud Mousavi</p>
-</section>
-
-                                    </dd>
-                                                <dt class="phpdocumentor-tag-list__entry">
-                    <span class="phpdocumentor-tag__name">version</span>
-                </dt>
-                <dd class="phpdocumentor-tag-list__definition">
-                                            <span class="phpdocumentor-tag-link">1.0.0</span>
-                                                                                
-                                             
-                                    </dd>
-                                                <dt class="phpdocumentor-tag-list__entry">
-                    <span class="phpdocumentor-tag__name">since</span>
-                </dt>
-                <dd class="phpdocumentor-tag-list__definition">
-                                            <span class="phpdocumentor-tag-link">1.0.0</span>
-                                                                                
-                                             
-                                    </dd>
-                        </dl>
-
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">void</span>
-            &mdash;
-        
-    
-</article>
-                    <article
-        class="phpdocumentor-element
-            -method
-            -public
-                                    -static                    "
->
     <h4 class="phpdocumentor-element__name" id="method_sanitizeEmail">
         sanitizeEmail()
-        <a href="classes/IronElephant-Security.html#method_sanitizeEmail" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/Iron-Validate.html#method_sanitizeEmail" class="headerlink"><i class="fas fa-link"></i></a>
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="modules/Security.php"><a href="files/modules-security.html"><abbr title="modules/Security.php">Security.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Validate.php"><a href="files/src-validate.html"><abbr title="src/Validate.php">Validate.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">166</span>
+    <span class="phpdocumentor-element-found-in__line">173</span>
 
     </aside>
 
@@ -799,22 +571,6 @@ patternString(&quot;Hello&quot;,&quot;eHlo&quot;); =&gt; Return true beacouse 'H
 </section>
 
                                     </dd>
-                                                <dt class="phpdocumentor-tag-list__entry">
-                    <span class="phpdocumentor-tag__name">version</span>
-                </dt>
-                <dd class="phpdocumentor-tag-list__definition">
-                                            <span class="phpdocumentor-tag-link">1.0.0</span>
-                                                                                
-                                             
-                                    </dd>
-                                                <dt class="phpdocumentor-tag-list__entry">
-                    <span class="phpdocumentor-tag__name">since</span>
-                </dt>
-                <dd class="phpdocumentor-tag-list__definition">
-                                            <span class="phpdocumentor-tag-link">1.0.0</span>
-                                                                                
-                                             
-                                    </dd>
                         </dl>
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
@@ -831,12 +587,12 @@ patternString(&quot;Hello&quot;,&quot;eHlo&quot;); =&gt; Return true beacouse 'H
 >
     <h4 class="phpdocumentor-element__name" id="method_sanitizeUrl">
         sanitizeUrl()
-        <a href="classes/IronElephant-Security.html#method_sanitizeUrl" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/Iron-Validate.html#method_sanitizeUrl" class="headerlink"><i class="fas fa-link"></i></a>
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="modules/Security.php"><a href="files/modules-security.html"><abbr title="modules/Security.php">Security.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Validate.php"><a href="files/src-validate.html"><abbr title="src/Validate.php">Validate.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">183</span>
+    <span class="phpdocumentor-element-found-in__line">188</span>
 
     </aside>
 
@@ -875,22 +631,6 @@ patternString(&quot;Hello&quot;,&quot;eHlo&quot;); =&gt; Return true beacouse 'H
 </section>
 
                                     </dd>
-                                                <dt class="phpdocumentor-tag-list__entry">
-                    <span class="phpdocumentor-tag__name">version</span>
-                </dt>
-                <dd class="phpdocumentor-tag-list__definition">
-                                            <span class="phpdocumentor-tag-link">1.0.0</span>
-                                                                                
-                                             
-                                    </dd>
-                                                <dt class="phpdocumentor-tag-list__entry">
-                    <span class="phpdocumentor-tag__name">since</span>
-                </dt>
-                <dd class="phpdocumentor-tag-list__definition">
-                                            <span class="phpdocumentor-tag-link">1.0.0</span>
-                                                                                
-                                             
-                                    </dd>
                         </dl>
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
@@ -907,12 +647,12 @@ patternString(&quot;Hello&quot;,&quot;eHlo&quot;); =&gt; Return true beacouse 'H
 >
     <h4 class="phpdocumentor-element__name" id="method_validateEmail">
         validateEmail()
-        <a href="classes/IronElephant-Security.html#method_validateEmail" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/Iron-Validate.html#method_validateEmail" class="headerlink"><i class="fas fa-link"></i></a>
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="modules/Security.php"><a href="files/modules-security.html"><abbr title="modules/Security.php">Security.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Validate.php"><a href="files/src-validate.html"><abbr title="src/Validate.php">Validate.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">106</span>
+    <span class="phpdocumentor-element-found-in__line">112</span>
 
     </aside>
 
@@ -951,22 +691,6 @@ patternString(&quot;Hello&quot;,&quot;eHlo&quot;); =&gt; Return true beacouse 'H
 </section>
 
                                     </dd>
-                                                <dt class="phpdocumentor-tag-list__entry">
-                    <span class="phpdocumentor-tag__name">version</span>
-                </dt>
-                <dd class="phpdocumentor-tag-list__definition">
-                                            <span class="phpdocumentor-tag-link">1.0.0</span>
-                                                                                
-                                             
-                                    </dd>
-                                                <dt class="phpdocumentor-tag-list__entry">
-                    <span class="phpdocumentor-tag__name">since</span>
-                </dt>
-                <dd class="phpdocumentor-tag-list__definition">
-                                            <span class="phpdocumentor-tag-link">1.0.0</span>
-                                                                                
-                                             
-                                    </dd>
                         </dl>
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
@@ -983,12 +707,12 @@ patternString(&quot;Hello&quot;,&quot;eHlo&quot;); =&gt; Return true beacouse 'H
 >
     <h4 class="phpdocumentor-element__name" id="method_validateInt">
         validateInt()
-        <a href="classes/IronElephant-Security.html#method_validateInt" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/Iron-Validate.html#method_validateInt" class="headerlink"><i class="fas fa-link"></i></a>
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="modules/Security.php"><a href="files/modules-security.html"><abbr title="modules/Security.php">Security.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Validate.php"><a href="files/src-validate.html"><abbr title="src/Validate.php">Validate.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">44</span>
+    <span class="phpdocumentor-element-found-in__line">56</span>
 
     </aside>
 
@@ -996,18 +720,17 @@ patternString(&quot;Hello&quot;,&quot;eHlo&quot;); =&gt; Return true beacouse 'H
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">validateInt</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$int</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool</span></code>
+            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">validateInt</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$var</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool</span></code>
 
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$int</span>
-                : <span class="phpdocumentor-signature__argument__return-type">int</span>
+                <span class="phpdocumentor-signature__argument__name">$var</span>
+                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>Integer input</p>
-</section>
+                    <section class="phpdocumentor-description"></section>
 
             </dd>
             </dl>
@@ -1027,22 +750,6 @@ patternString(&quot;Hello&quot;,&quot;eHlo&quot;); =&gt; Return true beacouse 'H
 </section>
 
                                     </dd>
-                                                <dt class="phpdocumentor-tag-list__entry">
-                    <span class="phpdocumentor-tag__name">version</span>
-                </dt>
-                <dd class="phpdocumentor-tag-list__definition">
-                                            <span class="phpdocumentor-tag-link">1.0.0</span>
-                                                                                
-                                             
-                                    </dd>
-                                                <dt class="phpdocumentor-tag-list__entry">
-                    <span class="phpdocumentor-tag__name">since</span>
-                </dt>
-                <dd class="phpdocumentor-tag-list__definition">
-                                            <span class="phpdocumentor-tag-link">1.0.0</span>
-                                                                                
-                                             
-                                    </dd>
                         </dl>
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
@@ -1059,12 +766,12 @@ patternString(&quot;Hello&quot;,&quot;eHlo&quot;); =&gt; Return true beacouse 'H
 >
     <h4 class="phpdocumentor-element__name" id="method_validateIp">
         validateIp()
-        <a href="classes/IronElephant-Security.html#method_validateIp" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/Iron-Validate.html#method_validateIp" class="headerlink"><i class="fas fa-link"></i></a>
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="modules/Security.php"><a href="files/modules-security.html"><abbr title="modules/Security.php">Security.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Validate.php"><a href="files/src-validate.html"><abbr title="src/Validate.php">Validate.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">66</span>
+    <span class="phpdocumentor-element-found-in__line">76</span>
 
     </aside>
 
@@ -1103,22 +810,6 @@ patternString(&quot;Hello&quot;,&quot;eHlo&quot;); =&gt; Return true beacouse 'H
 </section>
 
                                     </dd>
-                                                <dt class="phpdocumentor-tag-list__entry">
-                    <span class="phpdocumentor-tag__name">version</span>
-                </dt>
-                <dd class="phpdocumentor-tag-list__definition">
-                                            <span class="phpdocumentor-tag-link">1.0.0</span>
-                                                                                
-                                             
-                                    </dd>
-                                                <dt class="phpdocumentor-tag-list__entry">
-                    <span class="phpdocumentor-tag__name">since</span>
-                </dt>
-                <dd class="phpdocumentor-tag-list__definition">
-                                            <span class="phpdocumentor-tag-link">1.0.0</span>
-                                                                                
-                                             
-                                    </dd>
                         </dl>
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
@@ -1135,12 +826,12 @@ patternString(&quot;Hello&quot;,&quot;eHlo&quot;); =&gt; Return true beacouse 'H
 >
     <h4 class="phpdocumentor-element__name" id="method_validateIpv6">
         validateIpv6()
-        <a href="classes/IronElephant-Security.html#method_validateIpv6" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/Iron-Validate.html#method_validateIpv6" class="headerlink"><i class="fas fa-link"></i></a>
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="modules/Security.php"><a href="files/modules-security.html"><abbr title="modules/Security.php">Security.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Validate.php"><a href="files/src-validate.html"><abbr title="src/Validate.php">Validate.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">86</span>
+    <span class="phpdocumentor-element-found-in__line">94</span>
 
     </aside>
 
@@ -1179,22 +870,6 @@ patternString(&quot;Hello&quot;,&quot;eHlo&quot;); =&gt; Return true beacouse 'H
 </section>
 
                                     </dd>
-                                                <dt class="phpdocumentor-tag-list__entry">
-                    <span class="phpdocumentor-tag__name">version</span>
-                </dt>
-                <dd class="phpdocumentor-tag-list__definition">
-                                            <span class="phpdocumentor-tag-link">1.0.0</span>
-                                                                                
-                                             
-                                    </dd>
-                                                <dt class="phpdocumentor-tag-list__entry">
-                    <span class="phpdocumentor-tag__name">since</span>
-                </dt>
-                <dd class="phpdocumentor-tag-list__definition">
-                                            <span class="phpdocumentor-tag-link">1.0.0</span>
-                                                                                
-                                             
-                                    </dd>
                         </dl>
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
@@ -1211,12 +886,12 @@ patternString(&quot;Hello&quot;,&quot;eHlo&quot;); =&gt; Return true beacouse 'H
 >
     <h4 class="phpdocumentor-element__name" id="method_validateUrl">
         validateUrl()
-        <a href="classes/IronElephant-Security.html#method_validateUrl" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/Iron-Validate.html#method_validateUrl" class="headerlink"><i class="fas fa-link"></i></a>
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="modules/Security.php"><a href="files/modules-security.html"><abbr title="modules/Security.php">Security.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Validate.php"><a href="files/src-validate.html"><abbr title="src/Validate.php">Validate.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">126</span>
+    <span class="phpdocumentor-element-found-in__line">130</span>
 
     </aside>
 
@@ -1255,22 +930,6 @@ patternString(&quot;Hello&quot;,&quot;eHlo&quot;); =&gt; Return true beacouse 'H
 </section>
 
                                     </dd>
-                                                <dt class="phpdocumentor-tag-list__entry">
-                    <span class="phpdocumentor-tag__name">version</span>
-                </dt>
-                <dd class="phpdocumentor-tag-list__definition">
-                                            <span class="phpdocumentor-tag-link">1.0.0</span>
-                                                                                
-                                             
-                                    </dd>
-                                                <dt class="phpdocumentor-tag-list__entry">
-                    <span class="phpdocumentor-tag__name">since</span>
-                </dt>
-                <dd class="phpdocumentor-tag-list__definition">
-                                            <span class="phpdocumentor-tag-link">1.0.0</span>
-                                                                                
-                                             
-                                    </dd>
                         </dl>
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
@@ -1287,12 +946,12 @@ patternString(&quot;Hello&quot;,&quot;eHlo&quot;); =&gt; Return true beacouse 'H
 >
     <h4 class="phpdocumentor-element__name" id="method_webAddressValidate">
         webAddressValidate()
-        <a href="classes/IronElephant-Security.html#method_webAddressValidate" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/Iron-Validate.html#method_webAddressValidate" class="headerlink"><i class="fas fa-link"></i></a>
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="modules/Security.php"><a href="files/modules-security.html"><abbr title="modules/Security.php">Security.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Validate.php"><a href="files/src-validate.html"><abbr title="src/Validate.php">Validate.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">146</span>
+    <span class="phpdocumentor-element-found-in__line">151</span>
 
     </aside>
 
@@ -1300,13 +959,13 @@ patternString(&quot;Hello&quot;,&quot;eHlo&quot;); =&gt; Return true beacouse 'H
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">webAddressValidate</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$str</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool</span></code>
+            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">webAddressValidate</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$url</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool</span></code>
 
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$str</span>
+                <span class="phpdocumentor-signature__argument__name">$url</span>
                 : <span class="phpdocumentor-signature__argument__return-type">string</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
@@ -1330,22 +989,6 @@ patternString(&quot;Hello&quot;,&quot;eHlo&quot;); =&gt; Return true beacouse 'H
                                                  <section class="phpdocumentor-description"><p>Seyed Mahmoud Mousavi</p>
 </section>
 
-                                    </dd>
-                                                <dt class="phpdocumentor-tag-list__entry">
-                    <span class="phpdocumentor-tag__name">version</span>
-                </dt>
-                <dd class="phpdocumentor-tag-list__definition">
-                                            <span class="phpdocumentor-tag-link">1.0.0</span>
-                                                                                
-                                             
-                                    </dd>
-                                                <dt class="phpdocumentor-tag-list__entry">
-                    <span class="phpdocumentor-tag__name">since</span>
-                </dt>
-                <dd class="phpdocumentor-tag-list__definition">
-                                            <span class="phpdocumentor-tag-link">1.0.0</span>
-                                                                                
-                                             
                                     </dd>
                         </dl>
 
@@ -1433,7 +1076,7 @@ patternString(&quot;Hello&quot;,&quot;eHlo&quot;); =&gt; Return true beacouse 'H
 </section>
             </div>
         </div>
-        <a href="classes/IronElephant-Security.html#top" class="phpdocumentor-back-to-top"><i class="fas fa-chevron-circle-up"></i></a>
+        <a href="classes/Iron-Validate.html#top" class="phpdocumentor-back-to-top"><i class="fas fa-chevron-circle-up"></i></a>
 
     </main>
 

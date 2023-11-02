@@ -1,11 +1,11 @@
-# Security Module
+# Validate class
 
-## This module use for sanitize, validate and test string inputs **Security**
+## This module use for sanitize, validate and test string inputs **Validate**
 
-### How to use **Security** feature
+### How to use **Validating** feature
 
-1.       namespace IronElephant\Security;
-        Security::method();
+1.        namespace Codecrafted\IronElephant\Validate;
+        Validate::method();
 
 | Name of function     | Example                                                                                     | Result                                                                                                  |
 | -------------------- | ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
@@ -21,5 +21,3 @@
 | patternString()      | patternString(string :"hello", pattern : "ehl")                                             | return false becuase "o" char not in pattern                                                            |
 | encrypt()            | encrypt("str"[, cost : **10**])                                                             | Encrypt string with default cost 10 and PASSWORD_ARGON2ID method                                        |
 | decrypt()            | decrypt("original str", "hashed string")                                                    | Compare original with hased string and return result                                                    |
-| addSalt()            | addSalt("str" [, $salt : **SALT**\|"d7a98sdas98d4as65" ])                                   | Add salt to your string, default is **SALT** value from your config file                                |
-| removeSalt()         | removeSalt("str" [, $salt : **SALT**\|"d7a98sdas98d4as65" ])                                | Remove salt from your string, default is SALT value from your config file                               |

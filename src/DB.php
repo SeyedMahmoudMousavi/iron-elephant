@@ -2,11 +2,9 @@
 
 declare(strict_types=1);
 
-namespace IronElephant;
+namespace Codecrafted\IronElephant;
 
 use mysqli, ErrorException, Exception, TypeError, Throwable, Error;
-
-require_once __DIR__ . '/../main.php';
 
 // Set error handler for try catch
 set_error_handler(function ($errno, $errstr, $errfile, $errline) {
@@ -15,7 +13,7 @@ set_error_handler(function ($errno, $errstr, $errfile, $errline) {
 /**
  * Connection class use for CRUD opration and work with MySQL database
  */
-class Connection
+class DB
 {
 	/**
 	 * Keep query and data for functions
@@ -64,8 +62,6 @@ class Connection
 	 * @return boolean
 	 * 
 	 * @author Seyed Mahmoud Mousavi
-	 * @version 1.0.0
-	 * @since 1.0.0
 	 */
 	public function connectToDatabase(string $server_name, string $user_name, string $password, string $database_name = ""): bool
 	{
@@ -112,8 +108,6 @@ class Connection
 	 * @return void
 	 * 
 	 * @author Seyed Mahmoud Mousavi
-	 * @version 1.0.0
-	 * @since 1.0.0
 	 */
 	private function connectionFailed()
 	{
@@ -137,8 +131,6 @@ class Connection
 	 * @return boolean
 	 * 
 	 * @author Seyed Mahmoud Mousavi
-	 * @version 1.0.0
-	 * @since 1.0.0
 	 */
 	public function createDatabase(string $database_name): bool
 	{
@@ -184,8 +176,6 @@ class Connection
 	 * @return boolean
 	 * 
 	 * @author Seyed Mahmoud Mousavi
-	 * @version 1.0.0
-	 * @since 1.0.0
 	 */
 	public function dropDatabase(string $database_name, string $confirm = "no"): bool
 	{
@@ -242,8 +232,6 @@ class Connection
 	 * @return mixed false|string
 	 * 
 	 * @author Seyed Mahmoud Mousavi
-	 * @version 1.0.0
-	 * @since 1.0.0
 	 */
 	public function find(
 		string $column,
@@ -298,8 +286,6 @@ class Connection
 	 * @return mixed false|array
 	 * 
 	 * @author Seyed Mahmoud Mousavi
-	 * @version 1.0.0
-	 * @since 1.0.0
 	 */
 	public function select(
 		array $columns,
@@ -375,8 +361,6 @@ class Connection
 	 * @return boolean 
 	 * 
 	 * @author Seyed Mahmoud Mousavi
-	 * @version 1.0.0
-	 * @since 1.0.0
 	 */
 	public function insert(
 		string $table,
@@ -455,8 +439,6 @@ class Connection
 	 * @return boolean 
 	 * 
 	 * @author Seyed Mahmoud Mousavi
-	 * @version 1.0.0
-	 * @since 1.0.0
 	 */
 	public function update(
 		string $table,
@@ -526,8 +508,6 @@ class Connection
 	 * @return boolean
 	 * 
 	 * @author Seyed Mahmoud Mousavi
-	 * @version 1.0.0
-	 * @since 1.0.0
 	 */
 	public function delete(
 		string $table,

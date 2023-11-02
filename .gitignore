@@ -1,8 +1,5 @@
 /.phpdoc/
 /.vscode/
-/templates/error_sample.txt
 /vendor/
-/composer.lock
 /test.php
 /phpDocumentor.phar
-/.salt.backup

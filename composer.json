@@ -1,11 +1,19 @@
 {
-  "name": "smousavi/iron-elephant",
-  "autoload": {
-    "psr-4": {
-      "IronElephant\\": "modules/"
-    }
-  },
-  "require": {
-    "php": ">=7.4.0"
-  }
+    "name": "codecrafted/iron-elephant",
+    "description": "mini php library for work with php easier",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Codecrafted\\IronElephant\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Seyed Mahmoud Mousavi",
+            "email": "smousavi503@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {}
 }

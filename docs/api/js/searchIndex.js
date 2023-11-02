@@ -1,51 +1,6 @@
 Search.appendIndex(
     [
                 {
-            "fqsen": "\\MINIMUM_PHP_VERSION",
-            "name": "MINIMUM_PHP_VERSION",
-            "summary": "Set\u0020minimum\u0020php\u0020version\u0020to\u0020run",
-            "url": "namespaces/default.html#constant_MINIMUM_PHP_VERSION"
-        },                {
-            "fqsen": "\\TIME_ZONE",
-            "name": "TIME_ZONE",
-            "summary": "Set\u0020your\u0020default\u0020time\u0020zone",
-            "url": "namespaces/default.html#constant_TIME_ZONE"
-        },                {
-            "fqsen": "\\LOWERCHARS",
-            "name": "LOWERCHARS",
-            "summary": "",
-            "url": "namespaces/default.html#constant_LOWERCHARS"
-        },                {
-            "fqsen": "\\UPPERCHARS",
-            "name": "UPPERCHARS",
-            "summary": "",
-            "url": "namespaces/default.html#constant_UPPERCHARS"
-        },                {
-            "fqsen": "\\NUMBERCHARS",
-            "name": "NUMBERCHARS",
-            "summary": "",
-            "url": "namespaces/default.html#constant_NUMBERCHARS"
-        },                {
-            "fqsen": "\\OTHERCHARS",
-            "name": "OTHERCHARS",
-            "summary": "",
-            "url": "namespaces/default.html#constant_OTHERCHARS"
-        },                {
-            "fqsen": "\\BASICCHARS",
-            "name": "BASICCHARS",
-            "summary": "",
-            "url": "namespaces/default.html#constant_BASICCHARS"
-        },                {
-            "fqsen": "\\ALLCHARS",
-            "name": "ALLCHARS",
-            "summary": "",
-            "url": "namespaces/default.html#constant_ALLCHARS"
-        },                {
-            "fqsen": "\\SALT",
-            "name": "SALT",
-            "summary": "",
-            "url": "namespaces/default.html#constant_SALT"
-        },                {
             "fqsen": "\\HOST_NAME",
             "name": "HOST_NAME",
             "summary": "Database\u0020config\u0020variable",
@@ -66,10 +21,210 @@ Search.appendIndex(
             "summary": "Database\u0020config\u0020variable",
             "url": "namespaces/default.html#constant_DB_NAME"
         },                {
-            "fqsen": "\\WEB_ADDRESS",
-            "name": "WEB_ADDRESS",
+            "fqsen": "\\TIME_ZONE",
+            "name": "TIME_ZONE",
+            "summary": "Set\u0020your\u0020default\u0020time\u0020zone",
+            "url": "namespaces/default.html#constant_TIME_ZONE"
+        },                {
+            "fqsen": "\\Iron\\DB",
+            "name": "DB",
+            "summary": "Connection\u0020class\u0020use\u0020for\u0020CRUD\u0020opration\u0020and\u0020work\u0020with\u0020MySQL\u0020database",
+            "url": "classes/Iron-DB.html"
+        },                {
+            "fqsen": "\\Iron\\DB\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "Create\u0020a\u0020database\u0020connection\u0020object\u0020for\u0020CRUD\u0020operatian",
+            "url": "classes/Iron-DB.html#method___construct"
+        },                {
+            "fqsen": "\\Iron\\DB\u003A\u003AconnectToDatabase\u0028\u0029",
+            "name": "connectToDatabase",
+            "summary": "Connect\u0020to\u0020database",
+            "url": "classes/Iron-DB.html#method_connectToDatabase"
+        },                {
+            "fqsen": "\\Iron\\DB\u003A\u003AconnectionFailed\u0028\u0029",
+            "name": "connectionFailed",
+            "summary": "echo\u0020connection\u0020error\u0020and\u0020die",
+            "url": "classes/Iron-DB.html#method_connectionFailed"
+        },                {
+            "fqsen": "\\Iron\\DB\u003A\u003AcreateDatabase\u0028\u0029",
+            "name": "createDatabase",
+            "summary": "Create\u0020new\u0020data\u0020base",
+            "url": "classes/Iron-DB.html#method_createDatabase"
+        },                {
+            "fqsen": "\\Iron\\DB\u003A\u003AdropDatabase\u0028\u0029",
+            "name": "dropDatabase",
+            "summary": "Drop\u0020a\u0020database",
+            "url": "classes/Iron-DB.html#method_dropDatabase"
+        },                {
+            "fqsen": "\\Iron\\DB\u003A\u003Afind\u0028\u0029",
+            "name": "find",
+            "summary": "Find\u0020a\u0020single\u0020data\u0020in\u0020database",
+            "url": "classes/Iron-DB.html#method_find"
+        },                {
+            "fqsen": "\\Iron\\DB\u003A\u003Aselect\u0028\u0029",
+            "name": "select",
+            "summary": "Select\u0020data\u0020from\u0020database",
+            "url": "classes/Iron-DB.html#method_select"
+        },                {
+            "fqsen": "\\Iron\\DB\u003A\u003Ainsert\u0028\u0029",
+            "name": "insert",
+            "summary": "insert\u0020data\u0020to\u0020table",
+            "url": "classes/Iron-DB.html#method_insert"
+        },                {
+            "fqsen": "\\Iron\\DB\u003A\u003Aupdate\u0028\u0029",
+            "name": "update",
+            "summary": "Update\u0020values\u0020in\u0020database",
+            "url": "classes/Iron-DB.html#method_update"
+        },                {
+            "fqsen": "\\Iron\\DB\u003A\u003Adelete\u0028\u0029",
+            "name": "delete",
+            "summary": "Delete\u0020a\u0020value\u0020from\u0020your\u0020db",
+            "url": "classes/Iron-DB.html#method_delete"
+        },                {
+            "fqsen": "\\Iron\\DB\u003A\u003Aquery\u0028\u0029",
+            "name": "query",
             "summary": "",
-            "url": "namespaces/default.html#constant_WEB_ADDRESS"
+            "url": "classes/Iron-DB.html#method_query"
+        },                {
+            "fqsen": "\\Iron\\DB\u003A\u003A__destruct\u0028\u0029",
+            "name": "__destruct",
+            "summary": "Close\u0020database\u0020work",
+            "url": "classes/Iron-DB.html#method___destruct"
+        },                {
+            "fqsen": "\\Iron\\DB\u003A\u003A\u0024db",
+            "name": "db",
+            "summary": "Keep\u0020query\u0020and\u0020data\u0020for\u0020functions",
+            "url": "classes/Iron-DB.html#property_db"
+        },                {
+            "fqsen": "\\Iron\\File",
+            "name": "File",
+            "summary": "File\u0020class\u0020for\u0020work\u0020with\u0020files\u0020and\u0020folders",
+            "url": "classes/Iron-File.html"
+        },                {
+            "fqsen": "\\Iron\\File\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "Create\u0020a\u0020object",
+            "url": "classes/Iron-File.html#method___construct"
+        },                {
+            "fqsen": "\\Iron\\File\u003A\u003AchangeFile\u0028\u0029",
+            "name": "changeFile",
+            "summary": "Change\u0020file\u0020path",
+            "url": "classes/Iron-File.html#method_changeFile"
+        },                {
+            "fqsen": "\\Iron\\File\u003A\u003AcurrentFile\u0028\u0029",
+            "name": "currentFile",
+            "summary": "Return\u0020current\u0020file\u0020path",
+            "url": "classes/Iron-File.html#method_currentFile"
+        },                {
+            "fqsen": "\\Iron\\File\u003A\u003Aread\u0028\u0029",
+            "name": "read",
+            "summary": "Reading\u0020a\u0020file",
+            "url": "classes/Iron-File.html#method_read"
+        },                {
+            "fqsen": "\\Iron\\File\u003A\u003Awrite\u0028\u0029",
+            "name": "write",
+            "summary": "Write\u0020a\u0020file\u0020with\u0020your\u0020data",
+            "url": "classes/Iron-File.html#method_write"
+        },                {
+            "fqsen": "\\Iron\\File\u003A\u003Aappend\u0028\u0029",
+            "name": "append",
+            "summary": "Append\u0020data\u0020to\u0020a\u0020file",
+            "url": "classes/Iron-File.html#method_append"
+        },                {
+            "fqsen": "\\Iron\\File\u003A\u003Adelete\u0028\u0029",
+            "name": "delete",
+            "summary": "delete\u0020a\u0020file",
+            "url": "classes/Iron-File.html#method_delete"
+        },                {
+            "fqsen": "\\Iron\\File\u003A\u003Aupload\u0028\u0029",
+            "name": "upload",
+            "summary": "upload\u0020your\u0020files",
+            "url": "classes/Iron-File.html#method_upload"
+        },                {
+            "fqsen": "\\Iron\\File\u003A\u003AarrayToJsonFile\u0028\u0029",
+            "name": "arrayToJsonFile",
+            "summary": "Conver\u0020array\u0020to\u0020a\u0020json\u0020file",
+            "url": "classes/Iron-File.html#method_arrayToJsonFile"
+        },                {
+            "fqsen": "\\Iron\\File\u003A\u003AjsonFileToArray\u0028\u0029",
+            "name": "jsonFileToArray",
+            "summary": "Read\u0020json\u0020file\u0020and\u0020convert\u0020to\u0020array",
+            "url": "classes/Iron-File.html#method_jsonFileToArray"
+        },                {
+            "fqsen": "\\Iron\\File\u003A\u003AmakeDir\u0028\u0029",
+            "name": "makeDir",
+            "summary": "Make\u0020direction\u0020folder\u0020and\u0020path",
+            "url": "classes/Iron-File.html#method_makeDir"
+        },                {
+            "fqsen": "\\Iron\\File\u003A\u003AsizeConverter\u0028\u0029",
+            "name": "sizeConverter",
+            "summary": "convert\u0020file\u0020size",
+            "url": "classes/Iron-File.html#method_sizeConverter"
+        },                {
+            "fqsen": "\\Iron\\File\u003A\u003A\u0024file_path",
+            "name": "file_path",
+            "summary": "File\u0020path",
+            "url": "classes/Iron-File.html#property_file_path"
+        },                {
+            "fqsen": "\\Iron\\File\u003A\u003A\u0024BYTE_TO_KIB",
+            "name": "BYTE_TO_KIB",
+            "summary": "Byte\u0020to\u0020Kilobyte",
+            "url": "classes/Iron-File.html#property_BYTE_TO_KIB"
+        },                {
+            "fqsen": "\\Iron\\File\u003A\u003A\u0024BYTE_TO_MIB",
+            "name": "BYTE_TO_MIB",
+            "summary": "Byte\u0020to\u0020Megabyte",
+            "url": "classes/Iron-File.html#property_BYTE_TO_MIB"
+        },                {
+            "fqsen": "\\Iron\\File\u003A\u003A\u0024BYTE_TO_GIB",
+            "name": "BYTE_TO_GIB",
+            "summary": "Byte\u0020to\u0020Gigabyte",
+            "url": "classes/Iron-File.html#property_BYTE_TO_GIB"
+        },                {
+            "fqsen": "\\Iron\\File\u003A\u003A\u0024KIB_TO_BYTE",
+            "name": "KIB_TO_BYTE",
+            "summary": "Kilobyte\u0020to\u0020byte",
+            "url": "classes/Iron-File.html#property_KIB_TO_BYTE"
+        },                {
+            "fqsen": "\\Iron\\File\u003A\u003A\u0024KIB_TO_MIB",
+            "name": "KIB_TO_MIB",
+            "summary": "Kilobyte\u0020to\u0020Megabyte",
+            "url": "classes/Iron-File.html#property_KIB_TO_MIB"
+        },                {
+            "fqsen": "\\Iron\\File\u003A\u003A\u0024KIB_TO_GIB",
+            "name": "KIB_TO_GIB",
+            "summary": "Kilobyte\u0020to\u0020Gigabyte",
+            "url": "classes/Iron-File.html#property_KIB_TO_GIB"
+        },                {
+            "fqsen": "\\Iron\\File\u003A\u003A\u0024MIB_TO_BYTE",
+            "name": "MIB_TO_BYTE",
+            "summary": "Megabyte\u0020to\u0020byte",
+            "url": "classes/Iron-File.html#property_MIB_TO_BYTE"
+        },                {
+            "fqsen": "\\Iron\\File\u003A\u003A\u0024MIB_TO_KIB",
+            "name": "MIB_TO_KIB",
+            "summary": "Megabyte\u0020to\u0020Kilobyte",
+            "url": "classes/Iron-File.html#property_MIB_TO_KIB"
+        },                {
+            "fqsen": "\\Iron\\File\u003A\u003A\u0024MIB_TO_GIB",
+            "name": "MIB_TO_GIB",
+            "summary": "Megabyte\u0020to\u0020Gigabyte",
+            "url": "classes/Iron-File.html#property_MIB_TO_GIB"
+        },                {
+            "fqsen": "\\Iron\\File\u003A\u003A\u0024GIB_TO_BYTE",
+            "name": "GIB_TO_BYTE",
+            "summary": "Gigabyte\u0020to\u0020byte",
+            "url": "classes/Iron-File.html#property_GIB_TO_BYTE"
+        },                {
+            "fqsen": "\\Iron\\File\u003A\u003A\u0024GIB_TO_KIB",
+            "name": "GIB_TO_KIB",
+            "summary": "Gigabyte\u0020to\u0020Kilobyte",
+            "url": "classes/Iron-File.html#property_GIB_TO_KIB"
+        },                {
+            "fqsen": "\\Iron\\File\u003A\u003A\u0024GIB_TO_MIB",
+            "name": "GIB_TO_MIB",
+            "summary": "Gigabyte\u0020to\u0020Megabyte",
+            "url": "classes/Iron-File.html#property_GIB_TO_MIB"
         },                {
             "fqsen": "\\hr\u0028\u0029",
             "name": "hr",
@@ -91,45 +246,15 @@ Search.appendIndex(
             "summary": "Drop\u0020and\u0020die\u0020a\u0020variable\u0020for\u0020showing\u0020value",
             "url": "namespaces/default.html#function_dd"
         },                {
-            "fqsen": "\\dr\u0028\u0029",
-            "name": "dr",
-            "summary": "Drop\u0020and\u0020die\u0020a\u0020array\u0020variable\u0020for\u0020showing\u0020value",
-            "url": "namespaces/default.html#function_dr"
-        },                {
             "fqsen": "\\js\u0028\u0029",
             "name": "js",
             "summary": "Add\u0020javaScript\u0020code\u0020to\u0020HTML\u0020page",
             "url": "namespaces/default.html#function_js"
         },                {
-            "fqsen": "\\change_url\u0028\u0029",
-            "name": "change_url",
+            "fqsen": "\\redirect\u0028\u0029",
+            "name": "redirect",
             "summary": "Change\u0020URL\u0020path\u0020with\u0020PHP",
-            "url": "namespaces/default.html#function_change_url"
-        },                {
-            "fqsen": "\\change_url_html\u0028\u0029",
-            "name": "change_url_html",
-            "summary": "Change\u0020URL\u0020path\u0020with\u0020HTML",
-            "url": "namespaces/default.html#function_change_url_html"
-        },                {
-            "fqsen": "\\change_url_js_1\u0028\u0029",
-            "name": "change_url_js_1",
-            "summary": "Change\u0020URL\u0020path\u0020with\u0020JS\nSimulate\u0020a\u0020MOUSE\u0020CLICK\u003A",
-            "url": "namespaces/default.html#function_change_url_js_1"
-        },                {
-            "fqsen": "\\change_url_js_2\u0028\u0029",
-            "name": "change_url_js_2",
-            "summary": "Change\u0020URL\u0020path\u0020with\u0020JS\nSimulate\u0020a\u0020HTTP\u0020redirect\u003A",
-            "url": "namespaces/default.html#function_change_url_js_2"
-        },                {
-            "fqsen": "\\change_url_js_3\u0028\u0029",
-            "name": "change_url_js_3",
-            "summary": "Change\u0020URL\u0020path\u0020with\u0020JS",
-            "url": "namespaces/default.html#function_change_url_js_3"
-        },                {
-            "fqsen": "\\change_url_full\u0028\u0029",
-            "name": "change_url_full",
-            "summary": "Complate\u0020Change\u0020URL\u0020path\u0020with\u0020another\u0020functions",
-            "url": "namespaces/default.html#function_change_url_full"
+            "url": "namespaces/default.html#function_redirect"
         },                {
             "fqsen": "\\is_post\u0028\u0029",
             "name": "is_post",
@@ -141,25 +266,15 @@ Search.appendIndex(
             "summary": "Check\u0020request\u0020method\u0020is\u0020GET\u003F",
             "url": "namespaces/default.html#function_is_get"
         },                {
-            "fqsen": "\\issv\u0028\u0029",
-            "name": "issv",
-            "summary": "Check\u0020session\u0020value",
-            "url": "namespaces/default.html#function_issv"
+            "fqsen": "\\session\u0028\u0029",
+            "name": "session",
+            "summary": "Return\u0020session\u0020value\u0020if\u0020set",
+            "url": "namespaces/default.html#function_session"
         },                {
-            "fqsen": "\\esv\u0028\u0029",
-            "name": "esv",
-            "summary": "If\u0020session\u0020value\u0020is\u0020set\u0020then\u0020will\u0020be\u0020echo\necho\u0020\u0024_SESSION\u005B\u0022\u0024name\u0022\u005D",
-            "url": "namespaces/default.html#function_esv"
-        },                {
-            "fqsen": "\\rsv\u0028\u0029",
-            "name": "rsv",
-            "summary": "If\u0020session\u0020value\u0020is\u0020set\u0020then\u0020will\u0020be\u0020retuen",
-            "url": "namespaces/default.html#function_rsv"
-        },                {
-            "fqsen": "\\et\u0028\u0029",
-            "name": "et",
-            "summary": "Check\u0020variable\u0020for\u0020null\u0020data",
-            "url": "namespaces/default.html#function_et"
+            "fqsen": "\\e_session\u0028\u0029",
+            "name": "e_session",
+            "summary": "echo\u0020session\u0020value\u0020if\u0020set",
+            "url": "namespaces/default.html#function_e_session"
         },                {
             "fqsen": "\\randomatic\u0028\u0029",
             "name": "randomatic",
@@ -171,304 +286,94 @@ Search.appendIndex(
             "summary": "Chck\u0020cookie\u0020on\u0020ro\u0020off\u0020\u003F",
             "url": "namespaces/default.html#function_check_cookie"
         },                {
-            "fqsen": "\\cookie_value\u0028\u0029",
-            "name": "cookie_value",
+            "fqsen": "\\cookie\u0028\u0029",
+            "name": "cookie",
             "summary": "Return\u0020Cookie\u0020value\u0020if\u0020it\u0027s\u0020set",
-            "url": "namespaces/default.html#function_cookie_value"
+            "url": "namespaces/default.html#function_cookie"
         },                {
-            "fqsen": "\\get_url\u0028\u0029",
-            "name": "get_url",
+            "fqsen": "\\my_address\u0028\u0029",
+            "name": "my_address",
             "summary": "Get\u0020url",
-            "url": "namespaces/default.html#function_get_url"
+            "url": "namespaces/default.html#function_my_address"
         },                {
-            "fqsen": "\\createSalt\u0028\u0029",
-            "name": "createSalt",
-            "summary": "Creare\u0020new\u0020salt\u0020in\u0020config\u0020file",
-            "url": "namespaces/default.html#function_createSalt"
+            "fqsen": "\\error\u0028\u0029",
+            "name": "error",
+            "summary": "set\u0020error\u0020session",
+            "url": "namespaces/default.html#function_error"
         },                {
-            "fqsen": "\\IronElephant\\Connection",
-            "name": "Connection",
-            "summary": "Connection\u0020class\u0020use\u0020for\u0020CRUD\u0020opration\u0020and\u0020work\u0020with\u0020MySQL\u0020database",
-            "url": "classes/IronElephant-Connection.html"
+            "fqsen": "\\Iron\\Validate",
+            "name": "Validate",
+            "summary": "Validate\u0020class\u0020have\u0020many\u0020method\u0020for\u0020sanitizing\u0020validating\u0020and\nincrease\u0020seafety\u0020of\u0020your\u0020inputs",
+            "url": "classes/Iron-Validate.html"
         },                {
-            "fqsen": "\\IronElephant\\Connection\u003A\u003A__construct\u0028\u0029",
-            "name": "__construct",
-            "summary": "Create\u0020a\u0020database\u0020connection\u0020object\u0020for\u0020CRUD\u0020operatian",
-            "url": "classes/IronElephant-Connection.html#method___construct"
-        },                {
-            "fqsen": "\\IronElephant\\Connection\u003A\u003AconnectToDatabase\u0028\u0029",
-            "name": "connectToDatabase",
-            "summary": "Connect\u0020to\u0020database",
-            "url": "classes/IronElephant-Connection.html#method_connectToDatabase"
-        },                {
-            "fqsen": "\\IronElephant\\Connection\u003A\u003AconnectionFailed\u0028\u0029",
-            "name": "connectionFailed",
-            "summary": "echo\u0020connection\u0020error\u0020and\u0020die",
-            "url": "classes/IronElephant-Connection.html#method_connectionFailed"
-        },                {
-            "fqsen": "\\IronElephant\\Connection\u003A\u003AcreateDatabase\u0028\u0029",
-            "name": "createDatabase",
-            "summary": "Create\u0020new\u0020data\u0020base",
-            "url": "classes/IronElephant-Connection.html#method_createDatabase"
-        },                {
-            "fqsen": "\\IronElephant\\Connection\u003A\u003AdropDatabase\u0028\u0029",
-            "name": "dropDatabase",
-            "summary": "Drop\u0020a\u0020database",
-            "url": "classes/IronElephant-Connection.html#method_dropDatabase"
-        },                {
-            "fqsen": "\\IronElephant\\Connection\u003A\u003Afind\u0028\u0029",
-            "name": "find",
-            "summary": "Find\u0020a\u0020single\u0020data\u0020in\u0020database",
-            "url": "classes/IronElephant-Connection.html#method_find"
-        },                {
-            "fqsen": "\\IronElephant\\Connection\u003A\u003Aselect\u0028\u0029",
-            "name": "select",
-            "summary": "Select\u0020data\u0020from\u0020database",
-            "url": "classes/IronElephant-Connection.html#method_select"
-        },                {
-            "fqsen": "\\IronElephant\\Connection\u003A\u003Ainsert\u0028\u0029",
-            "name": "insert",
-            "summary": "insert\u0020data\u0020to\u0020table",
-            "url": "classes/IronElephant-Connection.html#method_insert"
-        },                {
-            "fqsen": "\\IronElephant\\Connection\u003A\u003Aupdate\u0028\u0029",
-            "name": "update",
-            "summary": "Update\u0020values\u0020in\u0020database",
-            "url": "classes/IronElephant-Connection.html#method_update"
-        },                {
-            "fqsen": "\\IronElephant\\Connection\u003A\u003Adelete\u0028\u0029",
-            "name": "delete",
-            "summary": "Delete\u0020a\u0020value\u0020from\u0020your\u0020db",
-            "url": "classes/IronElephant-Connection.html#method_delete"
-        },                {
-            "fqsen": "\\IronElephant\\Connection\u003A\u003Aquery\u0028\u0029",
-            "name": "query",
-            "summary": "",
-            "url": "classes/IronElephant-Connection.html#method_query"
-        },                {
-            "fqsen": "\\IronElephant\\Connection\u003A\u003A__destruct\u0028\u0029",
-            "name": "__destruct",
-            "summary": "Close\u0020database\u0020work",
-            "url": "classes/IronElephant-Connection.html#method___destruct"
-        },                {
-            "fqsen": "\\IronElephant\\Connection\u003A\u003A\u0024db",
-            "name": "db",
-            "summary": "Keep\u0020query\u0020and\u0020data\u0020for\u0020functions",
-            "url": "classes/IronElephant-Connection.html#property_db"
-        },                {
-            "fqsen": "\\BYTE_TO_KIB",
-            "name": "BYTE_TO_KIB",
-            "summary": "Byte\u0020to\u0020Kilobyte",
-            "url": "namespaces/default.html#constant_BYTE_TO_KIB"
-        },                {
-            "fqsen": "\\BYTE_TO_MIB",
-            "name": "BYTE_TO_MIB",
-            "summary": "Byte\u0020to\u0020Megabyte",
-            "url": "namespaces/default.html#constant_BYTE_TO_MIB"
-        },                {
-            "fqsen": "\\BYTE_TO_GIB",
-            "name": "BYTE_TO_GIB",
-            "summary": "Byte\u0020to\u0020Gigabyte",
-            "url": "namespaces/default.html#constant_BYTE_TO_GIB"
-        },                {
-            "fqsen": "\\KIB_TO_BYTE",
-            "name": "KIB_TO_BYTE",
-            "summary": "Kilobyte\u0020to\u0020byte",
-            "url": "namespaces/default.html#constant_KIB_TO_BYTE"
-        },                {
-            "fqsen": "\\KIB_TO_MIB",
-            "name": "KIB_TO_MIB",
-            "summary": "Kilobyte\u0020to\u0020Megabyte",
-            "url": "namespaces/default.html#constant_KIB_TO_MIB"
-        },                {
-            "fqsen": "\\KIB_TO_GIB",
-            "name": "KIB_TO_GIB",
-            "summary": "Kilobyte\u0020to\u0020Gigabyte",
-            "url": "namespaces/default.html#constant_KIB_TO_GIB"
-        },                {
-            "fqsen": "\\MIB_TO_BYTE",
-            "name": "MIB_TO_BYTE",
-            "summary": "Megabyte\u0020to\u0020byte",
-            "url": "namespaces/default.html#constant_MIB_TO_BYTE"
-        },                {
-            "fqsen": "\\MIB_TO_KIB",
-            "name": "MIB_TO_KIB",
-            "summary": "Megabyte\u0020to\u0020Kilobyte",
-            "url": "namespaces/default.html#constant_MIB_TO_KIB"
-        },                {
-            "fqsen": "\\MIB_TO_GIB",
-            "name": "MIB_TO_GIB",
-            "summary": "Megabyte\u0020to\u0020Gigabyte",
-            "url": "namespaces/default.html#constant_MIB_TO_GIB"
-        },                {
-            "fqsen": "\\GIB_TO_BYTE",
-            "name": "GIB_TO_BYTE",
-            "summary": "Gigabyte\u0020to\u0020byte",
-            "url": "namespaces/default.html#constant_GIB_TO_BYTE"
-        },                {
-            "fqsen": "\\GIB_TO_KIB",
-            "name": "GIB_TO_KIB",
-            "summary": "Gigabyte\u0020to\u0020Kilobyte",
-            "url": "namespaces/default.html#constant_GIB_TO_KIB"
-        },                {
-            "fqsen": "\\GIB_TO_MIB",
-            "name": "GIB_TO_MIB",
-            "summary": "Gigabyte\u0020to\u0020Megabyte",
-            "url": "namespaces/default.html#constant_GIB_TO_MIB"
-        },                {
-            "fqsen": "\\IronElephant\\File",
-            "name": "File",
-            "summary": "File\u0020class\u0020for\u0020work\u0020with\u0020files\u0020and\u0020folders",
-            "url": "classes/IronElephant-File.html"
-        },                {
-            "fqsen": "\\IronElephant\\File\u003A\u003A__construct\u0028\u0029",
-            "name": "__construct",
-            "summary": "Create\u0020a\u0020object",
-            "url": "classes/IronElephant-File.html#method___construct"
-        },                {
-            "fqsen": "\\IronElephant\\File\u003A\u003AchangeFile\u0028\u0029",
-            "name": "changeFile",
-            "summary": "Change\u0020file\u0020path",
-            "url": "classes/IronElephant-File.html#method_changeFile"
-        },                {
-            "fqsen": "\\IronElephant\\File\u003A\u003AcurrentFile\u0028\u0029",
-            "name": "currentFile",
-            "summary": "Return\u0020current\u0020file\u0020path",
-            "url": "classes/IronElephant-File.html#method_currentFile"
-        },                {
-            "fqsen": "\\IronElephant\\File\u003A\u003Aread\u0028\u0029",
-            "name": "read",
-            "summary": "Reading\u0020a\u0020file",
-            "url": "classes/IronElephant-File.html#method_read"
-        },                {
-            "fqsen": "\\IronElephant\\File\u003A\u003Awrite\u0028\u0029",
-            "name": "write",
-            "summary": "Write\u0020a\u0020file\u0020with\u0020your\u0020data",
-            "url": "classes/IronElephant-File.html#method_write"
-        },                {
-            "fqsen": "\\IronElephant\\File\u003A\u003Aappend\u0028\u0029",
-            "name": "append",
-            "summary": "Append\u0020data\u0020to\u0020a\u0020file",
-            "url": "classes/IronElephant-File.html#method_append"
-        },                {
-            "fqsen": "\\IronElephant\\File\u003A\u003Adelete\u0028\u0029",
-            "name": "delete",
-            "summary": "delete\u0020a\u0020file",
-            "url": "classes/IronElephant-File.html#method_delete"
-        },                {
-            "fqsen": "\\IronElephant\\File\u003A\u003Aupload\u0028\u0029",
-            "name": "upload",
-            "summary": "upload\u0020your\u0020files",
-            "url": "classes/IronElephant-File.html#method_upload"
-        },                {
-            "fqsen": "\\IronElephant\\File\u003A\u003AarrayToJsonFile\u0028\u0029",
-            "name": "arrayToJsonFile",
-            "summary": "Conver\u0020array\u0020to\u0020a\u0020json\u0020file",
-            "url": "classes/IronElephant-File.html#method_arrayToJsonFile"
-        },                {
-            "fqsen": "\\IronElephant\\File\u003A\u003AjsonFileToArray\u0028\u0029",
-            "name": "jsonFileToArray",
-            "summary": "Read\u0020json\u0020file\u0020and\u0020convert\u0020to\u0020array",
-            "url": "classes/IronElephant-File.html#method_jsonFileToArray"
-        },                {
-            "fqsen": "\\IronElephant\\File\u003A\u003AmakeDir\u0028\u0029",
-            "name": "makeDir",
-            "summary": "Make\u0020direction\u0020folder\u0020and\u0020path",
-            "url": "classes/IronElephant-File.html#method_makeDir"
-        },                {
-            "fqsen": "\\IronElephant\\File\u003A\u003AsizeConverter\u0028\u0029",
-            "name": "sizeConverter",
-            "summary": "convert\u0020file\u0020size",
-            "url": "classes/IronElephant-File.html#method_sizeConverter"
-        },                {
-            "fqsen": "\\IronElephant\\File\u003A\u003A\u0024file",
-            "name": "file",
-            "summary": "File\u0020path",
-            "url": "classes/IronElephant-File.html#property_file"
-        },                {
-            "fqsen": "\\IronElephant\\Security",
-            "name": "Security",
-            "summary": "Security\u0020class\u0020have\u0020many\u0020method\u0020for\u0020sanitizing\u0020validating\u0020and\nincrease\u0020seafety\u0020of\u0020your\u0020inputs",
-            "url": "classes/IronElephant-Security.html"
-        },                {
-            "fqsen": "\\IronElephant\\Security\u003A\u003AinputTest\u0028\u0029",
+            "fqsen": "\\Iron\\Validate\u003A\u003AinputTest\u0028\u0029",
             "name": "inputTest",
-            "summary": "Trim\u0020space\u0020and\u0020slashes\u0020and\u0020return\u0020safe\u0020string",
-            "url": "classes/IronElephant-Security.html#method_inputTest"
+            "summary": "htmlspecialchars\u0020\u002B\u0020check\u0020length\u0020limit\u0020and\nuse\u0020a\u0020callback\u0020function\u0020for\u0020validatin\u0020with\nanother\u0020method\u0020return\u0020safe\u0020string",
+            "url": "classes/Iron-Validate.html#method_inputTest"
         },                {
-            "fqsen": "\\IronElephant\\Security\u003A\u003AvalidateInt\u0028\u0029",
+            "fqsen": "\\Iron\\Validate\u003A\u003AvalidateInt\u0028\u0029",
             "name": "validateInt",
             "summary": "Validate\u0020inreger",
-            "url": "classes/IronElephant-Security.html#method_validateInt"
+            "url": "classes/Iron-Validate.html#method_validateInt"
         },                {
-            "fqsen": "\\IronElephant\\Security\u003A\u003AvalidateIp\u0028\u0029",
+            "fqsen": "\\Iron\\Validate\u003A\u003AvalidateIp\u0028\u0029",
             "name": "validateIp",
             "summary": "Vaklidating\u0020ip",
-            "url": "classes/IronElephant-Security.html#method_validateIp"
+            "url": "classes/Iron-Validate.html#method_validateIp"
         },                {
-            "fqsen": "\\IronElephant\\Security\u003A\u003AvalidateIpv6\u0028\u0029",
+            "fqsen": "\\Iron\\Validate\u003A\u003AvalidateIpv6\u0028\u0029",
             "name": "validateIpv6",
             "summary": "Validating\u0020IPv6",
-            "url": "classes/IronElephant-Security.html#method_validateIpv6"
+            "url": "classes/Iron-Validate.html#method_validateIpv6"
         },                {
-            "fqsen": "\\IronElephant\\Security\u003A\u003AvalidateEmail\u0028\u0029",
+            "fqsen": "\\Iron\\Validate\u003A\u003AvalidateEmail\u0028\u0029",
             "name": "validateEmail",
             "summary": "Validating\u0020email\u0020address",
-            "url": "classes/IronElephant-Security.html#method_validateEmail"
+            "url": "classes/Iron-Validate.html#method_validateEmail"
         },                {
-            "fqsen": "\\IronElephant\\Security\u003A\u003AvalidateUrl\u0028\u0029",
+            "fqsen": "\\Iron\\Validate\u003A\u003AvalidateUrl\u0028\u0029",
             "name": "validateUrl",
             "summary": "Validating\u0020URL",
-            "url": "classes/IronElephant-Security.html#method_validateUrl"
+            "url": "classes/Iron-Validate.html#method_validateUrl"
         },                {
-            "fqsen": "\\IronElephant\\Security\u003A\u003AwebAddressValidate\u0028\u0029",
+            "fqsen": "\\Iron\\Validate\u003A\u003AwebAddressValidate\u0028\u0029",
             "name": "webAddressValidate",
             "summary": "Validating\u0020web\u0020address",
-            "url": "classes/IronElephant-Security.html#method_webAddressValidate"
+            "url": "classes/Iron-Validate.html#method_webAddressValidate"
         },                {
-            "fqsen": "\\IronElephant\\Security\u003A\u003AsanitizeEmail\u0028\u0029",
+            "fqsen": "\\Iron\\Validate\u003A\u003AsanitizeEmail\u0028\u0029",
             "name": "sanitizeEmail",
             "summary": "Sanitize\u0020email\u0020address",
-            "url": "classes/IronElephant-Security.html#method_sanitizeEmail"
+            "url": "classes/Iron-Validate.html#method_sanitizeEmail"
         },                {
-            "fqsen": "\\IronElephant\\Security\u003A\u003AsanitizeUrl\u0028\u0029",
+            "fqsen": "\\Iron\\Validate\u003A\u003AsanitizeUrl\u0028\u0029",
             "name": "sanitizeUrl",
             "summary": "Sanitizing\u0020URL",
-            "url": "classes/IronElephant-Security.html#method_sanitizeUrl"
+            "url": "classes/Iron-Validate.html#method_sanitizeUrl"
         },                {
-            "fqsen": "\\IronElephant\\Security\u003A\u003ApatternString\u0028\u0029",
+            "fqsen": "\\Iron\\Validate\u003A\u003ApatternString\u0028\u0029",
             "name": "patternString",
             "summary": "compare\u0020and\u0020matches\u0020string\u0020with\u0020your\u0020pattern",
-            "url": "classes/IronElephant-Security.html#method_patternString"
+            "url": "classes/Iron-Validate.html#method_patternString"
         },                {
-            "fqsen": "\\IronElephant\\Security\u003A\u003Aencrypt\u0028\u0029",
+            "fqsen": "\\Iron\\Validate\u003A\u003Aencrypt\u0028\u0029",
             "name": "encrypt",
             "summary": "Hash\u0020a\u0020string",
-            "url": "classes/IronElephant-Security.html#method_encrypt"
+            "url": "classes/Iron-Validate.html#method_encrypt"
         },                {
-            "fqsen": "\\IronElephant\\Security\u003A\u003Adecrypt\u0028\u0029",
+            "fqsen": "\\Iron\\Validate\u003A\u003Adecrypt\u0028\u0029",
             "name": "decrypt",
             "summary": "Decrypt\u0020pass\u0020and\u0020compare\u0020with\u0020hashed\u0020str\u0020and\u0020return\u0020result",
-            "url": "classes/IronElephant-Security.html#method_decrypt"
-        },                {
-            "fqsen": "\\IronElephant\\Security\u003A\u003AaddSalt\u0028\u0029",
-            "name": "addSalt",
-            "summary": "Add\u0020salt\u0020to\u0020your\u0020string",
-            "url": "classes/IronElephant-Security.html#method_addSalt"
-        },                {
-            "fqsen": "\\IronElephant\\Security\u003A\u003AremoveSalt\u0028\u0029",
-            "name": "removeSalt",
-            "summary": "Removing\u0020salt\u0020from\u0020your\u0020string",
-            "url": "classes/IronElephant-Security.html#method_removeSalt"
+            "url": "classes/Iron-Validate.html#method_decrypt"
         },                {
             "fqsen": "\\",
             "name": "\\",
             "summary": "",
             "url": "namespaces/default.html"
         },                {
-            "fqsen": "\\IronElephant",
-            "name": "IronElephant",
+            "fqsen": "\\Iron",
+            "name": "Iron",
             "summary": "",
-            "url": "namespaces/ironelephant.html"
+            "url": "namespaces/iron.html"
         }            ]
 );

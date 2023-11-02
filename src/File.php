@@ -2,73 +2,11 @@
 
 declare(strict_types=1);
 
-namespace IronElephant;
+namespace Codecrafted\IronElephant;
 
 use Exception, TypeError, Throwable, Error;
 
-require_once __DIR__ . '/../main.php';
 
-
-/**
- * Byte to Kilobyte
- * @var string BYTE_TO_KIB
- */
-define("BYTE_TO_KIB", -1);
-/**
- * Byte to Megabyte
- * @var string BYTE_TO_MIB
- */
-define("BYTE_TO_MIB", -2);
-/**
- * Byte to Gigabyte
- * @var string BYTE_TO_GIB
- */
-define("BYTE_TO_GIB", -3);
-/**
- * Kilobyte to byte
- * @var string KIB_TO_BYTE
- */
-define("KIB_TO_BYTE", 1);
-/**
- * Kilobyte to Megabyte
- * @var string KIB_TO_MIB
- */
-define("KIB_TO_MIB", -1);
-/**
- * Kilobyte to Gigabyte
- * @var string KIB_TO_GIB
- */
-define("KIB_TO_GIB", -2);
-/**
- * Megabyte to byte
- * @var string MIB_TO_BYTE
- */
-define("MIB_TO_BYTE", 2);
-/**
- * Megabyte to Kilobyte
- * @var string MIB_TO_KIB
- */
-define("MIB_TO_KIB", 1);
-/**
- * Megabyte to Gigabyte
- * @var string MIB_TO_GIB
- */
-define("MIB_TO_GIB", -1);
-/**
- * Gigabyte to byte
- * @var string GIB_TO_BYTE
- */
-define("GIB_TO_BYTE", 3);
-/**
- * Gigabyte to Kilobyte
- * @var string GIB_TO_KIB
- */
-define("GIB_TO_KIB", 2);
-/**
- * Gigabyte to Megabyte
- * @var string GIB_TO_MIB
- */
-define("GIB_TO_MIB", 1);
 
 /**
  * File class for work with files and folders
@@ -81,18 +19,79 @@ class File
 	 *
 	 * @var string $file
 	 */
-	protected $file;
+	protected $file_path;
+
+	/**
+	 * Byte to Kilobyte
+	 * @var string BYTE_TO_KIB
+	 */
+	public $BYTE_TO_KIB = -1;
+	/**
+	 * Byte to Megabyte
+	 * @var string BYTE_TO_MIB
+	 */
+	public $BYTE_TO_MIB = -2;
+	/**
+	 * Byte to Gigabyte
+	 * @var string BYTE_TO_GIB
+	 */
+	public $BYTE_TO_GIB = -3;
+	/**
+	 * Kilobyte to byte
+	 * @var string KIB_TO_BYTE
+	 */
+	public $KIB_TO_BYTE = 1;
+	/**
+	 * Kilobyte to Megabyte
+	 * @var string KIB_TO_MIB
+	 */
+	public $KIB_TO_MIB = -1;
+	/**
+	 * Kilobyte to Gigabyte
+	 * @var string KIB_TO_GIB
+	 */
+	public $KIB_TO_GIB = -2;
+	/**
+	 * Megabyte to byte
+	 * @var string MIB_TO_BYTE
+	 */
+	public $MIB_TO_BYTE = 2;
+	/**
+	 * Megabyte to Kilobyte
+	 * @var string MIB_TO_KIB
+	 */
+	public $MIB_TO_KIB = 1;
+	/**
+	 * Megabyte to Gigabyte
+	 * @var string MIB_TO_GIB
+	 */
+	public $MIB_TO_GIB = -1;
+	/**
+	 * Gigabyte to byte
+	 * @var string GIB_TO_BYTE
+	 */
+	public $GIB_TO_BYTE = 3;
+	/**
+	 * Gigabyte to Kilobyte
+	 * @var string GIB_TO_KIB
+	 */
+	public $GIB_TO_KIB = 2;
+	/**
+	 * Gigabyte to Megabyte
+	 * @var string GIB_TO_MIB
+	 */
+	public $GIB_TO_MIB = 1;
 
 	/**
 	 * Create a object 
 	 *
 	 * @param string $dir 
 	 */
-	function __construct($dir = null)
+	function __construct($file_path = null)
 	{
 		// Check params
-		if (!empty($dir)) {
-			$this->file = $dir;
+		if (!empty($file_path)) {
+			$this->file_path = $file_path;
 		}
 	}
 
@@ -103,12 +102,10 @@ class File
 	 * @example changeFile("new/path/file.ext");
 	 * @return void
 	 * @author Seyed Mahmoud Mousavi
-	 * @version 1.0.0
-	 * @since 1.0.0
 	 */
 	function changeFile(string $new_file)
 	{
-		$this->file = $new_file;
+		$this->file_path = $new_file;
 	}
 
 	/**
@@ -121,7 +118,7 @@ class File
 	 */
 	function currentFile(): string
 	{
-		return (string)$this->file;
+		return (string)$this->file_path;
 	}
 
 	/**
@@ -135,8 +132,6 @@ class File
 	 * %f->read();
 	 * 
 	 * @author Seyed Mahmoud Mousavi
-	 * @version 1.0.0
-	 * @since 1.0.0
 	 */
 	function read(string $file_path = null): mixed
 	{
@@ -144,7 +139,7 @@ class File
 
 			// Get file path from object
 			if ($file_path === null) {
-				$file_path = $this->file;
+				$file_path = $this->file_path;
 			}
 
 			if (empty($file_path) || $file_path === null) {
@@ -182,8 +177,6 @@ class File
 	 * @return boolean
 	 * 
 	 * @author Seyed Mahmoud Mousavi
-	 * @version 1.0.0
-	 * @since 1.0.0
 	 */
 	function write(string $text = "", string $file_path = null): bool
 	{
@@ -191,7 +184,7 @@ class File
 
 			// Get file path from object
 			if ($file_path === null) {
-				$file_path = $this->file;
+				$file_path = $this->file_path;
 			}
 
 			if (empty($file_path) || $file_path === null) {
@@ -223,8 +216,6 @@ class File
 	 * @return boolean
 	 * 
 	 * @author Seyed Mahmoud Mousavi
-	 * @version 1.0.0
-	 * @since 1.0.0
 	 */
 	function append(string $text = "", string $file_path = null,): bool
 	{
@@ -232,7 +223,7 @@ class File
 
 			// Get file path from object
 			if ($file_path === null) {
-				$file_path = $this->file;
+				$file_path = $this->file_path;
 			}
 
 			if (empty($file_path) || $file_path === null) {
@@ -264,8 +255,6 @@ class File
 	 * @return boolean
 	 * 
 	 * @author Seyed Mahmoud Mousavi
-	 * @version 1.0.0
-	 * @since 1.0.0
 	 */
 	function delete(string $file_path = null): bool
 	{
@@ -273,7 +262,7 @@ class File
 
 			// Get file path from object
 			if ($file_path === null) {
-				$file_path = $this->file;
+				$file_path = $this->file_path;
 			}
 
 			if (empty($file_path) || $file_path === null) {
@@ -317,8 +306,6 @@ class File
 	 * @return void string|boolean
 	 * 
 	 * @author Seyed Mahmoud Mousavi
-	 * @version 1.0.1
-	 * @since 1.0.0
 	 */
 	public function upload(
 		string $form_name,
@@ -637,8 +624,6 @@ class File
 	 * @return boolean
 	 * 
 	 * @author Seyed Mahmoud Mousavi
-	 * @version 1.0.0
-	 * @since 1.0.0
 	 */
 	static function arrayToJsonFile(
 		array $json,
@@ -695,8 +680,6 @@ class File
 	 * @return mixed false|Array
 	 * 
 	 * @author Seyed Mahmoud Mousavi
-	 * @version 1.0.0
-	 * @since 1.0.0
 	 */
 	static function jsonFileToArray(
 		string $file_name
@@ -750,8 +733,6 @@ class File
 	 * @return boolean
 	 * 
 	 * @author Seyed Mahmoud Mousavi
-	 * @version 1.0.1
-	 * @since 1.0.0
 	 */
 	public function makeDir(string $target_dir = null): bool
 	{
@@ -759,7 +740,7 @@ class File
 
 			// Get path from object
 			if ($target_dir === null) {
-				$target_dir = $this->file;
+				$target_dir = $this->file_path;
 			}
 
 			if (empty($target_dir) || $target_dir === null) {
