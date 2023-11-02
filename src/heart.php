@@ -142,9 +142,12 @@ function session($name = null, $value = null)
         return $_SESSION;
     }
     if (is_null($value)) {
-        return $_SESSION["$name"];
-    }
-    if (isset($_SESSION["$name"])) {
+        if (isset($_SESSION["$name"])) {
+            return $_SESSION["$name"];
+        }else{
+            return null;
+        }
+    }else{
         $_SESSION["$name"] = $value;
     }
 }
@@ -309,16 +312,15 @@ function my_address(bool $url = false): string
 }
 
 /**
- * set error session 
- *
- * @param $name
+ * set and get error session 
+ * 
  * @param $value
- * @return void
+ * @return mixed
  */
 function error($value = null)
 {
     if (!isset($_SESSION['error'])) {
-        $_SESSION['error'] = '';
+        $_SESSION['error'] = null;
     }
     if (is_null($value)) {
         return $_SESSION['error'];
@@ -336,7 +338,9 @@ function error($value = null)
 
 function request(string $name)
 {
-    return $_REQUEST["$name"];
+    if (isset($_REQUEST["$name"])) {
+        return $_REQUEST["$name"];
+    }
 }
 
 /**
@@ -348,7 +352,9 @@ function request(string $name)
 
 function post(string $name)
 {
-    return $_POST["$name"];
+    if (isset($_POST["$name"])) {
+        return $_POST["$name"];
+    }
 }
 
 /**
@@ -360,5 +366,7 @@ function post(string $name)
 
 function get(string $name)
 {
-    return $_GET["$name"];
+    if (isset($_GET["$name"])) {
+        return $_GET["$name"];
+    }
 }
