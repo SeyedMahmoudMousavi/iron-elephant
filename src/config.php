@@ -1,7 +1,7 @@
 <?php
 
-require_once "time.php";
-require_once "database.php";
+require_once "configs/time.php";
+require_once "configs/database.php";
 
 /**
  * Set a defualt time zone

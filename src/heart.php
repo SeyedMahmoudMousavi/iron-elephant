@@ -4,7 +4,7 @@
  * This is heart of IRON Library ( helper functions )
  */
 
-require_once "./config.php";
+require_once "config.php";
 
 /**
  * Drop a horizontal line

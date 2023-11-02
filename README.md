@@ -1,4 +1,4 @@
-# Welcome to iron library
+# Iron library
 
 ## Work with php easier
 
@@ -9,13 +9,13 @@
         /**
         * Add IRON ELEPHANT library to project
         */
-        require_once __DIR__ . "/main.php";
+        require_once 'vendor/codecrafted/iron-elephant/src/heart.php';
         require_once 'vendor/autoload.php';
 
         // load iron classes
         // use Codecrafted\IronElephant; [db,File,Security]
 
-2.  Edit and customize [config](https://github.com/SeyedMahmoudMousavi/iron-elephant/blob/master/config/) file :
+2.  Edit and customize [config](https://github.com/SeyedMahmoudMousavi/iron-elephant/blob/master/src/configs/) file :
 
 ## For using all feature visit [**docs**](https://github.com/SeyedMahmoudMousavi/iron-elephant/blob/master/docs/api/index.html) directory
 
@@ -23,5 +23,5 @@
 
 1. [main.md](https://github.com/SeyedMahmoudMousavi/iron-elephant/blob/master/docs/main.md)
 2. [file.md](https://github.com/SeyedMahmoudMousavi/iron-elephant/blob/master/docs/file.md)
-3. [database.md](https://github.com/SeyedMahmoudMousavi/iron-elephant/blob/master/docs/connection.md)
-4. [validate.md](https://github.com/SeyedMahmoudMousavi/iron-elephant/blob/master/docs/security.md)
+3. [database.md](https://github.com/SeyedMahmoudMousavi/iron-elephant/blob/master/docs/database.md)
+4. [validate.md](https://github.com/SeyedMahmoudMousavi/iron-elephant/blob/master/docs/validate.md)
