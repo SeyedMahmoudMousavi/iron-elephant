@@ -82,7 +82,6 @@ class Validate
 		if (is_null($ip)) {
 			$ip = $this->input;
 		}
-		$ip = $this->inputTest($ip);
 		if (!filter_var($ip, FILTER_VALIDATE_IP) === false) {
 			$this->input = $ip;
 		} else {
@@ -104,8 +103,6 @@ class Validate
 		if (is_null($ip)) {
 			$ip = $this->input;
 		}
-
-		$ip = $this->inputTest($ip);
 		if (!filter_var($ip, FILTER_VALIDATE_IP, FILTER_FLAG_IPV6) === false) {
 			$this->input = $ip;
 		} else {
@@ -128,7 +125,6 @@ class Validate
 			$email = $this->input;
 		}
 
-		$email = $this->inputTest($email);
 		if (!filter_var($email, FILTER_VALIDATE_EMAIL) === false) {
 			$this->input = $email;
 		} else {
@@ -150,7 +146,6 @@ class Validate
 			$url = $this->input;
 		}
 
-		$url = (string)$this->inputTest($url);
 		if (!filter_var($url, FILTER_VALIDATE_URL) === false) {
 			$this->input = $url;
 		} elseif (strpos($url, "http") !== 0 || !(strpos($url, '://') >= 4)) {
@@ -173,8 +168,6 @@ class Validate
 		if (is_null($url)) {
 			$url = $this->input;
 		}
-
-		$url = (string)$this->inputTest($url);
 		if (!preg_match("/\b(?:(?:https?|ftp):\/\/|www\.)" .
 			"[-a-z0-9+&@#\/%?=~_|!:,.;]*[-a-z0-9+&@#\/%=~_|]/i", $url)) {
 			$this->input = null;
@@ -198,7 +191,6 @@ class Validate
 		if (is_null($email)) {
 			$email = $this->input;
 		}
-		$email = $this->inputTest($email);
 		$this->input = filter_var($email, FILTER_SANITIZE_EMAIL);
 		return $this;
 	}
@@ -216,10 +208,19 @@ class Validate
 		if (is_null($url)) {
 			$url = $this->input;
 		}
-
-		$url = $this->inputTest($url);
+		$url = trim($url, '/');
 		$this->input = filter_var($url, FILTER_SANITIZE_URL);
 
 		return $this;
+	}
+
+	/**
+	 * get result
+	 *
+	 * @return void
+	 */
+	public function getValidated()
+	{
+		return $this->input;
 	}
 }
