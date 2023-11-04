@@ -144,10 +144,10 @@ function session($name = null, $value = null)
     if (is_null($value)) {
         if (isset($_SESSION["$name"])) {
             return $_SESSION["$name"];
-        }else{
+        } else {
             return null;
         }
-    }else{
+    } else {
         $_SESSION["$name"] = $value;
     }
 }
@@ -369,4 +369,37 @@ function get(string $name)
     if (isset($_GET["$name"])) {
         return $_GET["$name"];
     }
+}
+
+
+/**
+ * Hash a string
+ *
+ * @param string $str String input
+ * @param integer $cost Your cost default is '10'
+ * @return string
+ * @author Seyed Mahmoud Mousavi
+ */
+function encrypt(string $str, int $cost = 10): string
+{
+    # Encrypt string varible
+    $options = [
+        'cost' => $cost,
+    ];
+
+    return password_hash($str, PASSWORD_ARGON2ID, $options);
+}
+
+/**
+ * Decrypt pass and compare with hashed str and return result
+ *
+ * @param string $str Original str
+ * @param string $hash Hashed str
+ * @return boolean
+ * @author Seyed Mahmoud Mousavi
+ */
+function decrypt(string $str, string $hash): bool
+{
+    # Decode and compare with original string 
+    return password_verify($str, $hash);
 }
