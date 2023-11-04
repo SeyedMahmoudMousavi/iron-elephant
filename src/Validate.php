@@ -7,9 +7,18 @@ namespace Codecrafted\IronElephant;
 /**
  * Validate class have many method for sanitizing validating and 
  * increase seafety of your inputs
+ * 
+ * @author Seyed Mahmoud Mousavi
  */
 class Validate
 {
+	protected $input = null;
+
+	public function __construct($var = null)
+	{
+		$this->input = $var;
+	}
+
 
 	/**
 	 * htmlspecialchars + check length limit and 
@@ -17,164 +26,173 @@ class Validate
 	 * another method return safe string
 	 *
 	 * @param string $str Input string 
-	 * @return string|false
+	 * @return object
 	 * 
-	 * @author Seyed Mahmoud Mousavi
 	 */
-	static public function inputTest(string $str, int $length_limit = 0, callable $validate = null): string|false
+	public function inputTest(string $str = null, bool $trimSpace = true): object
 	{
+
+		if (is_null($str)) {
+			$str = $this->input;
+		}
+
+		if ($trimSpace) {
+			$str = trim($str);
+		}
 
 		$str = htmlspecialchars($str);
 
-		if ($validate !== null) {
-			# check argu for pass a function variable?
+		$this->input = $str;
 
-			if ($validate($str) === false) {
-				# validate whith another functions ard return result
-				return false;
-			}
-		}
-
-		if ($length_limit > 0) {
-			# check string length
-
-			if (strlen($str) > $length_limit) {
-				return false;
-			}
-		}
-
-		return $str;
+		return $this;
 	}
 
 	/**
 	 * Validate inreger
 	 *
 	 * @param integer $int Integer input
-	 * @return boolean
-	 * @author Seyed Mahmoud Mousavi
+	 * @return object
 	 */
-	static public function validateInt($var): bool
+	public function validateInt($var = null): object
 	{
 
+		if (is_null($var)) {
+			$var = $this->input;
+		}
 		if (
 			filter_var($var, FILTER_VALIDATE_INT) === 0 ||
 			!filter_var($var, FILTER_VALIDATE_INT) === false
 		) {
-			return true;
+			$this->input = $var;
 		} else {
-			return false;
+			$this->input = null;
 		}
+		return $this;
 	}
 
 	/**
 	 * Vaklidating ip
 	 *
 	 * @param string $ip IP address
-	 * @return boolean
-	 * @author Seyed Mahmoud Mousavi
+	 * @return object
 	 */
-	static public function validateIp(string $ip): bool
+	public function validateIp(string $ip = null): object
 	{
 
-		$ip = Validate::inputTest($ip);
-		if (!filter_var($ip, FILTER_VALIDATE_IP) === false) {
-			return true;
-		} else {
-			return false;
+		if (is_null($ip)) {
+			$ip = $this->input;
 		}
+		if (!filter_var($ip, FILTER_VALIDATE_IP) === false) {
+			$this->input = $ip;
+		} else {
+			$this->input = null;
+		}
+
+		return $this;
 	}
 
 	/**
 	 * Validating IPv6
 	 *
 	 * @param string $ip IPv6 address
-	 * @return boolean
-	 * @author Seyed Mahmoud Mousavi
+	 * @return object
 	 */
-	static public function validateIpv6(string $ip): bool
+	public function validateIpv6(string $ip = null): object
 	{
 
-		$ip = Validate::inputTest($ip);
-		if (!filter_var($ip, FILTER_VALIDATE_IP, FILTER_FLAG_IPV6) === false) {
-			return true;
-		} else {
-			return false;
+		if (is_null($ip)) {
+			$ip = $this->input;
 		}
+		if (!filter_var($ip, FILTER_VALIDATE_IP, FILTER_FLAG_IPV6) === false) {
+			$this->input = $ip;
+		} else {
+			$this->input = null;
+		}
+
+		return $this;
 	}
 
 	/**
 	 * Validating email address
 	 *
 	 * @param string $email Email adress
-	 * @return boolean
-	 * @author Seyed Mahmoud Mousavi
+	 * @return object
 	 */
-	static public function validateEmail(string $email): bool
+	public function validateEmail(string $email = null): object
 	{
 
-		$email = Validate::inputTest($email);
-		if (!filter_var($email, FILTER_VALIDATE_EMAIL) === false) {
-			return true;
-		} else {
-			return false;
+		if (is_null($email)) {
+			$email = $this->input;
 		}
+
+		if (!filter_var($email, FILTER_VALIDATE_EMAIL) === false) {
+			$this->input = $email;
+		} else {
+			$this->input = null;
+		}
+		return $this;
 	}
 
 	/**
 	 * Validating URL
 	 *
 	 * @param string $url Input URL
-	 * @return boolean
-	 * @author Seyed Mahmoud Mousavi
+	 * @return object
 	 */
-	static public function validateUrl(string $url): bool
+	public function validateUrl(string $url = null): object
 	{
 
-		$url = Validate::inputTest($url);
-		if (!filter_var($url, FILTER_VALIDATE_URL) === false) {
-			return true;
-		} elseif (strpos($url, "http") !== 0 || !(strpos($url, '://') >= 4)) {
-
-			return false;
-		} else {
-			return false;
+		if (is_null($url)) {
+			$url = $this->input;
 		}
+
+		if (!filter_var($url, FILTER_VALIDATE_URL) === false) {
+			$this->input = $url;
+		} elseif (strpos($url, "http") !== 0 || !(strpos($url, '://') >= 4)) {
+			$this->input = null;
+		} else {
+			$this->input = null;
+		}
+		return $this;
 	}
 
 	/**
 	 * Validating web address
 	 *
 	 * @param string $url Web address
-	 * @return boolean
-	 * @author Seyed Mahmoud Mousavi
+	 * @return object
 	 */
-	static public function webAddressValidate(string $url): bool
+	public function webAddressValidate(string $url = null): object
 	{
 
-		$url = Validate::inputTest($url);
+		if (is_null($url)) {
+			$url = $this->input;
+		}
 		if (!preg_match("/\b(?:(?:https?|ftp):\/\/|www\.)" .
 			"[-a-z0-9+&@#\/%?=~_|!:,.;]*[-a-z0-9+&@#\/%=~_|]/i", $url)) {
-			return false;
+			$this->input = null;
 		} elseif (strpos($url, "http") !== 0 || !(strpos($url, '://') >= 4)) {
-
-			return false;
+			$this->input = null;
 		} else {
-			return true;
+			$this->input = $url;
 		}
+		return $this;
 	}
 
 	/**
 	 * Sanitize email address
 	 *
 	 * @param string $email Email address
-	 * @return string
-	 * @author Seyed Mahmoud Mousavi
+	 * @return object
 	 */
-	static public function sanitizeEmail(string $email): string
+	public function sanitizeEmail(string $email = null): object
 	{
 
-		$email = Validate::inputTest($email);
-		return filter_var($email, FILTER_SANITIZE_EMAIL);
+		if (is_null($email)) {
+			$email = $this->input;
+		}
+		$this->input = filter_var($email, FILTER_SANITIZE_EMAIL);
+		return $this;
 	}
 
 
@@ -182,83 +200,27 @@ class Validate
 	 * Sanitizing URL
 	 *
 	 * @param string $url Input URL
-	 * @return string
-	 * @author Seyed Mahmoud Mousavi
+	 * @return object
 	 */
-	static public function sanitizeUrl(string $url): string
+	public function sanitizeUrl(string $url = null): object
 	{
 
-		$url = Validate::inputTest($url);
-		return filter_var($url, FILTER_SANITIZE_URL);
-	}
-
-	/**
-	 * compare and matches string with your pattern
-	 *
-	 * @param string $str String input
-	 * @param string $pattern Your ppattern
-	 * @example  patternString("Hello","ehlo"); => Return false beacouse 'H' not in pattern
-	 * patternString("Hello","eHlo"); => Return true beacouse 'H' is in pattern
-	 * @return boolean
-	 * @author Seyed Mahmoud Mousavi
-	 */
-	static public function patternString(
-		string $str,
-		string $pattern
-	): bool {
-
-		$str_len = strlen($str);
-		$patt_len = strlen($pattern);
-		$ok = false;
-
-		for ($s = 0; $s < $str_len; $s++) {
-
-			for ($p = 0; $p < $patt_len; $p++) {
-				if ($str[$s] === $pattern[$p]) {
-					$ok = true;
-				}
-			}
-			if ($ok === true) {
-				$ok = false;
-			} else {
-				return false;
-			}
+		if (is_null($url)) {
+			$url = $this->input;
 		}
+		$url = trim($url, '/');
+		$this->input = filter_var($url, FILTER_SANITIZE_URL);
 
-		return true;
+		return $this;
 	}
 
 	/**
-	 * Hash a string
+	 * get result
 	 *
-	 * @param string $str String input
-	 * @param integer $cost Your cost default is '10'
-	 * @return string
-	 * @author Seyed Mahmoud Mousavi
+	 * @return void
 	 */
-	static public function encrypt(string $str, int $cost = 10): string
+	public function getValidated()
 	{
-		# Encrypt string varible
-		$options = [
-			'cost' => $cost,
-		];
-
-		return password_hash($str, PASSWORD_ARGON2ID, $options);
+		return $this->input;
 	}
-
-	/**
-	 * Decrypt pass and compare with hashed str and return result
-	 *
-	 * @param string $str Original str
-	 * @param string $hash Hashed str
-	 * @return boolean
-	 * @author Seyed Mahmoud Mousavi
-	 */
-	static public function decrypt(string $str, string $hash): bool
-	{
-		# Decode and compare with original string 
-		return password_verify($str, $hash);
-	}
-	
-	
 }
