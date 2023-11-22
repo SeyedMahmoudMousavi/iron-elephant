@@ -6,7 +6,10 @@
     "autoload": {
         "psr-4": {
             "Codecrafted\\IronElephant\\": "src/"
-        }
+        },
+        "files": [
+            "app/helpers.php"
+        ]
     },
     "authors": [
         {

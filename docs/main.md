@@ -1,9 +1,4 @@
-# heart helper functions
-
-### How to use **heart** feature
-
-        require_once 'vendor\codecrafted\iron-elephant\src\heart.php';
-        
+# helper functions     
 
 | Name of function | Example                                                               | Result                                                           |
 | ---------------- | --------------------------------------------------------------------- | ---------------------------------------------------------------- |

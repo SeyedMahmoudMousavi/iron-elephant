@@ -9,7 +9,6 @@
         /**
         * Add IRON ELEPHANT library to project
         */
-        require_once 'vendor/codecrafted/iron-elephant/src/heart.php';
         require_once 'vendor/autoload.php';
 
         // load iron classes

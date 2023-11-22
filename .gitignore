@@ -3,3 +3,4 @@
 /vendor/
 /test.php
 /phpDocumentor.phar
+composer.lock
