@@ -69,7 +69,7 @@ if (!function_exists('dd')) {
      * @example dd($data, __LINE__, __FILE__); frop and die
      * @return void 
      */
-    function dd($data = "d function stop", int|null $line_number = null, int|string $file_name = null): void
+    function dd($data = "dd function stop", int|null $line_number = null, int|string $file_name = null): void
     {
         d($data, $line_number, $file_name);
         die();
@@ -184,6 +184,29 @@ if (!function_exists('e_session')) {
     }
 }
 
+if (!function_exists('session_delete')) {
+    /**
+     * delete specific session
+     *
+     * @param string $name
+     * @return void
+     */
+    function session_delete(string|array $name)
+    {
+        if (is_array($name)) {
+            foreach ($name as $value) {
+                if (isset($_SESSION["$value"])) {
+                    unset($_SESSION["$value"]);
+                }
+            }
+        } else {
+            if (isset($_SESSION["$name"])) {
+                unset($_SESSION["$name"]);
+            }
+        }
+    }
+}
+
 if (!function_exists('randomatic')) {
     /**
      * Creare a random string with your pattern and length
@@ -289,13 +312,16 @@ if (!function_exists('cookie')) {
     /**
      * Return Cookie value if it's set
      *
-     * @param string $cookie_name Name of cookie
+     * @param string $name Name of cookie
      * @return void
      */
-    function cookie(string $cookie_name)
+    function cookie(string $name = null)
     {
-        if (isset($_COOKIE["$cookie_name"])) {
-            return $_COOKIE["$cookie_name"];
+        if (is_null($name)) {
+            return $_COOKIE;
+        }
+        if (isset($_COOKIE["$name"])) {
+            return $_COOKIE["$name"];
         }
     }
 }
@@ -355,6 +381,20 @@ if (!function_exists('error')) {
     }
 }
 
+if (!function_exists('error_delete')) {
+    /**
+     * delete error session
+     *
+     * @return void
+     */
+    function error_delete()
+    {
+        if (isset($_SESSION["error"])) {
+            unset($_SESSION["error"]);
+        }
+    }
+}
+
 if (!function_exists('request')) {
     /**
      * get Request data
@@ -362,8 +402,11 @@ if (!function_exists('request')) {
      * @param $name
      * @return mixed
      */
-    function request(string $name)
+    function request(string $name = null)
     {
+        if (is_null($name)) {
+            return $_REQUEST;
+        }
         if (isset($_REQUEST["$name"])) {
             return $_REQUEST["$name"];
         }
@@ -377,8 +420,11 @@ if (!function_exists('post')) {
      * @param $name
      * @return mixed
      */
-    function post(string $name)
+    function post(string $name = null)
     {
+        if (is_null($name)) {
+            return $_POST;
+        }
         if (isset($_POST["$name"])) {
             return $_POST["$name"];
         }
@@ -392,8 +438,11 @@ if (!function_exists('get')) {
      * @param $name
      * @return mixed
      */
-    function get(string $name)
+    function get(string $name = null)
     {
+        if (is_null($name)) {
+            return $_GET;
+        }
         if (isset($_GET["$name"])) {
             return $_GET["$name"];
         }
