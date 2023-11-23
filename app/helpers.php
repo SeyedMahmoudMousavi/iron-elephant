@@ -1,5 +1,7 @@
 <?php
 
+session_start();
+
 /**
  * This is heart of IRON Library ( helper functions )
  */
